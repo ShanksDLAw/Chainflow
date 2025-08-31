@@ -227,15 +227,15 @@
       ]
     },
     "4": {
-      "name": "Automotive",
-      "risk_factor": 0.18,
+      "name": "Luxury Goods",
+      "risk_factor": 0.22,
       "common_fraud_types": [
-        "Counterfeit parts",
-        "Substandard materials"
+        "Counterfeit products",
+        "Material substitution"
       ],
       "verification_requirements": [
-        "Part number",
-        "Material certification"
+        "Authenticity certificate",
+        "Craftsman signature"
       ]
     },
     "5": {
@@ -307,6 +307,180 @@
       },
       "signatures": {
         "distributor": "0x234567890abcdef1"
+      }
+    },
+    "P003": {
+      "name": "Samsung Galaxy S24",
+      "category": 1,
+      "supplier_id": "1001",
+      "batch_number": "B2024002",
+      "manufacturing_date": 1704153600,
+      "product_hash": "0xc3d4e5f67890abcdef1234567890abcd",
+      "serial_number": "SM-S921U-001",
+      "authenticity_markers": {
+        "hologram_id": "HG001235",
+        "qr_code": "QR789013",
+        "nfc_tag": "NFC345679"
+      },
+      "supply_chain": {
+        "origin": 1001,
+        "intermediates": [
+          2001,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3001
+      },
+      "signatures": {
+        "manufacturer": "0xbcdef1234567890a",
+        "distributor": "0x34567890abcdef12"
+      }
+    },
+    "P004": {
+      "name": "Organic Olive Oil",
+      "category": 3,
+      "supplier_id": "1008",
+      "batch_number": "OO2024001",
+      "manufacturing_date": 1703894400,
+      "product_hash": "0xd4e5f67890abcdef1234567890abcdef",
+      "lot_number": "LOT240101",
+      "authenticity_markers": {
+        "origin_seal": "OS123456",
+        "quality_qr": "QQR789014",
+        "harvest_code": "HC345680"
+      },
+      "supply_chain": {
+        "origin": 1008,
+        "intermediates": [
+          2003,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3002
+      },
+      "signatures": {
+        "producer": "0xcdef1234567890ab",
+        "distributor": "0x4567890abcdef123"
+      }
+    },
+    "P005": {
+      "name": "Vitamin D3 Supplements",
+      "category": 2,
+      "supplier_id": "1010",
+      "batch_number": "VD2024001",
+      "manufacturing_date": 1704240000,
+      "product_hash": "0xe5f67890abcdef1234567890abcdef12",
+      "lot_number": "LOT240120",
+      "authenticity_markers": {
+        "tamper_seal": "TS567891",
+        "batch_qr": "BQR123457",
+        "pharma_code": "PC789013"
+      },
+      "supply_chain": {
+        "origin": 1010,
+        "intermediates": [
+          2003,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3002
+      },
+      "signatures": {
+        "manufacturer": "0xdef1234567890abc",
+        "distributor": "0x567890abcdef1234"
+      }
+    },
+    "P006": {
+      "name": "MacBook Pro M3",
+      "category": 1,
+      "supplier_id": "1009",
+      "batch_number": "MB2024001",
+      "manufacturing_date": 1704326400,
+      "product_hash": "0xf67890abcdef1234567890abcdef1234",
+      "serial_number": "MBP-M3-2024-001",
+      "authenticity_markers": {
+        "hologram_id": "HG001236",
+        "qr_code": "QR789015",
+        "nfc_tag": "NFC345681"
+      },
+      "supply_chain": {
+        "origin": 1009,
+        "intermediates": [
+          2001,
+          2002,
+          0,
+          0,
+          0
+        ],
+        "destination": 3001
+      },
+      "signatures": {
+        "manufacturer": "0xef1234567890abcd",
+        "distributor": "0x67890abcdef12345"
+      }
+    },
+    "P007": {
+      "name": "Artisan Dark Chocolate",
+      "category": 3,
+      "supplier_id": "1011",
+      "batch_number": "CH2024001",
+      "manufacturing_date": 1704412800,
+      "product_hash": "0x67890abcdef1234567890abcdef12345",
+      "lot_number": "LOT240125",
+      "authenticity_markers": {
+        "origin_seal": "OS123457",
+        "quality_qr": "QQR789016",
+        "harvest_code": "HC345682"
+      },
+      "supply_chain": {
+        "origin": 1011,
+        "intermediates": [
+          2003,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3002
+      },
+      "signatures": {
+        "artisan": "0xf1234567890abcde",
+        "distributor": "0x7890abcdef123456"
+      }
+    },
+    "P008": {
+      "name": "Luxury Leather Handbag",
+      "category": 4,
+      "supplier_id": "1012",
+      "batch_number": "LH2024001",
+      "manufacturing_date": 1704499200,
+      "product_hash": "0x7890abcdef1234567890abcdef123456",
+      "serial_number": "LLG-HB-2024-001",
+      "authenticity_markers": {
+        "authenticity_tag": "AT123458",
+        "craft_qr": "CQR789017",
+        "maker_seal": "MS345683"
+      },
+      "supply_chain": {
+        "origin": 1012,
+        "intermediates": [
+          2002,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3001
+      },
+      "signatures": {
+        "craftsman": "0x1234567890abcdef",
+        "distributor": "0x890abcdef1234567"
       }
     }
   },
