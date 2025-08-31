@@ -351,7 +351,7 @@ class SourceGuardApp {
         // If no search criteria provided, show all products
         if (!searchTerm && !categoryFilter && !supplierFilter) {
             console.log('No search criteria provided, showing all products');
-            this.displaySearchResults(Object.values(this.products || {}));
+            this.displaySearchResults(this.products || []);
             return;
         }
         
