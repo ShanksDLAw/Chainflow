@@ -1,0 +1,27 @@
+# Test data for SourceGuard circuit
+
+# Product identification (private)
+product_id = "12345"
+product_category = "1"
+batch_number = "67890"
+manufacturing_date = "1640995200"
+
+# Supplier verification (private)
+supplier_id = "1001"
+supplier_tier = "1"
+supplier_certification_hash = "123456789012345678901234567890123456789012345678901234567890123"
+
+# Supply chain path (private)
+origin_location = "1001"
+intermediate_locations = ["1002", "1003", "1004", "1005", "1006"]
+final_destination = "1007"
+
+# Authentication signatures (private)
+manufacturer_signature = "111111111111111111111111111111111111111111111111111111111111111"
+distributor_signature = "222222222222222222222222222222222222222222222222222222222222222"
+
+# Public verification parameters
+expected_product_hash = "1641075436"
+trusted_supplier_root = "555555555555555555555555555555555555555555555555555555555555555"
+supply_chain_root = "666666666666666666666666666666666666666666666666666666666666666"
+verification_timestamp = "1640995200"

@@ -1,0 +1,337 @@
+{
+  "suppliers": {
+    "1001": {
+      "name": "TechFlow Manufacturing",
+      "tier": 1,
+      "certification_hash": "0x1a2b3c4d5e6f7890abcdef1234567890",
+      "location": "Shenzhen, China",
+      "specialties": [
+        "Electronics",
+        "Semiconductors"
+      ],
+      "verified_since": "2020-01-15",
+      "trust_score": 95,
+      "certifications": [
+        "ISO 9001",
+        "ISO 14001",
+        "RoHS"
+      ]
+    },
+    "1002": {
+      "name": "PharmaSecure Labs",
+      "tier": 1,
+      "certification_hash": "0x2b3c4d5e6f7890abcdef1234567890ab",
+      "location": "Basel, Switzerland",
+      "specialties": [
+        "Pharmaceuticals",
+        "Medical Devices"
+      ],
+      "verified_since": "2019-03-22",
+      "trust_score": 98,
+      "certifications": [
+        "GMP",
+        "FDA",
+        "EMA"
+      ]
+    },
+    "1003": {
+      "name": "FreshHarvest Co.",
+      "tier": 2,
+      "certification_hash": "0x3c4d5e6f7890abcdef1234567890abcd",
+      "location": "California, USA",
+      "specialties": [
+        "Organic Foods",
+        "Beverages"
+      ],
+      "verified_since": "2021-06-10",
+      "trust_score": 87,
+      "certifications": [
+        "USDA Organic",
+        "Fair Trade"
+      ]
+    },
+    "1004": {
+      "name": "AutoParts Premium",
+      "tier": 2,
+      "certification_hash": "0x4d5e6f7890abcdef1234567890abcdef",
+      "location": "Detroit, USA",
+      "specialties": [
+        "Automotive",
+        "Industrial"
+      ],
+      "verified_since": "2020-11-05",
+      "trust_score": 82,
+      "certifications": [
+        "ISO/TS 16949",
+        "IATF 16949"
+      ]
+    },
+    "1005": {
+      "name": "TextileCraft Ltd",
+      "tier": 3,
+      "certification_hash": "0x5e6f7890abcdef1234567890abcdef12",
+      "location": "Mumbai, India",
+      "specialties": [
+        "Textiles",
+        "Apparel"
+      ],
+      "verified_since": "2022-02-18",
+      "trust_score": 75,
+      "certifications": [
+        "GOTS",
+        "OEKO-TEX"
+      ]
+    },
+    "1006": {
+      "name": "Test Supplier",
+      "tier": 1,
+      "certification_hash": "0xf61855b6fd5dd448cfb5ccfdb5e832ee",
+      "location": "Test Location",
+      "specialties": [],
+      "verified_since": "2025-08-31",
+      "trust_score": 90,
+      "certifications": []
+    },
+    "1007": {
+      "name": "Hello world",
+      "tier": 3,
+      "certification_hash": "0xd61fb2baf56e7a723d8775cafb0e7895",
+      "location": "Nigeria",
+      "specialties": ["Food"],
+      "verified_since": "2025-08-31",
+      "trust_score": 70,
+      "certifications": ["Nafdac"]
+    },
+    "1008": {
+      "name": "Mediterranean Oils Ltd",
+      "tier": 2,
+      "certification_hash": "0x6f7890abcdef1234567890abcdef1234",
+      "location": "Tuscany, Italy",
+      "specialties": [
+        "Olive Oil",
+        "Gourmet Foods"
+      ],
+      "verified_since": "2021-09-12",
+      "trust_score": 92,
+      "certifications": [
+        "EU Organic",
+        "DOP",
+        "ISO 22000"
+      ]
+    },
+    "1009": {
+      "name": "Apple Inc.",
+      "tier": 1,
+      "certification_hash": "0x7890abcdef1234567890abcdef12345",
+      "location": "Cupertino, USA",
+      "specialties": [
+        "Consumer Electronics",
+        "Computers"
+      ],
+      "verified_since": "2018-05-20",
+      "trust_score": 99,
+      "certifications": [
+        "ISO 14001",
+        "EPEAT Gold",
+        "Energy Star"
+      ]
+    },
+    "1010": {
+      "name": "VitaHealth Pharmaceuticals",
+      "tier": 2,
+      "certification_hash": "0x890abcdef1234567890abcdef123456",
+      "location": "Dublin, Ireland",
+      "specialties": [
+        "Vitamins",
+        "Supplements"
+      ],
+      "verified_since": "2020-07-08",
+      "trust_score": 88,
+      "certifications": [
+        "GMP",
+        "FDA",
+        "HACCP"
+      ]
+    },
+    "1011": {
+      "name": "Cacao Dreams Artisan",
+      "tier": 3,
+      "certification_hash": "0x90abcdef1234567890abcdef1234567",
+      "location": "Ecuador",
+      "specialties": [
+        "Artisan Chocolate",
+        "Cacao Products"
+      ],
+      "verified_since": "2022-11-15",
+      "trust_score": 85,
+      "certifications": [
+        "Fair Trade",
+        "Rainforest Alliance",
+        "Organic"
+      ]
+    },
+    "1012": {
+      "name": "Luxury Leather Goods Co.",
+      "tier": 2,
+      "certification_hash": "0x0abcdef1234567890abcdef12345678",
+      "location": "Milan, Italy",
+      "specialties": [
+        "Luxury Handbags",
+        "Leather Accessories"
+      ],
+      "verified_since": "2021-04-03",
+      "trust_score": 91,
+      "certifications": [
+        "LWG Gold",
+        "REACH Compliant",
+        "Made in Italy"
+      ]
+    }
+  },
+  "product_categories": {
+    "1": {
+      "name": "Electronics",
+      "risk_factor": 0.15,
+      "common_fraud_types": [
+        "Counterfeit chips",
+        "Fake certifications"
+      ],
+      "verification_requirements": [
+        "Serial number",
+        "Batch testing"
+      ]
+    },
+    "2": {
+      "name": "Pharmaceuticals",
+      "risk_factor": 0.25,
+      "common_fraud_types": [
+        "Fake drugs",
+        "Expired products"
+      ],
+      "verification_requirements": [
+        "Lot number",
+        "Temperature logs",
+        "Chain of custody"
+      ]
+    },
+    "3": {
+      "name": "Food & Beverage",
+      "risk_factor": 0.12,
+      "common_fraud_types": [
+        "Origin mislabeling",
+        "Quality substitution"
+      ],
+      "verification_requirements": [
+        "Harvest date",
+        "Processing facility"
+      ]
+    },
+    "4": {
+      "name": "Automotive",
+      "risk_factor": 0.18,
+      "common_fraud_types": [
+        "Counterfeit parts",
+        "Substandard materials"
+      ],
+      "verification_requirements": [
+        "Part number",
+        "Material certification"
+      ]
+    },
+    "5": {
+      "name": "Textiles",
+      "risk_factor": 0.1,
+      "common_fraud_types": [
+        "Labor violations",
+        "Material substitution"
+      ],
+      "verification_requirements": [
+        "Fiber content",
+        "Factory audit"
+      ]
+    }
+  },
+  "products": {
+    "P001": {
+      "name": "iPhone 15 Pro",
+      "category": 1,
+      "supplier_id": "1009",
+      "batch_number": "B2024001",
+      "manufacturing_date": 1704067200,
+      "product_hash": "0xa1b2c3d4e5f67890abcdef1234567890",
+      "serial_number": "F2LX8K9M2N3P",
+      "authenticity_markers": {
+        "hologram_id": "HG001234",
+        "qr_code": "QR789012",
+        "nfc_tag": "NFC345678"
+      },
+      "supply_chain": {
+        "origin": 1009,
+        "intermediates": [
+          2001,
+          2002,
+          0,
+          0,
+          0
+        ],
+        "destination": 3001
+      },
+      "signatures": {
+        "manufacturer": "0xabcdef1234567890",
+        "distributor": "0x1234567890abcdef"
+      }
+    },
+    "P002": {
+      "name": "Aspirin 500mg",
+      "category": 2,
+      "supplier_id": "1010",
+      "batch_number": "PH2024007",
+      "manufacturing_date": 1703980800,
+      "product_hash": "0xb2c3d4e5f67890abcdef1234567890ab",
+      "lot_number": "LOT240115",
+      "authenticity_markers": {
+        "tamper_seal": "TS567890",
+        "batch_qr": "BQR123456",
+        "pharma_code": "PC789012"
+      },
+      "supply_chain": {
+        "origin": 1010,
+        "intermediates": [
+          2003,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3002
+      },
+      "signatures": {
+        "distributor": "0x234567890abcdef1"
+      }
+    }
+  },
+  "distributors": {
+    "2001": {
+      "name": "TechDistrib Asia",
+      "location": "Hong Kong"
+    },
+    "2002": {
+      "name": "ElectroWholesale",
+      "location": "Los Angeles, USA"
+    },
+    "2003": {
+      "name": "MedSupply Europe",
+      "location": "Frankfurt, Germany"
+    }
+  },
+  "retailers": {
+    "3001": {
+      "name": "TechMart",
+      "location": "San Francisco, USA"
+    },
+    "3002": {
+      "name": "HealthPlus Pharmacy",
+      "location": "Berlin, Germany"
+    }
+  }
+}

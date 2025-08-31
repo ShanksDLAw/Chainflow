@@ -1,0 +1,8 @@
+[package]
+name = "sourceguard"
+type = "bin"
+authors = ["SourceGuard Team"]
+compiler_version = "1.0.0"
+description = "Zero-Knowledge Supply Chain Verification Platform"
+
+[dependencies]

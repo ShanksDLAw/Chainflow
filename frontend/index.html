@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SourceGuard - Supply Chain Verification Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="sourceguard-logo.svg" alt="SourceGuard" style="height: 40px; width: auto;">
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-link active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="#verify" class="nav-link" data-tab="verify">
+                    <i class="fas fa-search"></i> Verify Product
+                </a>
+                <a href="#suppliers" class="nav-link" data-tab="suppliers">
+                    <i class="fas fa-building"></i> Suppliers
+                </a>
+                <a href="#register" class="nav-link" data-tab="register">
+                    <i class="fas fa-plus-circle"></i> Register
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Tab -->
+        <section id="dashboard" class="tab-content active">
+            <div class="dashboard-header">
+                <h1>Supply Chain Dashboard</h1>
+                <p>Monitor and verify your supply chain integrity with advanced verification technology</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-products">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-suppliers">0</h3>
+                        <p>Verified Suppliers</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="verified-products">0</h3>
+                        <p>Verified Today</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="trust-score">95%</h3>
+                        <p>Trust Score</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Recent Verifications</h3>
+                    <div id="recent-verifications" class="verification-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Risk Alerts</h3>
+                    <div id="risk-alerts" class="alert-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Verification Tab -->
+        <section id="verify" class="tab-content">
+            <div class="section-header">
+                <h2>Product Verification</h2>
+                <p>Verify product authenticity and supply chain integrity</p>
+            </div>
+
+            <div class="verification-container">
+                <div class="search-section">
+                    <div class="search-bar">
+                        <input type="text" id="product-search" placeholder="Enter Product ID, Name, or Batch Number...">
+                        <button id="search-btn" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    
+                    <div class="filter-options">
+                        <select id="category-filter">
+                            <option value="">All Categories</option>
+                        </select>
+                        <select id="supplier-filter">
+                            <option value="">All Suppliers</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="search-results" class="search-results">
+                    <!-- Dynamic search results -->
+                </div>
+
+                <div id="verification-details" class="verification-details" style="display: none;">
+                    <!-- Product verification details -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Suppliers Tab -->
+        <section id="suppliers" class="tab-content">
+            <div class="section-header">
+                <h2>Supplier Management</h2>
+                <p>Manage and monitor verified suppliers</p>
+            </div>
+
+            <div id="suppliers-grid" class="suppliers-grid">
+                <!-- Dynamic supplier cards -->
+            </div>
+        </section>
+
+        <!-- Registration Tab -->
+        <section id="register" class="tab-content">
+            <div class="section-header">
+                <h2>Registration Center</h2>
+                <p>Register new suppliers and products</p>
+            </div>
+
+            <div class="registration-tabs">
+                <button class="reg-tab-btn active" data-reg-tab="supplier">Register Supplier</button>
+                <button class="reg-tab-btn" data-reg-tab="product">Register Product</button>
+            </div>
+
+            <!-- Supplier Registration -->
+            <div id="supplier-registration" class="reg-tab-content active">
+                <form id="supplier-form" class="registration-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="supplier-name">Supplier Name *</label>
+                            <input type="text" id="supplier-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-location">Location *</label>
+                            <input type="text" id="supplier-location" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-tier">Tier *</label>
+                            <select id="supplier-tier" name="tier" required>
+                                <option value="">Select Tier</option>
+                                <option value="1">Tier 1 - Premium</option>
+                                <option value="2">Tier 2 - Standard</option>
+                                <option value="3">Tier 3 - Basic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-specialties">Specialties</label>
+                            <input type="text" id="supplier-specialties" name="specialties" placeholder="e.g., Electronics, Pharmaceuticals">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="supplier-certifications">Certifications</label>
+                            <input type="text" id="supplier-certifications" name="certifications" placeholder="e.g., ISO 9001, FDA, GMP">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Register Supplier
+                    </button>
+                </form>
+            </div>
+
+            <!-- Product Registration -->
+            <div id="product-registration" class="reg-tab-content">
+                <form id="product-form" class="registration-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="product-name">Product Name *</label>
+                            <input type="text" id="product-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-category">Category *</label>
+                            <select id="product-category" name="category" required>
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-supplier">Supplier *</label>
+                            <select id="product-supplier" name="supplier_id" required>
+                                <option value="">Select Supplier</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-batch">Batch Number *</label>
+                            <input type="text" id="product-batch" name="batch_number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-serial">Serial Number</label>
+                            <input type="text" id="product-serial" name="serial_number">
+                        </div>
+                        <div class="form-group">
+                            <label for="product-date">Manufacturing Date</label>
+                            <input type="date" id="product-date" name="manufacturing_date">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Register Product
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <i class="notification-icon"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
