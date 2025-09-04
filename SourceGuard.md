@@ -129,24 +129,20 @@
 
 ---
 
-## Slide 8: Team Contributions
+## Slide 8: Team & Contributions
 
-### 👥 **Core Development Team**
+### 👤 **Solo Developer**
+**Abduljalaal Abubakar** - Full Project Development
 
-**Zero-Knowledge Architecture**
-- Designed and implemented Noir circuit for privacy-preserving verification
-- Created Merkle tree integration for scalable batch processing
-- Developed cryptographic signature verification system
+### 🛠️ **Individual Contributions**
+- **ZK Circuit Development**: Custom Noir implementation for supply chain verification
+- **Full-Stack Development**: Complete web application (frontend + backend + API)
+- **ML Trust Engine**: Proprietary risk scoring algorithm implementation
+- **System Architecture**: End-to-end platform design and integration
+- **Business Strategy**: Market analysis and product positioning
+- **Technical Documentation**: Comprehensive project documentation and user flows
 
-**Full-Stack Development**
-- Built responsive web interface with real-time data visualization
-- Created RESTful API with comprehensive CRUD operations
-- Implemented ML trust scoring engine with fraud detection
-
-**System Design & Integration**
-- Architected overall system flow and data management
-- Designed user experience and interface workflows
-- Integrated ZK proofs with traditional web technologies
+*Built entirely as a solo project demonstrating full-stack ZK development capabilities*
 
 ---
 
