@@ -325,7 +325,7 @@ Real-time Data → ML Processing → Pattern Recognition → Dashboard Updates �
 
 **Abduljalaal Abubakar**
 - **GitHub**: [ShanksDLAw/Chainflow](https://github.com/ShanksDLAw/Chainflow)
-- **Demo**: Live and Available
+- **Demo**: Live and Available at https://chainflow.streamlit.app
 - **Documentation**: Comprehensive README and API docs
 
 ### Immediate Next Steps
