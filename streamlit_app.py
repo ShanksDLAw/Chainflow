@@ -61,6 +61,40 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Auto-progress function for live tracking simulation
+def update_auto_progress():
+    """Automatically update progress for shipments with auto_progress enabled"""
+    if 'user_tracking_data' not in st.session_state:
+        return
+    
+    current_time = datetime.now()
+    
+    for tracking_id, shipment in st.session_state.user_tracking_data.items():
+        if shipment.get('auto_progress', False) and shipment['progress'] < 100:
+            created_at = datetime.fromisoformat(shipment['created_at'])
+            time_elapsed = current_time - created_at
+            
+            # Progress based on time elapsed (simulate 1% progress per 30 seconds)
+            time_based_progress = min(int(time_elapsed.total_seconds() / 30), 95)
+            
+            if time_based_progress > shipment['progress']:
+                shipment['progress'] = time_based_progress
+                shipment['last_updated'] = current_time.isoformat()
+                
+                # Update status and location based on progress
+                if time_based_progress >= 90:
+                    shipment['status'] = "Out for Delivery"
+                    shipment['current_location'] = "Local Facility"
+                elif time_based_progress >= 70:
+                    shipment['status'] = "In Transit"
+                    shipment['current_location'] = "Transit Hub"
+                elif time_based_progress >= 40:
+                    shipment['status'] = "Shipped"
+                    shipment['current_location'] = "Distribution Center"
+                elif time_based_progress >= 20:
+                    shipment['status'] = "Processing"
+                    shipment['current_location'] = "Warehouse"
+
 # Load sample data
 @st.cache_data
 def load_sample_data():
@@ -633,6 +667,9 @@ def product_verification_page(products):
 def tracking_page(tracking_data):
     st.header("🚚 Shipment Tracking")
     
+    # Update auto-progress for live tracking simulation
+    update_auto_progress()
+    
     # Combine sample tracking data with user-generated tracking data
     all_tracking_data = tracking_data.copy()
     if 'user_tracking_data' in st.session_state:
@@ -787,7 +824,10 @@ def payment_page(products):
                 "progress": 5,
                 "estimated_delivery": (datetime.now() + timedelta(days=random.randint(3, 10))).strftime("%Y-%m-%d"),
                 "route": ["Warehouse", "Distribution Center", "Transit Hub", "Local Facility", "Delivery"],
-                "zk_verified": True
+                "zk_verified": True,
+                "created_at": datetime.now().isoformat(),
+                "last_updated": datetime.now().isoformat(),
+                "auto_progress": True
             }
             
             # Initialize tracking data in session state if not exists
