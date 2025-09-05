@@ -702,7 +702,7 @@ def tracking_page(tracking_data):
             </div>
             """, unsafe_allow_html=True)
             # Use st.image for SVG instead of direct HTML embedding
-            st.image('images/world_map.svg', caption="Live Shipment Tracking", use_column_width=True)
+            st.image('images/world_map.svg', caption="Live Shipment Tracking", use_container_width=True)
         except FileNotFoundError:
             st.info("🗺️ Interactive map visualization would appear here")
         
