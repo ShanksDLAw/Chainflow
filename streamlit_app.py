@@ -97,6 +97,78 @@ def load_sample_data():
             "estimated_delivery": "2024-01-20",
             "route": ["Mumbai", "Singapore", "Los Angeles", "New York"],
             "zk_verified": True
+        },
+        "TRK-PAY-003": {
+            "product": "Swiss Luxury Watch",
+            "status": "Processing",
+            "current_location": "Geneva",
+            "progress": 15,
+            "estimated_delivery": "2024-01-30",
+            "route": ["Geneva", "Frankfurt", "Amsterdam", "London"],
+            "zk_verified": True
+        },
+        "TRK-PAY-004": {
+            "product": "Norwegian Salmon",
+            "status": "In Transit",
+            "current_location": "Oslo Port",
+            "progress": 45,
+            "estimated_delivery": "2024-01-28",
+            "route": ["Bergen", "Oslo", "Copenhagen", "Hamburg", "London"],
+            "zk_verified": True
+        },
+        "TRK-PAY-005": {
+            "product": "Bamboo Phone Case",
+            "status": "Shipped",
+            "current_location": "Shanghai",
+            "progress": 30,
+            "estimated_delivery": "2024-02-02",
+            "route": ["Guangzhou", "Shanghai", "Tokyo", "Los Angeles", "Denver"],
+            "zk_verified": True
+        },
+        "TRK-PAY-006": {
+            "product": "Premium Chocolate Bar",
+            "status": "In Transit",
+            "current_location": "Brussels",
+            "progress": 80,
+            "estimated_delivery": "2024-01-24",
+            "route": ["Zurich", "Brussels", "Paris", "London"],
+            "zk_verified": True
+        },
+        "TRK-PAY-007": {
+            "product": "Organic Green Tea",
+            "status": "Processing",
+            "current_location": "Kyoto",
+            "progress": 10,
+            "estimated_delivery": "2024-02-05",
+            "route": ["Kyoto", "Tokyo", "Seoul", "Vancouver", "Seattle"],
+            "zk_verified": True
+        },
+        "TRK-PAY-008": {
+            "product": "Handcrafted Leather Handbag",
+            "status": "Delivered",
+            "current_location": "Milan",
+            "progress": 100,
+            "estimated_delivery": "2024-01-22",
+            "route": ["Florence", "Milan", "Paris", "London"],
+            "zk_verified": True
+        },
+        "TRK-PAY-009": {
+            "product": "Pure Vanilla Extract",
+            "status": "In Transit",
+            "current_location": "Port of Spain",
+            "progress": 55,
+            "estimated_delivery": "2024-01-29",
+            "route": ["Madagascar", "Port of Spain", "Miami", "Atlanta", "New York"],
+            "zk_verified": True
+        },
+        "TRK-PAY-010": {
+            "product": "Merino Wool Blanket",
+            "status": "Shipped",
+            "current_location": "Auckland",
+            "progress": 25,
+            "estimated_delivery": "2024-02-08",
+            "route": ["Wellington", "Auckland", "Sydney", "Los Angeles", "Chicago"],
+            "zk_verified": True
         }
     }
     
@@ -561,11 +633,29 @@ def product_verification_page(products):
 def tracking_page(tracking_data):
     st.header("🚚 Shipment Tracking")
     
-    # Tracking ID input
-    tracking_id = st.selectbox("Select Tracking ID:", list(tracking_data.keys()))
+    # Combine sample tracking data with user-generated tracking data
+    all_tracking_data = tracking_data.copy()
+    if 'user_tracking_data' in st.session_state:
+        all_tracking_data.update(st.session_state.user_tracking_data)
     
-    if tracking_id in tracking_data:
-        shipment = tracking_data[tracking_id]
+    # Display tracking statistics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("📦 Total Shipments", len(all_tracking_data))
+    with col2:
+        in_transit = sum(1 for data in all_tracking_data.values() if data['status'] in ['In Transit', 'Shipped'])
+        st.metric("🚛 In Transit", in_transit)
+    with col3:
+        delivered = sum(1 for data in all_tracking_data.values() if data['status'] == 'Delivered')
+        st.metric("✅ Delivered", delivered)
+    
+    st.markdown("---")
+    
+    # Tracking ID input
+    tracking_id = st.selectbox("Select Tracking ID:", list(all_tracking_data.keys()))
+    
+    if tracking_id in all_tracking_data:
+        shipment = all_tracking_data[tracking_id]
         
         # Add world map visualization
         try:
@@ -610,10 +700,43 @@ def tracking_page(tracking_data):
         st.dataframe(route_df, use_container_width=True)
         
         # Real-time updates simulation
-        if st.button("🔄 Refresh Tracking"):
-            with st.spinner("Fetching latest updates..."):
-                time.sleep(1)
-                st.success("📡 Tracking data updated successfully!")
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("🔄 Refresh Tracking"):
+                with st.spinner("Fetching latest updates..."):
+                    time.sleep(1)
+                    st.success("📡 Tracking data updated successfully!")
+        
+        with col2:
+            # Update tracking status for user-generated shipments
+            if tracking_id in st.session_state.get('user_tracking_data', {}):
+                if st.button("📈 Simulate Progress Update"):
+                    with st.spinner("Updating shipment status..."):
+                        time.sleep(1)
+                        # Update progress and status
+                        current_progress = st.session_state.user_tracking_data[tracking_id]['progress']
+                        if current_progress < 100:
+                            new_progress = min(current_progress + random.randint(10, 25), 100)
+                            st.session_state.user_tracking_data[tracking_id]['progress'] = new_progress
+                            
+                            # Update status based on progress
+                            if new_progress >= 100:
+                                st.session_state.user_tracking_data[tracking_id]['status'] = "Delivered"
+                                st.session_state.user_tracking_data[tracking_id]['current_location'] = "Destination"
+                            elif new_progress >= 75:
+                                st.session_state.user_tracking_data[tracking_id]['status'] = "Out for Delivery"
+                                st.session_state.user_tracking_data[tracking_id]['current_location'] = "Local Facility"
+                            elif new_progress >= 50:
+                                st.session_state.user_tracking_data[tracking_id]['status'] = "In Transit"
+                                st.session_state.user_tracking_data[tracking_id]['current_location'] = "Transit Hub"
+                            elif new_progress >= 25:
+                                st.session_state.user_tracking_data[tracking_id]['status'] = "Shipped"
+                                st.session_state.user_tracking_data[tracking_id]['current_location'] = "Distribution Center"
+                            
+                            st.success(f"📦 Shipment updated! Progress: {new_progress}%")
+                            st.rerun()
+                        else:
+                            st.info("📋 Shipment already delivered!")
 
 def payment_page(products):
     st.header("💳 Payment & Receipts")
@@ -655,6 +778,27 @@ def payment_page(products):
             }
             
             st.session_state.receipt_data = receipt_data
+            
+            # Create new tracking entry and add to session state
+            new_tracking_entry = {
+                "product": selected_product.split(" - ")[0],
+                "status": "Processing",
+                "current_location": "Warehouse",
+                "progress": 5,
+                "estimated_delivery": (datetime.now() + timedelta(days=random.randint(3, 10))).strftime("%Y-%m-%d"),
+                "route": ["Warehouse", "Distribution Center", "Transit Hub", "Local Facility", "Delivery"],
+                "zk_verified": True
+            }
+            
+            # Initialize tracking data in session state if not exists
+            if 'user_tracking_data' not in st.session_state:
+                st.session_state.user_tracking_data = {}
+            
+            # Add new tracking entry
+            st.session_state.user_tracking_data[tracking_id] = new_tracking_entry
+            
+            st.success(f"🚚 Shipment tracking automatically created!")
+            st.info(f"📍 Current Status: {new_tracking_entry['status']} at {new_tracking_entry['current_location']}")
             
             st.subheader("🧾 Digital Receipt")
             for key, value in receipt_data.items():
