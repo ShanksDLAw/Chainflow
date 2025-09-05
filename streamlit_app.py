@@ -239,13 +239,10 @@ def generate_zk_proof(product_id):
 def main():
     # Header with logo
     try:
-        with open('images/chainflow_logo.svg', 'r') as f:
-            logo_svg = f.read()
-        st.markdown(f"""
-        <div style="text-align: center; margin-bottom: 2rem;">
-            {logo_svg}
-        </div>
-        """, unsafe_allow_html=True)
+        # Use st.image for logo instead of direct SVG embedding
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            st.image('images/chainflow_logo.svg', width=400)
     except FileNotFoundError:
         # Fallback header
         st.markdown('<h1 class="main-header">🔗 ChainFlow</h1>', unsafe_allow_html=True)
@@ -390,17 +387,17 @@ def product_verification_page(products):
         col1, col2 = st.columns([1, 2])
         
         with col1:
-            # Display SVG image
+            # Display product image
             try:
-                with open(product['image'], 'r') as f:
-                    svg_content = f.read()
+                # Use st.image for SVG files instead of direct HTML embedding
                 st.markdown(f"""
                 <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
                             border-radius: 15px; margin: 10px 0;">
-                    <div style="margin-bottom: 10px;">{svg_content}</div>
                     <h3 style="color: white; margin: 0;">{product['name']}</h3>
                 </div>
                 """, unsafe_allow_html=True)
+                # Display the SVG image using Streamlit's image component
+                st.image(product['image'], width=200)
             except FileNotFoundError:
                 # Fallback to a placeholder if image not found
                 st.markdown(f"""
@@ -572,14 +569,13 @@ def tracking_page(tracking_data):
         
         # Add world map visualization
         try:
-            with open('images/world_map.svg', 'r') as f:
-                map_svg = f.read()
             st.markdown("""
             <div style="text-align: center; margin: 1rem 0;">
                 <h4>🌍 Real-time Tracking Map</h4>
             </div>
             """, unsafe_allow_html=True)
-            st.markdown(f'<div style="text-align: center;">{map_svg}</div>', unsafe_allow_html=True)
+            # Use st.image for SVG instead of direct HTML embedding
+            st.image('images/world_map.svg', caption="Live Shipment Tracking", use_column_width=True)
         except FileNotFoundError:
             st.info("🗺️ Interactive map visualization would appear here")
         
