@@ -43,12 +43,19 @@
         "Organic Foods",
         "Beverages"
       ],
-      "verified_since": "2021-06-10",
+      "verified_since": "2025-09-04T21:08:23.332Z",
       "trust_score": 87,
       "certifications": [
         "USDA Organic",
         "Fair Trade"
-      ]
+      ],
+      "verified": true,
+      "verification_proof": {
+        "proofHash": "e6d682a50637d23c3e50cfe46fd121c76eb744f2ab9a59b7b6135c4e80f791ec",
+        "verified": true,
+        "verificationId": "VER-1003-1757020103332",
+        "timestamp": 1757020103
+      }
     },
     "1004": {
       "name": "AutoParts Premium",
@@ -75,12 +82,19 @@
         "Textiles",
         "Apparel"
       ],
-      "verified_since": "2022-02-18",
+      "verified_since": "2025-09-04T21:08:27.063Z",
       "trust_score": 75,
       "certifications": [
         "GOTS",
         "OEKO-TEX"
-      ]
+      ],
+      "verified": true,
+      "verification_proof": {
+        "proofHash": "6d4c9e0bcc482d0a98c991c777b8f74b69a465184b96020334b5822451f0751f",
+        "verified": true,
+        "verificationId": "VER-1005-1757020107063",
+        "timestamp": 1757020107
+      }
     },
     "1006": {
       "name": "Test Supplier",
@@ -97,10 +111,21 @@
       "tier": 3,
       "certification_hash": "0xd61fb2baf56e7a723d8775cafb0e7895",
       "location": "Nigeria",
-      "specialties": ["Food"],
-      "verified_since": "2025-08-31",
+      "specialties": [
+        "Food"
+      ],
+      "verified_since": "2025-09-04T21:59:58.625Z",
       "trust_score": 70,
-      "certifications": ["Nafdac"]
+      "certifications": [
+        "Nafdac"
+      ],
+      "verified": true,
+      "verification_proof": {
+        "proofHash": "764f5025ead7487f3a0b26f99ba2bb8b2908bb19c3e9d6a96ad33bebc65f94d4",
+        "verified": true,
+        "verificationId": "VER-1007-1757023198625",
+        "timestamp": 1757023198
+      }
     },
     "1008": {
       "name": "Mediterranean Oils Ltd",
@@ -194,61 +219,151 @@
       "risk_factor": 0.15,
       "common_fraud_types": [
         "Counterfeit chips",
-        "Fake certifications"
+        "Fake certifications",
+        "Component substitution"
       ],
       "verification_requirements": [
         "Serial number",
-        "Batch testing"
-      ]
+        "Batch testing",
+        "Component authenticity"
+      ],
+      "description": "Consumer electronics, semiconductors, and electronic components"
     },
     "2": {
       "name": "Pharmaceuticals",
       "risk_factor": 0.25,
       "common_fraud_types": [
         "Fake drugs",
-        "Expired products"
+        "Expired products",
+        "Diluted medications"
       ],
       "verification_requirements": [
         "Lot number",
         "Temperature logs",
-        "Chain of custody"
-      ]
+        "Chain of custody",
+        "API verification"
+      ],
+      "description": "Prescription drugs, over-the-counter medications, and medical supplies"
     },
     "3": {
       "name": "Food & Beverage",
       "risk_factor": 0.12,
       "common_fraud_types": [
         "Origin mislabeling",
-        "Quality substitution"
+        "Quality substitution",
+        "Adulteration"
       ],
       "verification_requirements": [
         "Harvest date",
-        "Processing facility"
-      ]
+        "Processing facility",
+        "Organic certification"
+      ],
+      "description": "Fresh produce, packaged foods, beverages, and organic products"
     },
     "4": {
       "name": "Luxury Goods",
       "risk_factor": 0.22,
       "common_fraud_types": [
         "Counterfeit products",
-        "Material substitution"
+        "Material substitution",
+        "Brand imitation"
       ],
       "verification_requirements": [
         "Authenticity certificate",
-        "Craftsman signature"
-      ]
+        "Craftsman signature",
+        "Material analysis"
+      ],
+      "description": "High-end fashion, jewelry, watches, and designer accessories"
     },
     "5": {
       "name": "Textiles",
       "risk_factor": 0.1,
       "common_fraud_types": [
         "Labor violations",
-        "Material substitution"
+        "Material substitution",
+        "Origin misrepresentation"
       ],
       "verification_requirements": [
         "Fiber content",
-        "Factory audit"
-      ]
+        "Factory audit",
+        "Labor compliance"
+      ],
+      "description": "Clothing, fabrics, home textiles, and fashion accessories"
+    },
+    "6": {
+      "name": "Automotive",
+      "risk_factor": 0.18,
+      "common_fraud_types": [
+        "Counterfeit parts",
+        "Safety standard violations",
+        "Performance misrepresentation"
+      ],
+      "verification_requirements": [
+        "Part number verification",
+        "Safety testing",
+        "OEM certification"
+      ],
+      "description": "Vehicle parts, accessories, and automotive components"
+    },
+    "7": {
+      "name": "Medical Equipment",
+      "risk_factor": 0.28,
+      "common_fraud_types": [
+        "Fake medical devices",
+        "Calibration fraud",
+        "Safety violations"
+      ],
+      "verification_requirements": [
+        "FDA approval",
+        "Calibration certificates",
+        "Quality assurance"
+      ],
+      "description": "Medical devices, diagnostic equipment, and healthcare technology"
+    },
+    "8": {
+      "name": "Agriculture",
+      "risk_factor": 0.14,
+      "common_fraud_types": [
+        "Pesticide misuse",
+        "GMO mislabeling",
+        "Quality degradation"
+      ],
+      "verification_requirements": [
+        "Pesticide testing",
+        "GMO verification",
+        "Soil analysis"
+      ],
+      "description": "Seeds, fertilizers, agricultural equipment, and farming supplies"
+    },
+    "9": {
+      "name": "Cosmetics",
+      "risk_factor": 0.16,
+      "common_fraud_types": [
+        "Ingredient substitution",
+        "Counterfeit brands",
+        "Safety violations"
+      ],
+      "verification_requirements": [
+        "Ingredient verification",
+        "Safety testing",
+        "Brand authentication"
+      ],
+      "description": "Beauty products, skincare, makeup, and personal care items"
+    },
+    "10": {
+      "name": "Industrial Equipment",
+      "risk_factor": 0.2,
+      "common_fraud_types": [
+        "Performance fraud",
+        "Safety standard violations",
+        "Counterfeit machinery"
+      ],
+      "verification_requirements": [
+        "Performance testing",
+        "Safety certification",
+        "Manufacturer verification"
+      ],
+      "description": "Manufacturing equipment, industrial machinery, and tools"
     }
   },
   "products": {
@@ -397,23 +512,23 @@
       }
     },
     "P006": {
-      "name": "MacBook Pro M3",
-      "category": 1,
-      "supplier_id": "1009",
-      "batch_number": "MB2024001",
-      "manufacturing_date": 1704326400,
-      "product_hash": "0xf67890abcdef1234567890abcdef1234",
-      "serial_number": "MBP-M3-2024-001",
+      "name": "BMW Brake Pads",
+      "category": 6,
+      "supplier_id": "1001",
+      "batch_number": "AUTO2024001",
+      "manufacturing_date": 1704240000,
+      "product_hash": "0xf6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1",
+      "part_number": "BMW-BP-X5-2024",
       "authenticity_markers": {
-        "hologram_id": "HG001236",
-        "qr_code": "QR789015",
-        "nfc_tag": "NFC345681"
+        "oem_seal": "OEM789012",
+        "part_qr": "PQR345678",
+        "safety_cert": "SC901234"
       },
       "supply_chain": {
-        "origin": 1009,
+        "origin": 1001,
         "intermediates": [
           2001,
-          2002,
+          0,
           0,
           0,
           0
@@ -421,25 +536,25 @@
         "destination": 3001
       },
       "signatures": {
-        "manufacturer": "0xef1234567890abcd",
-        "distributor": "0x67890abcdef12345"
+        "manufacturer": "0xf6g7h8i9j0k1l2m3",
+        "distributor": "0x901234567890abcd"
       }
     },
     "P007": {
-      "name": "Artisan Dark Chocolate",
-      "category": 3,
-      "supplier_id": "1011",
-      "batch_number": "CH2024001",
-      "manufacturing_date": 1704412800,
-      "product_hash": "0x67890abcdef1234567890abcdef12345",
-      "lot_number": "LOT240125",
+      "name": "MRI Scanner Model X200",
+      "category": 7,
+      "supplier_id": "1002",
+      "batch_number": "MED2024003",
+      "manufacturing_date": 1703894400,
+      "product_hash": "0xg7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2",
+      "device_id": "MRI-X200-2024-001",
       "authenticity_markers": {
-        "origin_seal": "OS123457",
-        "quality_qr": "QQR789016",
-        "harvest_code": "HC345682"
+        "fda_seal": "FDA567890",
+        "calibration_cert": "CAL123456",
+        "safety_tag": "ST789012"
       },
       "supply_chain": {
-        "origin": 1011,
+        "origin": 1002,
         "intermediates": [
           2003,
           0,
@@ -450,25 +565,54 @@
         "destination": 3002
       },
       "signatures": {
-        "artisan": "0xf1234567890abcde",
-        "distributor": "0x7890abcdef123456"
+        "manufacturer": "0xg7h8i9j0k1l2m3n4",
+        "distributor": "0xa12345678901bcde"
       }
     },
     "P008": {
-      "name": "Luxury Leather Handbag",
-      "category": 4,
-      "supplier_id": "1012",
-      "batch_number": "LH2024001",
-      "manufacturing_date": 1704499200,
-      "product_hash": "0x7890abcdef1234567890abcdef123456",
-      "serial_number": "LLG-HB-2024-001",
+      "name": "Organic Wheat Seeds",
+      "category": 8,
+      "supplier_id": "1003",
+      "batch_number": "AGR2024005",
+      "manufacturing_date": 1704326400,
+      "product_hash": "0xh8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3",
+      "lot_number": "OWS-2024-001",
       "authenticity_markers": {
-        "authenticity_tag": "AT123458",
-        "craft_qr": "CQR789017",
-        "maker_seal": "MS345683"
+        "organic_cert": "ORG345678",
+        "seed_tag": "ST901234",
+        "purity_seal": "PS567890"
       },
       "supply_chain": {
-        "origin": 1012,
+        "origin": 1003,
+        "intermediates": [
+          2001,
+          0,
+          0,
+          0,
+          0
+        ],
+        "destination": 3001
+      },
+      "signatures": {
+        "farmer": "0xh8i9j0k1l2m3n4o5",
+        "distributor": "0xb23456789012cdef"
+      }
+    },
+    "P009": {
+      "name": "Chanel No. 5 Perfume",
+      "category": 9,
+      "supplier_id": "1004",
+      "batch_number": "COS2024002",
+      "manufacturing_date": 1704412800,
+      "product_hash": "0xi9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4",
+      "product_code": "CH5-50ML-2024",
+      "authenticity_markers": {
+        "brand_hologram": "BH123456",
+        "batch_code": "BC789012",
+        "authenticity_card": "AC345678"
+      },
+      "supply_chain": {
+        "origin": 1004,
         "intermediates": [
           2002,
           0,
@@ -479,8 +623,37 @@
         "destination": 3001
       },
       "signatures": {
-        "craftsman": "0x1234567890abcdef",
-        "distributor": "0x890abcdef1234567"
+        "manufacturer": "0xi9j0k1l2m3n4o5",
+        "distributor": "0xc34567890123def0"
+      }
+    },
+    "P010": {
+      "name": "Industrial CNC Machine",
+      "category": 10,
+      "supplier_id": "1001",
+      "batch_number": "IND2024001",
+      "manufacturing_date": 1703808000,
+      "product_hash": "0xj0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5",
+      "machine_id": "CNC-5000-2024-001",
+      "authenticity_markers": {
+        "safety_cert": "SC456789",
+        "performance_tag": "PT012345",
+        "warranty_seal": "WS678901"
+      },
+      "supply_chain": {
+        "origin": 1001,
+        "intermediates": [
+          2001,
+          2002,
+          0,
+          0,
+          0
+        ],
+        "destination": 3001
+      },
+      "signatures": {
+        "manufacturer": "0xj0k1l2m3n4o5p6q7",
+        "distributor": "0xd45678901234ef01"
       }
     }
   },

@@ -1,168 +1,264 @@
-# SourceGuard User Flow Diagram
+# ChainFlow User Flow Diagram
 
-## System Architecture & User Journey
+## Integrated Payment & Supply Chain Platform Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Supplier      │    │   SourceGuard   │    │   Verifier      │
-│   Registration  │───▶│   Platform      │◄───│   (Customer)    │
+│   Supplier      │    │   ChainFlow     │    │   Customer      │
+│   Registration  │───▶│   Platform      │◄───│   (Buyer)       │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                       │                       │
          ▼                       ▼                       ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Upload Product  │    │ ZK Circuit      │    │ Search Product  │
-│ + Credentials   │───▶│ Verification    │◄───│ by ID/Batch     │
+│ Product Upload  │    │ Payment & ZK    │    │ Product Search  │
+│ + Verification  │───▶│ Receipt System  │◄───│ & Purchase      │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
          │                       │                       │
          ▼                       ▼                       ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Generate ZK     │    │ ML Trust Engine │    │ View Trust      │
-│ Proof of Auth   │───▶│ Risk Assessment │───▶│ Score & Status  │
+│ Route Planning  │    │ ML Trust Engine │    │ Track Shipment  │
+│ & Optimization  │───▶│ & Analytics     │───▶│ & Delivery      │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## Detailed User Journey
+## Complete User Journey
 
-### 1. Supplier Onboarding
+### 1. Supplier Onboarding & Product Management
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    SUPPLIER REGISTRATION                        │
 ├─────────────────────────────────────────────────────────────────┤
-│ 1. Access SourceGuard Platform                                 │
+│ 1. Access ChainFlow Platform Dashboard                         │
 │ 2. Navigate to "Register" → "Supplier"                         │
-│ 3. Fill Registration Form:                                      │
-│    • Company Name & Details                                     │
-│    • Certification Documents                                    │
-│    • Business License                                           │
-│    • Contact Information                                        │
-│ 4. Submit for Verification                                      │
-│ 5. Receive Supplier ID & Credentials                           │
+│ 3. Complete Registration Form:                                  │
+│    • Company Name & Business Details                           │
+│    • Certification Documents & Licenses                        │
+│    • Product Categories & Specializations                      │
+│    • Contact & Banking Information                             │
+│ 4. Submit for ML-powered Trust Assessment                      │
+│ 5. Receive Supplier ID & Platform Access                       │
+│ 6. Upload Product Catalog with Categories:                     │
+│    • Electronics, Pharmaceuticals, Food & Beverage            │
+│    • Luxury Goods, Automotive, Medical Equipment              │
+│    • Agriculture, Cosmetics, Industrial Equipment             │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 2. Product Registration
+### 2. Customer Purchase & Payment Flow
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    PRODUCT REGISTRATION                         │
+│                    CUSTOMER PURCHASE JOURNEY                   │
 ├─────────────────────────────────────────────────────────────────┤
-│ 1. Login with Supplier Credentials                             │
-│ 2. Navigate to "Register" → "Product"                          │
-│ 3. Enter Product Details:                                       │
-│    • Product Name & Category                                    │
-│    • Batch Number                                               │
-│    • Manufacturing Date                                         │
-│    • Supply Chain Path                                          │
-│ 4. Generate ZK Proof of Authenticity                           │
-│ 5. Product Added to Verified Database                          │
+│ 1. Browse Product Categories & Search                          │
+│ 2. Select Product & View Details:                              │
+│    • Product Information & Trust Score                         │
+│    • Supplier Verification Status                              │
+│    • Price & Availability                                      │
+│ 3. Initiate Purchase Process                                   │
+│ 4. Complete Payment Form:                                      │
+│    • Select Payment Method (Credit Card, Bank, Crypto, PayPal) │
+│    • Enter Payment Details & Amount                            │
+│    • Provide Shipping Information                              │
+│ 5. Process Payment with ZK Verification                        │
+│ 6. Receive Cryptographic Receipt with ZK Proof                 │
+│ 7. Get Tracking ID for Shipment Monitoring                     │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 3. Product Verification (Customer/Verifier)
+### 3. Route Optimization & Shipment Tracking
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    PRODUCT VERIFICATION                         │
+│                    ROUTE OPTIMIZATION & TRACKING               │
 ├─────────────────────────────────────────────────────────────────┤
-│ 1. Access SourceGuard Platform                                 │
-│ 2. Navigate to "Verify Product"                                │
-│ 3. Enter Product Information:                                   │
-│    • Product ID or Batch Number                                │
-│    • Optional: Supplier Name                                   │
-│ 4. Click "Verify Product"                                      │
-│ 5. View Verification Results:                                   │
-│    • Authenticity Status                                       │
-│    • Trust Score                                               │
-│    • Risk Assessment                                           │
-│    • Supply Chain Integrity                                    │
+│ 1. AI-Powered Route Planning:                                  │
+│    • Dijkstra Algorithm for Shortest Path                      │
+│    • A* Search for Heuristic Optimization                      │
+│    • Genetic Algorithm for Complex Multi-stop Routes          │
+│ 2. Real-time Shipment Tracking:                               │
+│    • Live Location Updates                                      │
+│    • Estimated Delivery Time                                   │
+│    • Route Deviation Alerts                                    │
+│ 3. Incident Management:                                        │
+│    • Delay Notifications & Mitigation Actions                  │
+│    • Damage/Theft Reporting & Insurance Claims                 │
+│    • Weather/Customs Delay Handling                           │
+│ 4. Delivery Confirmation & Receipt Verification                │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## Technical Flow Architecture
+### 4. Payment Verification & Receipt Management
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    PAYMENT VERIFICATION SYSTEM                 │
+├─────────────────────────────────────────────────────────────────┤
+│ 1. Access Payment History & Receipts                           │
+│ 2. View Receipt Details:                                        │
+│    • Transaction ID & Payment Method                           │
+│    • Product Information & Quantities                          │
+│    • Cryptographic Proof of Authenticity                      │
+│ 3. Verify Receipt Authenticity:                               │
+│    • ZK Proof Validation                                       │
+│    • Tamper Detection                                          │
+│    • Blockchain Verification (Future)                         │
+│ 4. Export/Share Verified Receipts                             │
+│ 5. Track Payment-to-Delivery Lifecycle                        │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-### Zero-Knowledge Verification Process
+## Technical Architecture Flow
+
+### Integrated Payment-ZK-ML Pipeline
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Payment Data    │───▶│ ZK Proof        │───▶│ ML Trust        │
+│ (Private Input) │    │ Generation      │    │ Assessment      │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Receipt         │    │ Cryptographic   │    │ Risk Score &    │
+│ Generation      │    │ Verification    │    │ Fraud Detection │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+### ML-Powered Route Optimization
 ```
 ┌─────────────────┐
-│ Product Data    │
-│ (Private Input) │
+│ Route Request   │
+│ • Origin/Dest   │
+│ • Product Type  │
+│ • Constraints   │
 └─────────┬───────┘
           │
           ▼
 ┌─────────────────┐    ┌─────────────────┐
-│ Noir ZK Circuit │───▶│ Proof Generation│
-│ (main.nr)       │    │ (Private)       │
-└─────────────────┘    └─────────┬───────┘
-                                 │
-                                 ▼
+│ ML Algorithms   │───▶│ Optimized Route │
+│ • Dijkstra      │    │ • Time/Cost     │
+│ • A* Search     │    │ • Risk Level    │
+│ • Genetic Algo  │    │ • Confidence    │
+└─────────────────┘    └─────────────────┘
+          │                       │
+          ▼                       ▼
 ┌─────────────────┐    ┌─────────────────┐
-│ Public Verifier │◄───│ ZK Proof        │
-│ (Anyone)        │    │ (Public)        │
+│ Real-time       │    │ Tracking &      │
+│ Monitoring      │    │ Updates         │
 └─────────────────┘    └─────────────────┘
 ```
 
-### ML Trust Engine Flow
-```
-┌─────────────────┐
-│ Historical Data │
-│ • Supplier Rep  │
-│ • Product Track │
-│ • Risk Patterns │
-└─────────┬───────┘
-          │
-          ▼
-┌─────────────────┐    ┌─────────────────┐
-│ ML Algorithms   │───▶│ Trust Score     │
-│ • Anomaly Det.  │    │ • Risk Level    │
-│ • Pattern Rec.  │    │ • Confidence    │
-└─────────────────┘    └─────────────────┘
-```
+## Dashboard & Analytics
 
-## Dashboard & Monitoring
+### Real-time Platform Metrics
+- **Payment Statistics**: Total payments, daily volume, success rates
+- **Active Shipments**: Live tracking of ongoing deliveries
+- **Trust Scores**: Supplier and product trust assessments
+- **Route Efficiency**: Optimization performance and delivery times
+- **Incident Reports**: Delays, damages, and mitigation actions
+- **Revenue Analytics**: Payment trends and financial insights
 
-### Real-time Dashboard Features
-- **Total Products**: Live count of registered products
-- **Verified Suppliers**: Number of authenticated suppliers
-- **Daily Verifications**: Products verified today
-- **Overall Trust Score**: System-wide trust percentage
-- **Recent Verifications**: Latest verification activities
-- **Risk Alerts**: Real-time fraud detection alerts
+### Supplier Management Dashboard
+- Comprehensive supplier profiles with trust scores
+- Payment history and transaction patterns
+- Product catalog management across categories
+- Performance metrics and delivery statistics
+- Incident history and resolution tracking
+- Certification status and compliance monitoring
 
-### Supplier Management Interface
-- View all registered suppliers
-- Trust scores and risk assessments
-- Supplier tier classifications (Premium/Standard/Basic)
-- Certification status and expiry dates
-- Performance metrics and history
+### Customer Portal Features
+- Product search across 9 major categories
+- Payment processing with multiple methods
+- Real-time shipment tracking
+- Receipt management and verification
+- Order history and analytics
+- Trust-based product recommendations
 
-## Privacy & Security Features
+## Privacy & Security Architecture
 
-### What Stays Private (Zero-Knowledge)
-- Supplier manufacturing processes
-- Exact supply chain routes
-- Private business relationships
-- Proprietary product formulations
-- Internal cost structures
+### Zero-Knowledge Privacy Protection
+- **Payment Privacy**: Process transactions without exposing financial details
+- **Supplier Privacy**: Verify credentials without revealing trade secrets
+- **Route Privacy**: Optimize paths without exposing competitive information
+- **Trust Privacy**: Validate scores without revealing assessment criteria
+
+### What Remains Private (ZK-Protected)
+- Detailed payment information and banking details
+- Proprietary supplier manufacturing processes
+- Exact supply chain routes and logistics
+- Internal cost structures and profit margins
+- Customer purchase patterns and preferences
 
 ### What Gets Verified (Public)
-- Product authenticity status
-- Compliance with standards
-- Trust score and risk level
-- Verification timestamp
-- General supply chain integrity
+- Payment authenticity and receipt validity
+- Product authenticity and compliance status
+- Supplier trust scores and risk levels
+- Delivery confirmation and tracking status
+- General supply chain integrity metrics
 
-## Integration Points
+## API Integration Points
 
-### API Endpoints
-- `GET /api/suppliers` - List all suppliers
+### Core API Endpoints
+
+#### Product & Supplier Management
+- `GET /api/suppliers` - List suppliers with trust scores
 - `POST /api/suppliers` - Register new supplier
-- `GET /api/products` - Search products
-- `POST /api/products` - Register new product
-- `POST /api/verify` - Verify product authenticity
-- `GET /api/trust-score/:id` - Get trust assessment
+- `GET /api/products` - Browse products by category
+- `POST /api/products` - Add new product
+- `GET /api/categories` - List product categories
+- `GET /api/search` - Search products and suppliers
 
-### External Integrations
-- Certification authorities
-- Regulatory compliance systems
-- Enterprise resource planning (ERP)
-- Supply chain management platforms
-- Quality assurance systems
+#### Payment & Receipt Processing
+- `POST /api/payments/process` - Process payment with ZK receipt
+- `GET /api/payments/:paymentId` - Retrieve payment details
+- `GET /api/receipts/:receiptId` - Get receipt with proof
+- `POST /api/receipts/:receiptId/verify` - Verify receipt authenticity
+- `GET /api/payments/stats` - Payment analytics
 
-This user flow demonstrates how SourceGuard enables **"Trust without Transparency"** - allowing verification of product authenticity and compliance while maintaining the privacy of sensitive business information.
+#### Route Optimization & Tracking
+- `POST /api/optimize-route` - AI-powered route planning
+- `POST /api/start-tracking` - Initialize shipment tracking
+- `GET /api/tracking/:trackingId` - Real-time tracking status
+- `POST /api/tracking/:trackingId/update` - Update tracking info
+- `GET /api/active-shipments` - List active deliveries
+
+#### System & Analytics
+- `GET /api/network` - Supply chain network topology
+- `GET /api/status` - System health metrics
+- `POST /api/generate-proof` - Generate ZK proofs
+- `POST /api/verify-proof` - Verify ZK proofs
+
+### External Integration Capabilities
+- Payment gateway integrations (Stripe, PayPal, crypto wallets)
+- Shipping carrier APIs (FedEx, UPS, DHL)
+- Enterprise ERP system connections
+- Regulatory compliance databases
+- IoT device integration for real-time tracking
+- Blockchain networks for immutable records
+
+## Advanced Features
+
+### ML-Powered Fraud Detection
+- Real-time anomaly detection in payment patterns
+- Behavioral analysis of supplier activities
+- Temporal validation of transactions and shipments
+- Risk assessment with confidence scoring
+- Adaptive learning from historical fraud cases
+
+### Incident Management System
+- Automated incident detection and classification
+- Mitigation action recommendations by incident type
+- Insurance claim processing integration
+- Customer notification and communication
+- Performance impact analysis and reporting
+
+### Trust Scoring Algorithm
+```
+Trust Score = (
+  Supplier History × 0.25 +
+  Certification Validity × 0.20 +
+  Supply Chain Integrity × 0.20 +
+  Product Authenticity × 0.15 +
+  Temporal Consistency × 0.10 +
+  Behavioral Patterns × 0.10
+) × 100
+```
+
+This comprehensive user flow demonstrates how ChainFlow creates a **"Unified Trust Ecosystem"** - seamlessly integrating payment processing, supply chain optimization, and zero-knowledge verification to enable secure, efficient, and privacy-preserving commerce at enterprise scale.

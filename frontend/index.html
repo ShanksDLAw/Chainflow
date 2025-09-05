@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SourceGuard - Supply Chain Verification Platform</title>
+    <title>ChainFlow - Supply Chain Route Optimization Platform</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <img src="sourceguard-logo.svg" alt="SourceGuard" style="height: 40px; width: auto;">
+                <img src="chainflow-logo.svg" alt="ChainFlow" style="height: 40px; width: auto;">
             </div>
             <div class="nav-menu">
                 <a href="#dashboard" class="nav-link active" data-tab="dashboard">
@@ -24,9 +24,30 @@
                 <a href="#suppliers" class="nav-link" data-tab="suppliers">
                     <i class="fas fa-building"></i> Suppliers
                 </a>
+                <a href="#routes" class="nav-link" data-tab="routes">
+                    <i class="fas fa-route"></i> Route Optimization
+                </a>
+                <a href="#tracking" class="nav-link" data-tab="tracking">
+                    <i class="fas fa-map-marker-alt"></i> Real-time Tracking
+                </a>
                 <a href="#register" class="nav-link" data-tab="register">
                     <i class="fas fa-plus-circle"></i> Register
                 </a>
+                <a href="#marketplace" class="nav-link" data-tab="marketplace">
+                    <i class="fas fa-shopping-cart"></i> Marketplace
+                </a>
+                <a href="#payments" class="nav-link" data-tab="payments">
+                    <i class="fas fa-credit-card"></i> Payments
+                </a>
+            </div>
+            <div class="wallet-section">
+                <button id="connectWallet" class="wallet-btn">
+                    <i class="fas fa-wallet"></i> Connect Wallet
+                </button>
+                <div id="walletInfo" class="wallet-info" style="display: none;">
+                    <span id="walletAddress"></span>
+                    <span id="walletBalance"></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -36,8 +57,8 @@
         <!-- Dashboard Tab -->
         <section id="dashboard" class="tab-content active">
             <div class="dashboard-header">
-                <h1>Supply Chain Dashboard</h1>
-                <p>Monitor and verify your supply chain integrity with advanced verification technology</p>
+                <h1>ChainFlow - Blockchain Supply Chain Platform</h1>
+                <p>Revolutionizing supply chain transparency through zero-knowledge proofs, route optimization, and decentralized verification on blockchain</p>
             </div>
             
             <div class="stats-grid">
@@ -75,6 +96,33 @@
                     <div class="stat-info">
                         <h3 id="trust-score">95%</h3>
                         <p>Trust Score</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="optimized-routes">0</h3>
+                        <p>Optimized Routes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="zk-verifications">0</h3>
+                        <p>Verifications</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="active-shipments">0</h3>
+                        <p>Active Shipments</p>
                     </div>
                 </div>
             </div>
@@ -140,6 +188,118 @@
 
             <div id="suppliers-grid" class="suppliers-grid">
                 <!-- Dynamic supplier cards -->
+            </div>
+        </section>
+
+        <!-- Route Optimization Tab -->
+        <section id="routes" class="tab-content">
+            <div class="section-header">
+                <h2>Route Optimization</h2>
+                <p>Optimize supply chain routes using ML algorithms</p>
+            </div>
+
+            <div class="route-optimization-container">
+                <div class="route-form-section">
+                    <h3>Route Planning</h3>
+                    <form id="route-form" class="route-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="origin-location">Origin Location *</label>
+                                <input type="text" id="origin-location" name="origin" required placeholder="e.g., New York, NY">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination-location">Destination Location *</label>
+                                <input type="text" id="destination-location" name="destination" required placeholder="e.g., Los Angeles, CA">
+                            </div>
+                            <div class="form-group">
+                                <label for="product-type">Product Type *</label>
+                                <select id="product-type" name="productType" required>
+                                    <option value="">Select Product Type</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="pharmaceuticals">Pharmaceuticals</option>
+                                    <option value="food">Food & Beverages</option>
+                                    <option value="automotive">Automotive</option>
+                                    <option value="textiles">Textiles</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority-level">Priority Level</label>
+                                <select id="priority-level" name="priority">
+                                    <option value="standard">Standard</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-route"></i> Optimize Route
+                        </button>
+                    </form>
+                </div>
+
+                <div class="route-results-section">
+                    <h3>Optimization Results</h3>
+                    <div id="route-results" class="route-results">
+                        <div class="no-results">
+                            <i class="fas fa-map"></i>
+                            <p>Enter route details and click "Optimize Route" to see results</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="route-visualization">
+                    <h3>Route Visualization</h3>
+                    <div id="route-map" class="route-map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Route map will appear here after optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-time Tracking Tab -->
+        <section id="tracking" class="tab-content">
+            <div class="section-header">
+                <h2>Real-time Tracking</h2>
+                <p>Monitor active shipments and track delivery progress</p>
+            </div>
+
+            <div class="tracking-container">
+                <div class="tracking-controls">
+                    <div class="search-tracking">
+                        <input type="text" id="tracking-search" placeholder="Enter Shipment ID or Product Name...">
+                        <button id="track-btn" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Track
+                        </button>
+                    </div>
+                    <div class="tracking-filters">
+                        <select id="status-filter">
+                            <option value="">All Statuses</option>
+                            <option value="in_transit">In Transit</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="delayed">Delayed</option>
+                        </select>
+                        <button id="refresh-tracking" class="btn btn-secondary">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div class="active-shipments">
+                    <h3>Active Shipments</h3>
+                    <div id="shipments-list" class="shipments-list">
+                        <!-- Dynamic shipment cards -->
+                    </div>
+                </div>
+
+                <div class="tracking-details" id="tracking-details" style="display: none;">
+                    <h3>Shipment Details</h3>
+                    <div class="tracking-info">
+                        <!-- Dynamic tracking information -->
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -228,6 +388,327 @@
                         <i class="fas fa-plus"></i> Register Product
                     </button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Marketplace Tab -->
+        <section id="marketplace" class="tab-content">
+            <div class="marketplace-header">
+                <h1>ChainFlow Marketplace</h1>
+                <p>Buy and sell verified products using USDT/USDC on Ethereum network</p>
+            </div>
+
+            <div class="marketplace-stats">
+                <div class="stat-card">
+                    <i class="fas fa-coins"></i>
+                    <div class="stat-info">
+                        <h3 id="totalListings">0</h3>
+                        <p>Active Listings</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-handshake"></i>
+                    <div class="stat-info">
+                        <h3 id="totalTransactions">0</h3>
+                        <p>Completed Transactions</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div class="stat-info">
+                        <h3 id="totalVolume">$0</h3>
+                        <p>Total Volume (USDT)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marketplace-actions">
+                <button id="listProductBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> List Product for Sale
+                </button>
+                <div class="search-filters">
+                    <input type="text" id="marketplaceSearch" placeholder="Search products...">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="pharmaceuticals">Pharmaceuticals</option>
+                        <option value="food">Food & Beverages</option>
+                        <option value="luxury">Luxury Goods</option>
+                    </select>
+                    <select id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="0-100">$0 - $100</option>
+                        <option value="100-500">$100 - $500</option>
+                        <option value="500-1000">$500 - $1000</option>
+                        <option value="1000+">$1000+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="marketplaceListings" class="marketplace-grid">
+                <!-- Marketplace listings will be populated here -->
+            </div>
+
+            <!-- List Product Modal -->
+            <div id="listProductModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>List Product for Sale</h2>
+                    <form id="listProductForm">
+                        <div class="form-group">
+                            <label for="listProductSelect">Select Product *</label>
+                            <select id="listProductSelect" required>
+                                <option value="">Choose a verified product...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="listPrice">Price (USDT) *</label>
+                            <input type="number" id="listPrice" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="listQuantity">Quantity *</label>
+                            <input type="number" id="listQuantity" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="listDescription">Description</label>
+                            <textarea id="listDescription" rows="3" placeholder="Additional product details..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeListModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">List Product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Purchase Modal -->
+            <div id="purchaseModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Purchase Product</h2>
+                    <div id="purchaseDetails">
+                        <!-- Purchase details will be populated here -->
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closePurchaseModal()">Cancel</button>
+                        <button id="confirmPurchaseBtn" class="btn btn-primary">Confirm Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payments Tab -->
+        <section id="payments" class="tab-content">
+            <div class="payments-header">
+                <h1>Payments & Receipts</h1>
+                <p>Process payments with zero-knowledge proof receipts and track shipments</p>
+            </div>
+
+            <div class="payments-stats">
+                <div class="stat-card clickable-card" onclick="app.showAllPayments()" title="Click to view all payments">
+                    <i class="fas fa-credit-card"></i>
+                    <div class="stat-info">
+                        <h3 id="totalPayments">0</h3>
+                        <p>Total Payments</p>
+                    </div>
+                    <i class="fas fa-external-link-alt click-indicator"></i>
+                </div>
+                <div class="stat-card clickable-card" onclick="app.showAllReceipts()" title="Click to view all receipts">
+                    <i class="fas fa-receipt"></i>
+                    <div class="stat-info">
+                        <h3 id="totalReceipts">0</h3>
+                        <p>Receipts</p>
+                    </div>
+                    <i class="fas fa-external-link-alt click-indicator"></i>
+                </div>
+                <div class="stat-card clickable-card" onclick="app.showAllShipments()" title="Click to view all shipments">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div class="stat-info">
+                        <h3 id="activeShipments">0</h3>
+                        <p>Active Shipments</p>
+                    </div>
+                    <i class="fas fa-external-link-alt click-indicator"></i>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <div class="stat-info">
+                        <h3 id="paymentVolume">$0</h3>
+                        <p>Payment Volume</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payments-actions">
+                <button id="processPaymentBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Process New Payment
+                </button>
+                <button id="verifyReceiptBtn" class="btn btn-secondary">
+                    <i class="fas fa-check-circle"></i> Verify Receipt
+                </button>
+                <button id="trackShipmentBtn" class="btn btn-info">
+                    <i class="fas fa-map-marker-alt"></i> Track Shipment
+                </button>
+            </div>
+
+            <div class="payments-content">
+                <div class="payments-grid">
+                    <div class="payment-card">
+                        <h3>Recent Payments</h3>
+                        <div id="recentPayments" class="payment-list">
+                            <!-- Recent payments will be populated here -->
+                        </div>
+                    </div>
+                    <div class="payment-card">
+                        <h3>Receipts</h3>
+                        <div id="receipts" class="receipt-list">
+                            <!-- Receipts will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Payment Modal -->
+            <div id="processPaymentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Process Payment with Receipt</h2>
+                    <form id="processPaymentForm">
+                        <div class="form-group">
+                            <label for="paymentProductSelect">Select Product *</label>
+                            <select id="paymentProductSelect" required>
+                                <option value="">Choose a product...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentAmount">Amount (USDT) *</label>
+                            <input type="number" id="paymentAmount" step="0.01" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentQuantity">Quantity *</label>
+                            <input type="number" id="paymentQuantity" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="buyerAddress">Buyer Address *</label>
+                            <input type="text" id="buyerAddress" placeholder="0x..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sellerAddress">Seller Address *</label>
+                            <input type="text" id="sellerAddress" placeholder="0x..." required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closePaymentModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Process Payment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Verify Receipt Modal -->
+            <div id="verifyReceiptModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Verify Receipt</h2>
+                    <form id="verifyReceiptForm">
+                        <div class="form-group">
+                            <label for="receiptId">Receipt ID *</label>
+                            <input type="text" id="receiptId" placeholder="Enter receipt ID..." required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeVerifyModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Verify Receipt</button>
+                        </div>
+                    </form>
+                    <div id="verificationResult" class="verification-result" style="display: none;">
+                        <!-- Verification results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track Shipment Modal -->
+            <div id="trackShipmentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Track Shipment</h2>
+                    <form id="trackShipmentForm">
+                        <div class="form-group">
+                            <label for="trackingId">Tracking ID *</label>
+                            <input type="text" id="trackingId" placeholder="Enter tracking ID..." required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeTrackingModal()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Track Shipment</button>
+                        </div>
+                    </form>
+                    <div id="trackingResult" class="tracking-result" style="display: none;">
+                        <!-- Tracking results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Details Modal -->
+            <div id="paymentDetailsModal" class="modal">
+                <div class="modal-content large-modal">
+                    <span class="close">&times;</span>
+                    <h2>Payment Details</h2>
+                    <div id="paymentDetailsContent">
+                        <!-- Payment details will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receipt Details Modal -->
+            <div id="receiptDetailsModal" class="modal">
+                <div class="modal-content large-modal">
+                    <span class="close">&times;</span>
+                    <h2>Receipt Details</h2>
+                    <div id="receiptDetailsContent">
+                        <!-- Receipt details will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipment Details Modal -->
+            <div id="shipmentDetailsModal" class="modal">
+                <div class="modal-content large-modal">
+                    <span class="close">&times;</span>
+                    <h2>Shipment Tracking Details</h2>
+                    <div id="shipmentDetailsContent">
+                        <!-- Shipment details will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Payments Modal -->
+            <div id="allPaymentsModal" class="modal">
+                <div class="modal-content large-modal">
+                    <span class="close">&times;</span>
+                    <h2>All Payments</h2>
+                    <div id="allPaymentsContent">
+                        <!-- All payments will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Receipts Modal -->
+            <div id="allReceiptsModal" class="modal">
+                <div class="modal-content large-modal">
+                    <span class="close">&times;</span>
+                    <h2>All Receipts</h2>
+                    <div id="allReceiptsContent">
+                        <!-- All receipts will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Shipments Modal -->
+            <div id="allShipmentsModal" class="modal">
+                <div class="modal-content large-modal">
+                    <span class="close">&times;</span>
+                    <h2>Active Shipments</h2>
+                    <div id="allShipmentsContent">
+                        <!-- All shipments will be populated here -->
+                    </div>
+                </div>
             </div>
         </section>
     </main>

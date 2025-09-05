@@ -1,4 +1,4 @@
-// SourceGuard - Enhanced Supply Chain Verification Circuit
+// ChainFlow - Enhanced Supply Chain Verification Circuit
 // Verifies product authenticity, supplier credentials, and supply chain integrity
 
 use std::hash::pedersen_hash;

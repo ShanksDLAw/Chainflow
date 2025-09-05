@@ -1,7 +1,7 @@
 [package]
-name = "sourceguard"
+name = "chainflow"
 type = "bin"
-authors = ["SourceGuard Team"]
+authors = ["ChainFlow Team"]
 compiler_version = "1.0.0"
 description = "Zero-Knowledge Supply Chain Verification Platform"
 

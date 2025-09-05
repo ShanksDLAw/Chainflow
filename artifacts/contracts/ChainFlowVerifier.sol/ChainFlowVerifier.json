@@ -1,0 +1,95 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ChainFlowVerifier",
+  "sourceName": "contracts/ChainFlowVerifier.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "verifier",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isValid",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "trustScore",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "routeEfficiency",
+          "type": "uint256"
+        }
+      ],
+      "name": "ProofVerified",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[4]",
+          "name": "input",
+          "type": "uint256[4]"
+        }
+      ],
+      "name": "verifyAndGetResults",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isValid",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "trustScore",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "routeEfficiency",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "riskLevel",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[4]",
+          "name": "input",
+          "type": "uint256[4]"
+        }
+      ],
+      "name": "verifyProof",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506101dc806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806399b550161461003b578063c5b587ce14610075575b600080fd5b61004e61004936600461011a565b610098565b60408051941515855260208501939093529183015260608201526080015b60405180910390f35b61008861008336600461011a565b6100c5565b604051901515815260200161006c565b6000806000806100a7856100c5565b60208601516040870151606090970151919790969550909350915050565b602081810151604080840151815160018082529481019390935282820152516000929133917fff14866850fcba3f56f5227c442391448b2aa2af39bbf2b0ea071435f07b4c239181900360600190a292915050565b60006080828403121561012c57600080fd5b82601f83011261013b57600080fd5b6040516080810181811067ffffffffffffffff8211171561016c57634e487b7160e01b600052604160045260246000fd5b60405280608084018581111561018157600080fd5b845b8181101561019b578035835260209283019201610183565b50919594505050505056fea2646970667358221220a537a25f1c90637375431e1a89d902b0ac9aaddc677e9a04809832b6750da9bb64736f6c63430008130033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806399b550161461003b578063c5b587ce14610075575b600080fd5b61004e61004936600461011a565b610098565b60408051941515855260208501939093529183015260608201526080015b60405180910390f35b61008861008336600461011a565b6100c5565b604051901515815260200161006c565b6000806000806100a7856100c5565b60208601516040870151606090970151919790969550909350915050565b602081810151604080840151815160018082529481019390935282820152516000929133917fff14866850fcba3f56f5227c442391448b2aa2af39bbf2b0ea071435f07b4c239181900360600190a292915050565b60006080828403121561012c57600080fd5b82601f83011261013b57600080fd5b6040516080810181811067ffffffffffffffff8211171561016c57634e487b7160e01b600052604160045260246000fd5b60405280608084018581111561018157600080fd5b845b8181101561019b578035835260209283019201610183565b50919594505050505056fea2646970667358221220a537a25f1c90637375431e1a89d902b0ac9aaddc677e9a04809832b6750da9bb64736f6c63430008130033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

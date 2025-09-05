@@ -1,0 +1,33 @@
+{
+  "name": "chainflow-zk-circuits",
+  "version": "1.0.0",
+  "description": "Zero-Knowledge circuits for ChainFlow supply chain route optimization",
+  "main": "proof-generator.js",
+  "scripts": {
+    "compile": "chmod +x compile.sh && ./compile.sh",
+    "test": "node proof-generator.js",
+    "clean": "rm -rf build/",
+    "setup": "npm install && npm run compile"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "zk-snarks",
+    "supply-chain",
+    "route-optimization",
+    "circom",
+    "snarkjs"
+  ],
+  "author": "ChainFlow Team",
+  "license": "MIT",
+  "dependencies": {
+    "snarkjs": "^0.7.3",
+    "circomlib": "^2.0.5",
+    "ffjavascript": "^0.2.60"
+  },
+  "devDependencies": {
+    "circom": "^2.1.6"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
