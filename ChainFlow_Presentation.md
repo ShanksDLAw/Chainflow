@@ -312,7 +312,7 @@ Real-time Data → ML Processing → Pattern Recognition → Dashboard Updates �
 ## 🚀 Live Demo
 
 **Experience ChainFlow in action:**
-- **Streamlit Web App:** [Live Demo](http://localhost:8501)
+- **Streamlit Web App:** [Live Demo](https://chainflow.streamlit.app)
 - **Frontend Dashboard:** [Traditional UI](http://localhost:8080)
 - **Backend API:** [API Documentation](http://localhost:3000/api)
 - **Smart Contract:** [Ethereum Testnet](https://sepolia.etherscan.io/)
