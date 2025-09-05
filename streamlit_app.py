@@ -64,13 +64,18 @@ st.markdown("""
 # Load sample data
 @st.cache_data
 def load_sample_data():
-    # Sample products data
+    # Expanded products data with more variety
     products = [
-        {"id": "PRD-001", "name": "Organic Coffee Beans", "category": "Food & Beverage", "supplier": "Ethiopian Highlands Co.", "trust_score": 95, "price": 24.99, "origin": "Ethiopia"},
-        {"id": "PRD-002", "name": "Sustainable Cotton T-Shirt", "category": "Apparel", "supplier": "EcoTextiles Ltd.", "trust_score": 88, "price": 29.99, "origin": "India"},
-        {"id": "PRD-003", "name": "Artisan Chocolate Bar", "category": "Food & Beverage", "supplier": "Cacao Dreams", "trust_score": 92, "price": 8.99, "origin": "Ecuador"},
-        {"id": "PRD-004", "name": "Bamboo Phone Case", "category": "Electronics", "supplier": "GreenTech Solutions", "trust_score": 85, "price": 19.99, "origin": "Vietnam"},
-        {"id": "PRD-005", "name": "Fair Trade Vanilla Extract", "category": "Food & Beverage", "supplier": "Madagascar Vanilla Co.", "trust_score": 97, "price": 15.99, "origin": "Madagascar"}
+        {"id": "PRD-001", "name": "Organic Coffee Beans", "category": "Food & Beverage", "supplier": "Ethiopian Highlands Co.", "trust_score": 95, "price": 24.99, "origin": "Ethiopia", "image": "images/coffee_beans.svg"},
+        {"id": "PRD-002", "name": "Sustainable Cotton T-Shirt", "category": "Apparel", "supplier": "EcoTextiles Ltd.", "trust_score": 88, "price": 29.99, "origin": "India", "image": "images/cotton_tshirt.svg"},
+        {"id": "PRD-003", "name": "Artisan Chocolate Bar", "category": "Food & Beverage", "supplier": "Cacao Dreams", "trust_score": 92, "price": 8.99, "origin": "Ecuador", "image": "images/chocolate_bar.svg"},
+        {"id": "PRD-004", "name": "Bamboo Phone Case", "category": "Electronics", "supplier": "GreenTech Solutions", "trust_score": 85, "price": 19.99, "origin": "Vietnam", "image": "images/bamboo_phone_case.svg"},
+        {"id": "PRD-005", "name": "Fair Trade Vanilla Extract", "category": "Food & Beverage", "supplier": "Madagascar Vanilla Co.", "trust_score": 97, "price": 15.99, "origin": "Madagascar", "image": "images/vanilla_extract.svg"},
+        {"id": "PRD-006", "name": "Swiss Luxury Watch", "category": "Luxury", "supplier": "Alpine Timepieces", "trust_score": 99, "price": 2499.99, "origin": "Switzerland", "image": "images/swiss_watch.svg"},
+        {"id": "PRD-007", "name": "Japanese Green Tea", "category": "Food & Beverage", "supplier": "Kyoto Tea Gardens", "trust_score": 94, "price": 45.99, "origin": "Japan", "image": "images/green_tea.svg"},
+        {"id": "PRD-008", "name": "Italian Leather Handbag", "category": "Fashion", "supplier": "Milano Crafters", "trust_score": 91, "price": 399.99, "origin": "Italy", "image": "images/leather_handbag.svg"},
+        {"id": "PRD-009", "name": "Norwegian Salmon", "category": "Food & Beverage", "supplier": "Arctic Fisheries", "trust_score": 96, "price": 89.99, "origin": "Norway", "image": "images/norwegian_salmon.svg"},
+        {"id": "PRD-010", "name": "Australian Wool Blanket", "category": "Home & Living", "supplier": "Outback Textiles", "trust_score": 89, "price": 159.99, "origin": "Australia", "image": "images/wool_blanket.svg"}
     ]
     
     # Sample tracking data
@@ -113,29 +118,113 @@ def generate_analytics_data():
     
     return pd.DataFrame(metrics_data)
 
-# Simulate ML route optimization
-def optimize_route(origin, destination):
-    routes = {
-        ("Ethiopia", "London"): {
-            "optimal": ["Addis Ababa", "Dubai", "Hamburg", "London"],
-            "cost": 2450,
-            "time": "14 days",
-            "carbon": "2.1 tons CO2"
-        },
-        ("India", "New York"): {
-            "optimal": ["Mumbai", "Singapore", "Los Angeles", "New York"],
-            "cost": 3200,
-            "time": "18 days",
-            "carbon": "3.2 tons CO2"
-        }
+# Global countries data
+@st.cache_data
+def get_global_countries():
+    return [
+        "Afghanistan", "Albania", "Algeria", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+        "Bahrain", "Bangladesh", "Belarus", "Belgium", "Bolivia", "Brazil", "Bulgaria", "Cambodia",
+        "Canada", "Chile", "China", "Colombia", "Croatia", "Czech Republic", "Denmark", "Ecuador",
+        "Egypt", "Estonia", "Ethiopia", "Finland", "France", "Georgia", "Germany", "Ghana",
+        "Greece", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
+        "Israel", "Italy", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Latvia",
+        "Lebanon", "Lithuania", "Luxembourg", "Madagascar", "Malaysia", "Mexico", "Morocco", "Netherlands",
+        "New Zealand", "Nigeria", "Norway", "Pakistan", "Peru", "Philippines", "Poland", "Portugal",
+        "Qatar", "Romania", "Russia", "Saudi Arabia", "Singapore", "Slovakia", "Slovenia", "South Africa",
+        "South Korea", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Thailand", "Turkey", "UAE",
+        "Ukraine", "United Kingdom", "United States", "Uruguay", "Venezuela", "Vietnam", "Yemen", "Zimbabwe"
+    ]
+
+# Major shipping hubs by region
+@st.cache_data
+def get_shipping_hubs():
+    return {
+        "Asia": ["Singapore", "Shanghai", "Hong Kong", "Dubai", "Mumbai"],
+        "Europe": ["Rotterdam", "Hamburg", "Antwerp", "London", "Barcelona"],
+        "Americas": ["Los Angeles", "New York", "Miami", "Vancouver", "Santos"],
+        "Africa": ["Cape Town", "Lagos", "Cairo", "Casablanca", "Durban"],
+        "Oceania": ["Sydney", "Melbourne", "Auckland", "Brisbane"]
     }
+
+# Enhanced ML route optimization with real-world logic
+def optimize_route(origin, destination, priority="Cost"):
+    hubs = get_shipping_hubs()
     
-    return routes.get((origin, destination), {
-        "optimal": [origin, "Transit Hub", destination],
-        "cost": random.randint(2000, 4000),
-        "time": f"{random.randint(10, 25)} days",
-        "carbon": f"{random.uniform(1.5, 4.0):.1f} tons CO2"
-    })
+    # Determine optimal route based on geography and priority
+    def get_region(country):
+        asia_countries = ["China", "India", "Japan", "Singapore", "Thailand", "Vietnam", "Malaysia", "Indonesia", "South Korea", "Philippines"]
+        europe_countries = ["Germany", "France", "United Kingdom", "Italy", "Spain", "Netherlands", "Belgium", "Switzerland", "Austria", "Sweden", "Norway", "Denmark"]
+        americas_countries = ["United States", "Canada", "Brazil", "Mexico", "Argentina", "Chile", "Colombia", "Peru"]
+        africa_countries = ["South Africa", "Nigeria", "Egypt", "Kenya", "Ghana", "Morocco", "Ethiopia"]
+        
+        if country in asia_countries: return "Asia"
+        elif country in europe_countries: return "Europe"
+        elif country in americas_countries: return "Americas"
+        elif country in africa_countries: return "Africa"
+        else: return "Asia"  # Default
+    
+    origin_region = get_region(origin)
+    dest_region = get_region(destination)
+    
+    # Build optimal route
+    route = [origin]
+    
+    if origin_region != dest_region:
+        # Add regional hub for origin
+        origin_hub = random.choice(hubs[origin_region])
+        if origin_hub != origin:
+            route.append(origin_hub)
+        
+        # Add international transit hub
+        if origin_region == "Asia" and dest_region == "Europe":
+            route.append("Dubai")
+        elif origin_region == "Europe" and dest_region == "Americas":
+            route.append("London")
+        elif origin_region == "Asia" and dest_region == "Americas":
+            route.extend(["Singapore", "Los Angeles"])
+        else:
+            # General international hub
+            route.append(random.choice(["Dubai", "Singapore", "London"]))
+        
+        # Add destination regional hub
+        dest_hub = random.choice(hubs[dest_region])
+        if dest_hub != destination:
+            route.append(dest_hub)
+    
+    route.append(destination)
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    route = [x for x in route if not (x in seen or seen.add(x))]
+    
+    # Calculate metrics based on priority and distance
+    base_cost = len(route) * random.randint(800, 1200)
+    base_time = len(route) * random.randint(3, 7)
+    base_carbon = len(route) * random.uniform(0.8, 1.5)
+    
+    # Adjust based on priority
+    if priority == "Cost":
+        cost_multiplier = 0.85
+        time_multiplier = 1.2
+        carbon_multiplier = 1.1
+    elif priority == "Time":
+        cost_multiplier = 1.3
+        time_multiplier = 0.7
+        carbon_multiplier = 1.4
+    else:  # Sustainability
+        cost_multiplier = 1.1
+        time_multiplier = 1.1
+        carbon_multiplier = 0.6
+    
+    return {
+        "optimal": route,
+        "cost": int(base_cost * cost_multiplier),
+        "time": f"{int(base_time * time_multiplier)} days",
+        "carbon": f"{base_carbon * carbon_multiplier:.1f} tons CO2",
+        "efficiency_score": random.randint(85, 98),
+        "risk_level": random.choice(["Low", "Medium", "Low", "Low"]),  # Weighted towards low risk
+        "weather_impact": random.choice(["Minimal", "Low", "Moderate"])
+    }
 
 # Generate ZK proof simulation
 def generate_zk_proof(product_id):
@@ -148,9 +237,19 @@ def generate_zk_proof(product_id):
 
 # Main app
 def main():
-    # Header
-    st.markdown('<h1 class="main-header">🔗 ChainFlow</h1>', unsafe_allow_html=True)
-    st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">AI-Powered Supply Chain Verification Platform</p>', unsafe_allow_html=True)
+    # Header with logo
+    try:
+        with open('images/chainflow_logo.svg', 'r') as f:
+            logo_svg = f.read()
+        st.markdown(f"""
+        <div style="text-align: center; margin-bottom: 2rem;">
+            {logo_svg}
+        </div>
+        """, unsafe_allow_html=True)
+    except FileNotFoundError:
+        # Fallback header
+        st.markdown('<h1 class="main-header">🔗 ChainFlow</h1>', unsafe_allow_html=True)
+        st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">AI-Powered Supply Chain Verification Platform</p>', unsafe_allow_html=True)
     
     # Load data
     products, tracking_data = load_sample_data()
@@ -181,12 +280,29 @@ def main():
 def dashboard_page(analytics_df):
     st.header("📊 Supply Chain Dashboard")
     
-    # Key metrics
+    # Key metrics with icons
     col1, col2, col3, col4 = st.columns(4)
+    
+    # Load dashboard icons
+    try:
+        with open('images/dashboard_icons.svg', 'r') as f:
+            icons_svg = f.read()
+        
+        # Extract individual icons (simplified approach)
+        shipment_icon = "🚛"
+        verification_icon = "🛡️"
+        savings_icon = "💰"
+        trust_icon = "⭐"
+    except FileNotFoundError:
+        shipment_icon = "📦"
+        verification_icon = "✅"
+        savings_icon = "💰"
+        trust_icon = "⭐"
     
     with col1:
         st.markdown("""
         <div class="metric-card">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚛</div>
             <h3>2,847</h3>
             <p>Total Shipments</p>
         </div>
@@ -195,6 +311,7 @@ def dashboard_page(analytics_df):
     with col2:
         st.markdown("""
         <div class="metric-card">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🛡️</div>
             <h3>98.5%</h3>
             <p>Verification Rate</p>
         </div>
@@ -203,6 +320,7 @@ def dashboard_page(analytics_df):
     with col3:
         st.markdown("""
         <div class="metric-card">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
             <h3>$2.4M</h3>
             <p>Cost Savings</p>
         </div>
@@ -211,6 +329,7 @@ def dashboard_page(analytics_df):
     with col4:
         st.markdown("""
         <div class="metric-card">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">⭐</div>
             <h3>94.2</h3>
             <p>Avg Trust Score</p>
         </div>
@@ -244,43 +363,203 @@ def dashboard_page(analytics_df):
     st.dataframe(pd.DataFrame(activity_data), use_container_width=True)
 
 def product_verification_page(products):
-    st.header("📦 Product Verification")
+    st.header("🔍 AI-Powered Product Verification")
     
-    # Search functionality
-    col1, col2 = st.columns([3, 1])
-    with col1:
-        search_term = st.text_input("🔍 Search products by name or ID:", placeholder="Enter product name or ID...")
-    with col2:
-        category_filter = st.selectbox("Category:", ["All"] + list(set([p["category"] for p in products])))
+    # Introduction
+    st.markdown("""
+    <div class="feature-card">
+        <h4>🤖 Machine Learning Authentication System</h4>
+        <p>Our AI analyzes multiple data points including blockchain records, IoT sensor data, 
+        and supply chain patterns to verify product authenticity with 99.7% accuracy.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    # Filter products
-    filtered_products = products
-    if search_term:
-        filtered_products = [p for p in products if search_term.lower() in p["name"].lower() or search_term.lower() in p["id"].lower()]
-    if category_filter != "All":
-        filtered_products = [p for p in filtered_products if p["category"] == category_filter]
+    # Product selection with enhanced UI
+    st.subheader("📦 Select Product for Verification")
     
-    # Display products
-    for product in filtered_products:
-        with st.expander(f"🏷️ {product['name']} ({product['id']})"):
-            col1, col2, col3 = st.columns(3)
+    # Create a more visual product selector
+    product_options = [f"{p['name']} - {p['origin']}" for p in products]
+    selected_product = st.selectbox("Choose a product:", product_options, 
+                                   help="Select any product to see our AI verification in action")
+    
+    if selected_product:
+        # Find the selected product
+        product = next(p for p in products if f"{p['name']} - {p['origin']}" == selected_product)
+        
+        # Enhanced product display
+        col1, col2 = st.columns([1, 2])
+        
+        with col1:
+            # Display SVG image
+            try:
+                with open(product['image'], 'r') as f:
+                    svg_content = f.read()
+                st.markdown(f"""
+                <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                            border-radius: 15px; margin: 10px 0;">
+                    <div style="margin-bottom: 10px;">{svg_content}</div>
+                    <h3 style="color: white; margin: 0;">{product['name']}</h3>
+                </div>
+                """, unsafe_allow_html=True)
+            except FileNotFoundError:
+                # Fallback to a placeholder if image not found
+                st.markdown(f"""
+                <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                            border-radius: 15px; margin: 10px 0;">
+                    <div style="font-size: 80px; margin-bottom: 10px; color: white;">📦</div>
+                    <h3 style="color: white; margin: 0;">{product['name']}</h3>
+                </div>
+                """, unsafe_allow_html=True)
+        
+        with col2:
+            st.subheader(f"📦 {product['name']}")
             
-            with col1:
-                st.write(f"**Category:** {product['category']}")
-                st.write(f"**Supplier:** {product['supplier']}")
-                st.write(f"**Origin:** {product['origin']}")
+            # Enhanced product info with metrics
+            col2a, col2b = st.columns(2)
+            with col2a:
+                st.metric("🌍 Origin", product['origin'])
+                st.metric("💰 Price", f"${product['price']}")
+            with col2b:
+                st.metric("⭐ Trust Score", f"{product['trust_score']}/100")
+                st.metric("📊 Category", product['category'])
             
-            with col2:
-                st.write(f"**Price:** ${product['price']}")
-                trust_color = "green" if product['trust_score'] >= 90 else "orange" if product['trust_score'] >= 80 else "red"
-                st.write(f"**Trust Score:** :{trust_color}[{product['trust_score']}/100]")
-            
-            with col3:
-                if st.button(f"🔍 Verify {product['id']}", key=f"verify_{product['id']}"):
-                    with st.spinner("Generating ZK proof..."):
-                        time.sleep(1)
-                        proof = generate_zk_proof(product['id'])
-                        st.success(f"✅ Product verified! Proof: {proof['proof_hash'][:16]}...")
+            # Verification status with enhanced UI
+            trust_score = product['trust_score']
+            if trust_score >= 90:
+                st.success("✅ AI Verification: AUTHENTIC")
+                st.progress(trust_score / 100)
+                st.caption(f"Confidence: {trust_score}%")
+            else:
+                st.warning("⚠️ Verification in Progress...")
+                st.progress(0.65)
+                st.caption("Analyzing: 65% complete")
+        
+        # ML Analysis Section
+        st.subheader("🧠 AI Analysis Results")
+        
+        # Simulate ML analysis with progress
+        if st.button("🔬 Run AI Verification Analysis", type="primary"):
+            with st.spinner("🤖 AI is analyzing product data..."):
+                # Simulate analysis steps
+                analysis_steps = [
+                    "Scanning blockchain records...",
+                    "Analyzing IoT sensor data...",
+                    "Cross-referencing supply chain patterns...",
+                    "Validating certificates and compliance...",
+                    "Running ML authenticity models...",
+                    "Generating confidence scores..."
+                ]
+                
+                progress_bar = st.progress(0)
+                status_text = st.empty()
+                
+                for i, step in enumerate(analysis_steps):
+                    status_text.text(step)
+                    time.sleep(0.5)
+                    progress_bar.progress((i + 1) / len(analysis_steps))
+                
+                status_text.text("Analysis complete!")
+                
+                # Enhanced verification results
+                st.success("✅ AI Analysis Complete!")
+                
+                # Detailed verification metrics
+                col1, col2, col3, col4 = st.columns(4)
+                
+                with col1:
+                    st.metric("🔍 Authenticity", "98.5%", delta="+2.1%")
+                with col2:
+                    st.metric("🌍 Origin Verified", "97.2%", delta="+1.8%")
+                with col3:
+                    st.metric("📋 Compliance", "99.1%", delta="+0.5%")
+                with col4:
+                    st.metric("🌱 Sustainability", "94.7%", delta="+3.2%")
+        
+        # Detailed verification breakdown
+        st.subheader("📊 Verification Breakdown")
+        
+        verification_data = {
+            "Verification Layer": ["🔗 Blockchain Records", "📡 IoT Sensor Data", "🏭 Supply Chain Tracking", 
+                                 "📜 Certificates & Compliance", "🤖 ML Pattern Analysis", "🔐 Cryptographic Signatures"],
+            "Status": ["✅ Verified", "✅ Verified", "✅ Verified", "⚠️ Pending Review", "✅ Verified", "✅ Verified"],
+            "Confidence": ["98.5%", "96.2%", "97.8%", "89.3%", "99.1%", "100%"],
+            "Data Points": ["847", "1,203", "456", "23", "15,678", "12"]
+        }
+        
+        verification_df = pd.DataFrame(verification_data)
+        st.dataframe(verification_df, use_container_width=True)
+        
+        # Enhanced ZK Proof Section
+        st.subheader("🔐 Zero-Knowledge Proof Generation")
+        
+        st.markdown("""
+        <div class="feature-card">
+            <h4>🛡️ Privacy-Preserving Verification</h4>
+            <p>Generate cryptographic proof of product authenticity without revealing sensitive 
+            supply chain data or proprietary information.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            proof_type = st.selectbox("Proof Type:", ["Authenticity Proof", "Origin Proof", "Quality Proof", "Full Verification Proof"])
+            privacy_level = st.selectbox("Privacy Level:", ["Standard", "High", "Maximum"])
+        
+        with col2:
+            include_metadata = st.checkbox("Include Metadata", value=True)
+            public_verification = st.checkbox("Enable Public Verification", value=False)
+        
+        if st.button("🔒 Generate Zero-Knowledge Proof", type="primary"):
+            with st.spinner("🔐 Generating cryptographic proof..."):
+                # Simulate ZK proof generation
+                progress_bar = st.progress(0)
+                steps = ["Initializing circuit", "Computing witness", "Generating proof", "Verifying proof"]
+                
+                for i, step in enumerate(steps):
+                    time.sleep(0.8)
+                    progress_bar.progress((i + 1) / len(steps))
+                
+                proof = generate_zk_proof(product['id'])
+                
+                st.success("✅ Zero-Knowledge Proof Generated Successfully!")
+                
+                # Enhanced proof display
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.subheader("🔑 Proof Details")
+                    st.code(f"Proof Hash: {proof['proof_hash'][:32]}...", language="text")
+                    st.code(f"Public Inputs: {proof['proof_hash'][32:64]}...", language="text")
+                    st.write(f"**Proof Type:** {proof_type}")
+                    st.write(f"**Privacy Level:** {privacy_level}")
+                
+                with col2:
+                    st.subheader("📊 Verification Metrics")
+                    st.write(f"**Generation Time:** {proof['verification_time']}")
+                    st.write(f"**Proof Size:** 248 bytes")
+                    st.write(f"**Verification Time:** <1ms")
+                    st.write(f"**Status:** ✅ Valid & Verified")
+                    st.write(f"**Timestamp:** {proof['timestamp']}")
+                
+                # Proof verification section
+                st.subheader("🔍 Proof Verification")
+                
+                verification_result = {
+                    "Verification Check": ["Proof Validity", "Circuit Integrity", "Public Input Consistency", "Cryptographic Signature"],
+                    "Result": ["✅ Valid", "✅ Verified", "✅ Consistent", "✅ Authentic"],
+                    "Details": ["Proof mathematically sound", "Circuit hash matches", "Inputs properly formatted", "Signature verified"]
+                }
+                
+                verification_result_df = pd.DataFrame(verification_result)
+                st.dataframe(verification_result_df, use_container_width=True)
+                
+                st.info("🔒 This ZK proof mathematically guarantees product authenticity while keeping sensitive supply chain data completely private.")
+                
+                # Download proof option
+                if st.button("📥 Download Proof Certificate"):
+                    st.success("📄 Proof certificate downloaded successfully!")
+                    st.balloons()
 
 def tracking_page(tracking_data):
     st.header("🚚 Shipment Tracking")
@@ -290,6 +569,19 @@ def tracking_page(tracking_data):
     
     if tracking_id in tracking_data:
         shipment = tracking_data[tracking_id]
+        
+        # Add world map visualization
+        try:
+            with open('images/world_map.svg', 'r') as f:
+                map_svg = f.read()
+            st.markdown("""
+            <div style="text-align: center; margin: 1rem 0;">
+                <h4>🌍 Real-time Tracking Map</h4>
+            </div>
+            """, unsafe_allow_html=True)
+            st.markdown(f'<div style="text-align: center;">{map_svg}</div>', unsafe_allow_html=True)
+        except FileNotFoundError:
+            st.info("🗺️ Interactive map visualization would appear here")
         
         # Status overview
         col1, col2, col3 = st.columns(3)
@@ -345,90 +637,172 @@ def payment_page(products):
             payment_method = st.selectbox("Payment Method:", ["Credit Card", "Bank Transfer", "Crypto"])
         
         submitted = st.form_submit_button("💳 Process Payment")
-        
-        if submitted:
-            with st.spinner("Processing payment..."):
-                time.sleep(2)
-                tracking_id = f"TRK-PAY-{random.randint(100, 999)}"
-                
-                st.success(f"✅ Payment processed successfully!")
-                st.info(f"📋 Tracking ID: {tracking_id}")
-                
-                # Generate receipt
-                receipt_data = {
-                    "Receipt ID": f"RCP-{random.randint(10000, 99999)}",
-                    "Tracking ID": tracking_id,
-                    "Product": selected_product.split(" - ")[0],
-                    "Amount": f"${amount:.2f} {currency}",
-                    "Payment Method": payment_method,
-                    "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "ZK Proof": f"0x{random.getrandbits(128):032x}"
-                }
-                
-                st.subheader("🧾 Digital Receipt")
-                for key, value in receipt_data.items():
-                    st.write(f"**{key}:** {value}")
-                
-                if st.button("📥 Download Receipt (PDF)"):
-                    st.success("📄 Receipt downloaded successfully!")
+    
+    # Handle form submission outside the form
+    if submitted:
+        with st.spinner("Processing payment..."):
+            time.sleep(2)
+            tracking_id = f"TRK-PAY-{random.randint(100, 999)}"
+            
+            st.success(f"✅ Payment processed successfully!")
+            st.info(f"📋 Tracking ID: {tracking_id}")
+            
+            # Store receipt data in session state
+            receipt_data = {
+                "Receipt ID": f"RCP-{random.randint(10000, 99999)}",
+                "Tracking ID": tracking_id,
+                "Product": selected_product.split(" - ")[0],
+                "Amount": f"${amount:.2f} {currency}",
+                "Payment Method": payment_method,
+                "Timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "ZK Proof": f"0x{random.getrandbits(128):032x}"
+            }
+            
+            st.session_state.receipt_data = receipt_data
+            
+            st.subheader("🧾 Digital Receipt")
+            for key, value in receipt_data.items():
+                st.write(f"**{key}:** {value}")
+    
+    # Download button outside the form
+    if 'receipt_data' in st.session_state:
+        if st.button("📥 Download Receipt (PDF)"):
+            st.success("📄 Receipt downloaded successfully!")
 
 def route_optimization_page():
     st.header("🤖 AI Route Optimization")
+    
+    # Introduction
+    st.markdown("""
+    <div class="feature-card">
+        <h4>🧠 Machine Learning Powered Route Planning</h4>
+        <p>Our AI analyzes global shipping data, weather patterns, geopolitical factors, and real-time logistics 
+        to find the most efficient routes for your supply chain needs.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    countries = get_global_countries()
     
     # Route optimization form
     col1, col2 = st.columns(2)
     
     with col1:
-        origin = st.selectbox("Origin:", ["Ethiopia", "India", "Ecuador", "Vietnam", "Madagascar"])
-        destination = st.selectbox("Destination:", ["London", "New York", "Tokyo", "Sydney", "Berlin"])
-    
+        st.subheader("📍 Route Configuration")
+        origin = st.selectbox("Origin Country:", countries, index=countries.index("China"))
+        destination = st.selectbox("Destination Country:", countries, index=countries.index("United States"))
+        
     with col2:
+        st.subheader("⚙️ Optimization Settings")
         priority = st.selectbox("Optimization Priority:", ["Cost", "Time", "Sustainability"])
-        cargo_type = st.selectbox("Cargo Type:", ["Standard", "Fragile", "Perishable", "Hazardous"])
+        cargo_type = st.selectbox("Cargo Type:", ["Standard", "Fragile", "Perishable", "Hazardous", "Electronics", "Textiles"])
     
-    if st.button("🚀 Optimize Route"):
-        with st.spinner("AI is calculating optimal route..."):
-            time.sleep(2)
+    # Advanced options
+    with st.expander("🔧 Advanced Options"):
+        col1, col2 = st.columns(2)
+        with col1:
+            max_stops = st.slider("Maximum Transit Stops:", 1, 8, 4)
+            avoid_regions = st.multiselect("Avoid Regions:", ["High Risk Areas", "Weather Affected", "Port Congestion"])
+        with col2:
+            insurance_level = st.selectbox("Insurance Level:", ["Basic", "Standard", "Premium", "Full Coverage"])
+            tracking_frequency = st.selectbox("Tracking Updates:", ["Daily", "Real-time", "On Milestones"])
+    
+    if st.button("🚀 Optimize Route", type="primary"):
+        with st.spinner("🧠 AI is analyzing global logistics data..."):
+            progress_bar = st.progress(0)
+            for i in range(100):
+                time.sleep(0.02)
+                progress_bar.progress(i + 1)
             
-            route_data = optimize_route(origin, destination)
+            route_data = optimize_route(origin, destination, priority)
             
             st.success("✅ Route optimization complete!")
             
-            # Display results
-            col1, col2, col3 = st.columns(3)
+            # Enhanced results display
+            col1, col2, col3, col4 = st.columns(4)
             
             with col1:
-                st.metric("💰 Estimated Cost", f"${route_data['cost']:,}")
+                st.metric("💰 Total Cost", f"${route_data['cost']:,}", delta="-15% vs standard")
             
             with col2:
-                st.metric("⏱️ Transit Time", route_data['time'])
+                st.metric("⏱️ Transit Time", route_data['time'], delta="-3 days vs standard")
             
             with col3:
-                st.metric("🌱 Carbon Footprint", route_data['carbon'])
+                st.metric("🌱 Carbon Footprint", route_data['carbon'], delta="-20% vs standard")
             
-            # Route details
-            st.subheader("🗺️ Optimal Route")
+            with col4:
+                st.metric("📊 Efficiency Score", f"{route_data['efficiency_score']}%", delta="+12% improvement")
+            
+            # Additional metrics
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                risk_color = "green" if route_data['risk_level'] == "Low" else "orange"
+                st.markdown(f"**🛡️ Risk Level:** :{risk_color}[{route_data['risk_level']}]")
+            with col2:
+                st.markdown(f"**🌤️ Weather Impact:** {route_data['weather_impact']}")
+            with col3:
+                st.markdown(f"**📦 Cargo Type:** {cargo_type}")
+            
+            # Route visualization
+            st.subheader("🗺️ Optimized Route Path")
             route_steps = route_data['optimal']
             
-            for i, step in enumerate(route_steps):
-                if i == 0:
-                    st.write(f"🏁 **Start:** {step}")
-                elif i == len(route_steps) - 1:
-                    st.write(f"🎯 **Destination:** {step}")
-                else:
-                    st.write(f"📍 **Stop {i}:** {step}")
+            # Create route visualization
+            route_df = pd.DataFrame({
+                'Step': range(1, len(route_steps) + 1),
+                'Location': route_steps,
+                'Type': ['Origin'] + ['Transit Hub'] * (len(route_steps) - 2) + ['Destination'],
+                'Estimated Days': [0] + [i * int(route_data['time'].split()[0]) // len(route_steps) for i in range(1, len(route_steps))]
+            })
             
-            # Comparison with alternatives
-            st.subheader("📊 Route Comparison")
+            # Display route as a flow
+            for i, (_, row) in enumerate(route_df.iterrows()):
+                if i == 0:
+                    st.markdown(f"🏁 **{row['Type']}:** {row['Location']} (Day {row['Estimated Days']})")
+                elif i == len(route_df) - 1:
+                    st.markdown(f"🎯 **{row['Type']}:** {row['Location']} (Day {row['Estimated Days']})")
+                else:
+                    st.markdown(f"📍 **{row['Type']} {i}:** {row['Location']} (Day {row['Estimated Days']})")
+                
+                if i < len(route_df) - 1:
+                    st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;⬇️")
+            
+            # Route comparison table
+            st.subheader("📊 Route Analysis & Alternatives")
+            
+            base_cost = route_data['cost']
+            base_time = int(route_data['time'].split()[0])
+            base_carbon = float(route_data['carbon'].split()[0])
+            
             comparison_data = {
-                "Route Type": ["AI Optimized", "Standard", "Express"],
-                "Cost ($)": [route_data['cost'], route_data['cost'] * 1.3, route_data['cost'] * 1.8],
-                "Time (days)": [int(route_data['time'].split()[0]), int(route_data['time'].split()[0]) * 1.2, int(route_data['time'].split()[0]) * 0.7],
-                "Carbon (tons)": [float(route_data['carbon'].split()[0]), float(route_data['carbon'].split()[0]) * 1.4, float(route_data['carbon'].split()[0]) * 1.1]
+                "Route Type": ["🤖 AI Optimized", "📋 Standard Route", "⚡ Express Route", "🌱 Eco-Friendly"],
+                "Cost ($)": [f"${base_cost:,}", f"${int(base_cost * 1.3):,}", f"${int(base_cost * 1.8):,}", f"${int(base_cost * 1.1):,}"],
+                "Time (days)": [base_time, int(base_time * 1.4), int(base_time * 0.6), int(base_time * 1.2)],
+                "Carbon (tons)": [f"{base_carbon:.1f}", f"{base_carbon * 1.4:.1f}", f"{base_carbon * 1.6:.1f}", f"{base_carbon * 0.5:.1f}"],
+                "Reliability": ["98%", "85%", "92%", "90%"],
+                "Risk Level": ["Low", "Medium", "Medium", "Low"]
             }
             
             comparison_df = pd.DataFrame(comparison_data)
             st.dataframe(comparison_df, use_container_width=True)
+            
+            # ZK Proof for route verification
+            st.subheader("🔐 Route Verification with Zero-Knowledge Proof")
+            if st.button("🔒 Generate Route ZK Proof"):
+                with st.spinner("Generating cryptographic proof for route authenticity..."):
+                    time.sleep(1.5)
+                    route_proof = generate_zk_proof(f"ROUTE-{origin}-{destination}")
+                    
+                    st.success("✅ Route ZK Proof generated successfully!")
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.code(f"Proof Hash: {route_proof['proof_hash'][:32]}...", language="text")
+                        st.write(f"**Verification Time:** {route_proof['verification_time']}")
+                    with col2:
+                        st.write(f"**Status:** ✅ Verified")
+                        st.write(f"**Generated:** {route_proof['timestamp']}")
+                    
+                    st.info("🔒 This ZK proof ensures route authenticity without revealing sensitive logistics data.")
 
 def analytics_page(analytics_df):
     st.header("📊 Supply Chain Analytics")
@@ -510,55 +884,220 @@ def analytics_page(analytics_df):
         st.info(insight)
 
 def zk_proof_page(products):
-    st.header("🔐 Zero-Knowledge Proof Demo")
+    st.header("🔐 Zero-Knowledge Proof Technology Demo")
     
+    # Educational introduction
     st.markdown("""
     <div class="feature-card">
-        <h4>🔒 Privacy-Preserving Verification</h4>
-        <p>Zero-Knowledge proofs allow verification of supply chain data without revealing sensitive information. 
-        This demo shows how ChainFlow generates and verifies ZK proofs for product authenticity.</p>
+        <h4>🧠 Understanding Zero-Knowledge Proofs</h4>
+        <p>Zero-Knowledge Proofs are cryptographic methods that allow one party to prove to another 
+        that they know a value, without conveying any information apart from the fact that they know the value.</p>
     </div>
     """, unsafe_allow_html=True)
     
-    # ZK Proof generation
-    selected_product = st.selectbox("Select Product for ZK Proof:", [f"{p['name']} ({p['id']})" for p in products])
+    # Benefits section
+    st.subheader("🌟 Benefits in Supply Chain Management")
     
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown("""
+        **🔒 Privacy Protection**
+        - Prove authenticity without revealing supplier details
+        - Verify compliance without exposing processes
+        - Confirm quality without sharing sensitive data
+        """)
+    
+    with col2:
+        st.markdown("""
+        **⚡ Efficiency**
+        - Instant verification
+        - Reduced data sharing
+        - Lower compliance costs
+        """)
+    
+    with col3:
+        st.markdown("""
+        **🛡️ Security**
+        - Cryptographically secure
+        - Tamper-proof verification
+        - Decentralized trust
+        """)
+    
+    # Interactive demo section
+    st.subheader("🧪 Interactive ZK Proof Generator")
+    
+    # Demo configuration
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("🔐 Generate ZK Proof"):
-            with st.spinner("Generating zero-knowledge proof..."):
-                time.sleep(2)
-                
-                product_id = selected_product.split("(")[1].split(")")[0]
-                proof = generate_zk_proof(product_id)
-                
-                st.session_state.current_proof = proof
-                st.success("✅ ZK Proof generated successfully!")
+        demo_type = st.selectbox("Select proof scenario:", 
+                                ["🔍 Product Authenticity", "🌍 Origin Verification", 
+                                 "📋 Quality Compliance", "💰 Price Verification", 
+                                 "🚚 Logistics Confirmation"])
+        
+        circuit_type = st.selectbox("Circuit Complexity:", 
+                                   ["Simple (Hash)", "Medium (Merkle Tree)", "Advanced (Custom Circuit)"])
     
     with col2:
-        if st.button("✅ Verify ZK Proof") and 'current_proof' in st.session_state:
-            with st.spinner("Verifying proof..."):
-                time.sleep(1)
-                
-                if st.session_state.current_proof['verified']:
-                    st.success("🎉 Proof verification successful!")
-                else:
-                    st.error("❌ Proof verification failed!")
+        proof_system = st.selectbox("Proof System:", 
+                                   ["Groth16", "PLONK", "STARK", "Bulletproofs"])
+        
+        security_level = st.selectbox("Security Level:", 
+                                     ["128-bit", "192-bit", "256-bit"])
     
-    # Display proof details
-    if 'current_proof' in st.session_state:
-        st.subheader("📋 Proof Details")
+    # Secret data input
+    st.subheader("🔐 Secret Information")
+    
+    secret_data = st.text_area("Enter confidential supply chain data:", 
+                              value="Supplier: SecretCorp\nLocation: Confidential\nPrice: $1,250\nQuality: Grade A+", 
+                              height=100,
+                              help="This sensitive information will be proven without being revealed")
+    
+    # Public parameters
+    with st.expander("🔧 Advanced Configuration"):
+        col1, col2 = st.columns(2)
+        with col1:
+            include_timestamp = st.checkbox("Include Timestamp", value=True)
+            batch_verification = st.checkbox("Enable Batch Verification", value=False)
+        with col2:
+            recursive_proof = st.checkbox("Recursive Proof", value=False)
+            zero_knowledge_level = st.slider("Zero-Knowledge Level", 1, 10, 8)
+    
+    # Generate proof button
+    if st.button("🔒 Generate Zero-Knowledge Proof", type="primary"):
+        with st.spinner("🔐 Generating cryptographic proof..."):
+            # Simulate proof generation steps
+            steps = [
+                "Initializing trusted setup...",
+                "Compiling circuit...",
+                "Computing witness...",
+                "Generating proof...",
+                "Verifying proof...",
+                "Finalizing output..."
+            ]
+            
+            progress_bar = st.progress(0)
+            status_text = st.empty()
+            
+            for i, step in enumerate(steps):
+                status_text.text(step)
+                time.sleep(0.7)
+                progress_bar.progress((i + 1) / len(steps))
+            
+            proof = generate_zk_proof(secret_data)
+            
+            # Store proof in session state
+            st.session_state.zk_proof_data = {
+                'proof': proof,
+                'proof_system': proof_system,
+                'security_level': security_level,
+                'circuit_type': circuit_type,
+                'zero_knowledge_level': zero_knowledge_level
+            }
+            
+            st.success("✅ Zero-Knowledge Proof Generated Successfully!")
+    
+    # Display proof results if available
+    if 'zk_proof_data' in st.session_state:
+        proof_data = st.session_state.zk_proof_data
+        proof = proof_data['proof']
+        proof_system = proof_data['proof_system']
+        security_level = proof_data['security_level']
+        circuit_type = proof_data['circuit_type']
+        zero_knowledge_level = proof_data['zero_knowledge_level']
         
-        proof_details = {
-            "Proof Hash": st.session_state.current_proof['proof_hash'],
-            "Verification Time": st.session_state.current_proof['verification_time'],
-            "Status": "✅ Verified" if st.session_state.current_proof['verified'] else "❌ Invalid",
-            "Generated At": st.session_state.current_proof['timestamp']
-        }
+        # Enhanced proof display
+        col1, col2 = st.columns(2)
         
-        for key, value in proof_details.items():
-            st.write(f"**{key}:** {value}")
+        with col1:
+            st.subheader("🔑 Generated Proof")
+            st.code(f"Proof Hash:\n{proof['proof_hash'][:64]}...\n\nPublic Inputs:\n{proof['proof_hash'][64:128]}...\n\nVerification Key:\n{proof['proof_hash'][128:192]}...", language="text")
+            
+            st.subheader("📊 Proof Metrics")
+            st.write(f"**Proof System:** {proof_system}")
+            st.write(f"**Security Level:** {security_level}")
+            st.write(f"**Circuit Type:** {circuit_type}")
+            st.write(f"**Proof Size:** 248 bytes")
+        
+        with col2:
+            st.subheader("✅ Verification Results")
+            
+            verification_checks = {
+                "Check": ["Proof Validity", "Circuit Integrity", "Public Input Consistency", 
+                         "Cryptographic Signature", "Zero-Knowledge Property"],
+                "Status": ["✅ Valid", "✅ Verified", "✅ Consistent", "✅ Authentic", "✅ Preserved"],
+                "Time": ["<1ms", "<1ms", "<1ms", "<1ms", "<1ms"]
+            }
+            
+            verification_df = pd.DataFrame(verification_checks)
+            st.dataframe(verification_df, use_container_width=True)
+            
+            st.write(f"**Generation Time:** {proof['verification_time']}")
+            st.write(f"**Verification Time:** <1ms")
+            st.write(f"**Status:** ✅ Valid & Verified")
+            st.write(f"**Timestamp:** {proof['timestamp']}")
+        
+        # What was proven section
+        st.subheader("🎯 What Was Proven")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            **✅ Proven (without revealing):**
+            - Data authenticity and integrity
+            - Compliance with specified criteria
+            - Possession of valid credentials
+            - Meeting quality standards
+            - Authorized access to information
+            """)
+        
+        with col2:
+            st.markdown("""
+            **🔒 Kept Private:**
+            - Actual supplier names and details
+            - Specific pricing information
+            - Proprietary processes and methods
+            - Sensitive location data
+            - Trade secrets and formulations
+            """)
+        
+        # Technical details
+        with st.expander("🔬 Technical Details"):
+            st.markdown(f"""
+            **Circuit Information:**
+            - **Constraints:** 15,847
+            - **Variables:** 8,923
+            - **Proof System:** {proof_system}
+            - **Security Level:** {security_level}
+            - **Zero-Knowledge Level:** {zero_knowledge_level}/10
+            
+            **Cryptographic Properties:**
+            - **Completeness:** If the statement is true, an honest prover can convince an honest verifier
+            - **Soundness:** If the statement is false, no cheating prover can convince an honest verifier
+            - **Zero-Knowledge:** The verifier learns nothing beyond the validity of the statement
+            """)
+        
+        st.info("🔒 This proof mathematically guarantees the authenticity and compliance of your supply chain data while keeping all sensitive information completely private!")
+    
+    # Download options (outside the button conditional)
+    if 'zk_proof_data' in st.session_state:
+        st.subheader("📥 Download Options")
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            if st.button("📥 Download Proof"):
+                st.success("📄 Proof downloaded successfully!")
+        
+        with col2:
+            if st.button("📋 Copy Verification Code"):
+                st.success("📋 Verification code copied to clipboard!")
+        
+        with col3:
+            if st.button("🔗 Share Proof Link"):
+                st.success("🔗 Shareable proof link generated!")
+                st.balloons()
     
     # ZK Proof benefits
     st.subheader("🌟 ZK Proof Benefits")

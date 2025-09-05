@@ -1,0 +1,64 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shipmentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="verificationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2196F3"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="savingsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9800"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+    <linearGradient id="trustGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C27B0"/>
+      <stop offset="100%" stop-color="#4A148C"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Shipment Icon -->
+  <g id="shipmentIcon" transform="translate(50, 50)">
+    <circle cx="0" cy="0" r="25" fill="url(#shipmentGradient)" opacity="0.9"/>
+    <!-- Truck body -->
+    <rect x="-15" y="-8" width="20" height="12" fill="#FFF" rx="2"/>
+    <!-- Truck cab -->
+    <rect x="-18" y="-5" width="8" height="8" fill="#FFF" rx="1"/>
+    <!-- Wheels -->
+    <circle cx="-12" cy="6" r="3" fill="#333"/>
+    <circle cx="2" cy="6" r="3" fill="#333"/>
+    <!-- Motion lines -->
+    <path d="M -25 -2 L -20 -2 M -25 2 L -22 2" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+  </g>
+  
+  <!-- Verification Icon -->
+  <g id="verificationIcon" transform="translate(150, 50)">
+    <circle cx="0" cy="0" r="25" fill="url(#verificationGradient)" opacity="0.9"/>
+    <!-- Shield -->
+    <path d="M 0 -15 L 10 -10 L 10 5 Q 10 12 0 15 Q -10 12 -10 5 L -10 -10 Z" fill="#FFF"/>
+    <!-- Checkmark -->
+    <path d="M -5 0 L -2 3 L 6 -5" stroke="url(#verificationGradient)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Savings Icon -->
+  <g id="savingsIcon" transform="translate(250, 50)">
+    <circle cx="0" cy="0" r="25" fill="url(#savingsGradient)" opacity="0.9"/>
+    <!-- Dollar sign -->
+    <text x="0" y="8" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#FFF" font-weight="bold">$</text>
+    <!-- Coins -->
+    <circle cx="8" cy="-8" r="4" fill="#FFF" opacity="0.7"/>
+    <circle cx="-8" cy="8" r="3" fill="#FFF" opacity="0.5"/>
+  </g>
+  
+  <!-- Trust Score Icon -->
+  <g id="trustIcon" transform="translate(350, 50)">
+    <circle cx="0" cy="0" r="25" fill="url(#trustGradient)" opacity="0.9"/>
+    <!-- Star -->
+    <path d="M 0 -12 L 3 -3 L 12 -3 L 6 3 L 9 12 L 0 6 L -9 12 L -6 3 L -12 -3 L -3 -3 Z" fill="#FFF"/>
+    <!-- Sparkles -->
+    <circle cx="12" cy="-8" r="1" fill="#FFF" opacity="0.8"/>
+    <circle cx="-10" cy="10" r="1.5" fill="#FFF" opacity="0.6"/>
+    <circle cx="15" cy="8" r="1" fill="#FFF" opacity="0.7"/>
+  </g>
+</svg>

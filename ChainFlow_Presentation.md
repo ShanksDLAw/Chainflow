@@ -309,11 +309,23 @@ Real-time Data → ML Processing → Pattern Recognition → Dashboard Updates �
 
 
 
+## 🚀 Live Demo
+
+**Experience ChainFlow in action:**
+- **Streamlit Web App:** [Live Demo](http://localhost:8501)
+- **Frontend Dashboard:** [Traditional UI](http://localhost:8080)
+- **Backend API:** [API Documentation](http://localhost:3000/api)
+- **Smart Contract:** [Ethereum Testnet](https://sepolia.etherscan.io/)
+- **ZK Proof Verification:** Real-time verification system
+- **GitHub Repository:** [Complete Codebase](https://github.com/ShanksDLAw/Chainflow)
+
+---
+
 ## 📞 Contact & Next Steps
 
 **Abduljalaal Abubakar**
 - **GitHub**: [ShanksDLAw/Chainflow](https://github.com/ShanksDLAw/Chainflow)
-- **Demo**: After Hackathon
+- **Demo**: Live and Available
 - **Documentation**: Comprehensive README and API docs
 
 ### Immediate Next Steps

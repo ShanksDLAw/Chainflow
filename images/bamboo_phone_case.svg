@@ -1,0 +1,70 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bambooGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DEB887"/>
+      <stop offset="50%" stop-color="#D2B48C"/>
+      <stop offset="100%" stop-color="#BC9A6A"/>
+    </linearGradient>
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C3E50"/>
+      <stop offset="100%" stop-color="#34495E"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="2"/>
+  
+  <!-- Phone outline (inside case) -->
+  <rect x="75" y="50" width="50" height="100" fill="url(#phoneGradient)" rx="8" opacity="0.3"/>
+  
+  <!-- Bamboo case -->
+  <rect x="70" y="45" width="60" height="110" fill="url(#bambooGradient)" rx="12" filter="url(#shadow)"/>
+  
+  <!-- Bamboo texture lines -->
+  <g stroke="#A0522D" stroke-width="1" opacity="0.4">
+    <line x1="75" y1="60" x2="125" y2="60"/>
+    <line x1="75" y1="80" x2="125" y2="80"/>
+    <line x1="75" y1="100" x2="125" y2="100"/>
+    <line x1="75" y1="120" x2="125" y2="120"/>
+    <line x1="75" y1="140" x2="125" y2="140"/>
+  </g>
+  
+  <!-- Bamboo nodes/joints -->
+  <g fill="#8B7355" opacity="0.6">
+    <rect x="70" y="75" width="60" height="3" rx="1"/>
+    <rect x="70" y="105" width="60" height="3" rx="1"/>
+    <rect x="70" y="135" width="60" height="3" rx="1"/>
+  </g>
+  
+  <!-- Camera cutout -->
+  <circle cx="110" cy="60" r="6" fill="#2C3E50"/>
+  <circle cx="110" cy="60" r="4" fill="#34495E"/>
+  
+  <!-- Speaker cutout -->
+  <rect x="90" y="52" width="20" height="3" fill="#2C3E50" rx="1.5"/>
+  
+  <!-- Charging port cutout -->
+  <rect x="95" y="145" width="10" height="4" fill="#2C3E50" rx="2"/>
+  
+  <!-- Eco-friendly badge -->
+  <circle cx="45" cy="100" r="15" fill="#4CAF50" opacity="0.9"/>
+  <path d="M 40 100 L 43 103 L 50 96" stroke="#FFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Bamboo leaves decoration -->
+  <g transform="translate(150, 80)" opacity="0.7">
+    <ellipse cx="0" cy="0" rx="8" ry="20" fill="#228B22" transform="rotate(15)"/>
+    <ellipse cx="5" cy="-5" rx="6" ry="15" fill="#32CD32" transform="rotate(-10)"/>
+    <line x1="0" y1="-15" x2="0" y2="15" stroke="#006400" stroke-width="1"/>
+  </g>
+  
+  <!-- Natural texture dots -->
+  <g fill="#8B7355" opacity="0.3">
+    <circle cx="85" cy="90" r="1"/>
+    <circle cx="115" cy="85" r="1"/>
+    <circle cx="95" cy="110" r="1"/>
+    <circle cx="105" cy="125" r="1"/>
+  </g>
+</svg>
