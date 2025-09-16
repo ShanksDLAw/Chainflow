@@ -1,7 +1,6 @@
 // ChainFlow - Enhanced Supply Chain Verification Circuit
 // Verifies product authenticity, supplier credentials, and supply chain integrity
 
-// Hackathon submission update
 use std::hash::pedersen_hash;
 
 fn main(
