@@ -65,24 +65,40 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 3. Route Optimization & Shipment Tracking
+### 3. AI Route Optimization with Zero-Knowledge Proof
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    ROUTE OPTIMIZATION & TRACKING               │
+│                AI ROUTE OPTIMIZATION WITH ZK PROOF             │
 ├─────────────────────────────────────────────────────────────────┤
-│ 1. AI-Powered Route Planning:                                  │
+│ 1. Supply Chain Use Case Selection:                            │
+│    • General Supply Chain                                      │
+│    • Military & Defense (OPSEC Compliant)                     │
+│    • Healthcare & Medical (HIPAA Compliant)                   │
+│    • Luxury Goods (High Security)                             │
+│    • Pharmaceuticals (Regulatory Compliance)                  │
+│ 2. AI-Powered Route Planning with ZK Integration:             │
 │    • Dijkstra Algorithm for Shortest Path                      │
 │    • A* Search for Heuristic Optimization                      │
 │    • Genetic Algorithm for Complex Multi-stop Routes          │
-│ 2. Real-time Shipment Tracking:                               │
-│    • Live Location Updates                                      │
+│    • Automatic ZK Proof Generation for Route Verification     │
+│ 3. ZK Proof Configuration:                                     │
+│    • Privacy Level: Standard/High/Maximum                      │
+│    • Security Priority: Cost/Time/Security Optimized          │
+│    • Cargo Type: Standard/Medical/Defense/Hazardous           │
+│ 4. Cryptographic Route Verification:                          │
+│    • Route Hash Generation & ML Proof                         │
+│    • Supply Chain Integrity Verification                      │
+│    • Privacy-Preserving Optimization Proof                    │
+│    • Use Case Specific Compliance (HIPAA/OPSEC)              │
+│ 5. Real-time Shipment Tracking:                               │
+│    • Live Location Updates with ZK Privacy                    │
 │    • Estimated Delivery Time                                   │
 │    • Route Deviation Alerts                                    │
-│ 3. Incident Management:                                        │
+│ 6. Incident Management:                                        │
 │    • Delay Notifications & Mitigation Actions                  │
 │    • Damage/Theft Reporting & Insurance Claims                 │
 │    • Weather/Customs Delay Handling                           │
-│ 4. Delivery Confirmation & Receipt Verification                │
+│ 7. Delivery Confirmation & Receipt Verification                │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -121,28 +137,33 @@
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-### ML-Powered Route Optimization
+### ML-Powered Route Optimization with ZK Proof
 ```
 ┌─────────────────┐
 │ Route Request   │
 │ • Origin/Dest   │
-│ • Product Type  │
-│ • Constraints   │
+│ • Use Case Type │
+│ • Privacy Level │
+│ • Cargo Type    │
 └─────────┬───────┘
           │
           ▼
-┌─────────────────┐    ┌─────────────────┐
-│ ML Algorithms   │───▶│ Optimized Route │
-│ • Dijkstra      │    │ • Time/Cost     │
-│ • A* Search     │    │ • Risk Level    │
-│ • Genetic Algo  │    │ • Confidence    │
-└─────────────────┘    └─────────────────┘
-          │                       │
-          ▼                       ▼
-┌─────────────────┐    ┌─────────────────┐
-│ Real-time       │    │ Tracking &      │
-│ Monitoring      │    │ Updates         │
-└─────────────────┘    └─────────────────┘
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ ML Algorithms   │───▶│ Optimized Route │───▶│ ZK Proof        │
+│ • Dijkstra      │    │ • Time/Cost     │    │ Generation      │
+│ • A* Search     │    │ • Risk Level    │    │ • Route Hash    │
+│ • Genetic Algo  │    │ • Confidence    │    │ • ML Proof      │
+└─────────────────┘    └─────────────────┘    │ • Use Case      │
+          │                       │           │ • Privacy Score │
+          ▼                       ▼           └─────────────────┘
+┌─────────────────┐    ┌─────────────────┐              │
+│ Real-time       │    │ Tracking &      │              ▼
+│ Monitoring      │    │ Updates         │    ┌─────────────────┐
+│ • ZK Privacy    │    │ • ZK Verified   │    │ Cryptographic   │
+│ • OPSEC/HIPAA   │    │ • Compliance    │    │ Verification    │
+└─────────────────┘    └─────────────────┘    │ • Tamper Proof  │
+                                              │ • Audit Trail   │
+                                              └─────────────────┘
 ```
 
 ## Dashboard & Analytics
@@ -171,6 +192,48 @@
 - Order history and analytics
 - Trust-based product recommendations
 
+## Specialized Use Case Workflows
+
+### Military & Defense Supply Chain
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MILITARY & DEFENSE WORKFLOW                 │
+├─────────────────────────────────────────────────────────────────┤
+│ 1. OPSEC-Compliant Route Planning:                            │
+│    • Military-grade encryption for all communications         │
+│    • Operational security protocols maintained                │
+│    • Classified cargo handling procedures                     │
+│ 2. Defense-Specific ZK Proof Features:                        │
+│    • Maximum privacy level enforced                           │
+│    • Military-grade cryptographic verification               │
+│    • OPSEC compliance verification                            │
+│ 3. Secure Tracking & Monitoring:                              │
+│    • Encrypted location data                                  │
+│    • Need-to-know access controls                             │
+│    • Anti-surveillance route optimization                     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Healthcare & Medical Supply Chain
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    HEALTHCARE & MEDICAL WORKFLOW               │
+├─────────────────────────────────────────────────────────────────┤
+│ 1. HIPAA-Compliant Route Planning:                            │
+│    • Patient data protection protocols                        │
+│    • Medical device security standards                        │
+│    • Temperature-controlled logistics                         │
+│ 2. Healthcare-Specific ZK Proof Features:                     │
+│    • HIPAA compliance verification                            │
+│    • Medical data protection proof                            │
+│    • Patient privacy preservation                             │
+│ 3. Medical Supply Tracking:                                   │
+│    • Cold chain monitoring                                    │
+│    • Expiration date tracking                                 │
+│    • Regulatory compliance verification                       │
+└─────────────────────────────────────────────────────────────────┘
+```
+
 ## Privacy & Security Architecture
 
 ### Zero-Knowledge Privacy Protection
@@ -178,6 +241,8 @@
 - **Supplier Privacy**: Verify credentials without revealing trade secrets
 - **Route Privacy**: Optimize paths without exposing competitive information
 - **Trust Privacy**: Validate scores without revealing assessment criteria
+- **Military Privacy**: OPSEC-compliant operations with maximum security
+- **Healthcare Privacy**: HIPAA-compliant medical data protection
 
 ### What Remains Private (ZK-Protected)
 - Detailed payment information and banking details
@@ -185,6 +250,8 @@
 - Exact supply chain routes and logistics
 - Internal cost structures and profit margins
 - Customer purchase patterns and preferences
+- Military operational details and classified cargo information
+- Healthcare patient data and medical supply chain details
 
 ### What Gets Verified (Public)
 - Payment authenticity and receipt validity
@@ -192,6 +259,8 @@
 - Supplier trust scores and risk levels
 - Delivery confirmation and tracking status
 - General supply chain integrity metrics
+- Regulatory compliance (HIPAA, OPSEC) without exposing details
+- Use case specific security standards adherence
 
 ## API Integration Points
 

@@ -68,7 +68,66 @@ Integrated supply chain verification that maintains privacy while ensuring authe
 - **Route Optimization Proof**: Demonstrate optimal shipping without revealing logistics algorithms
 - **Delivery Confirmation**: Cryptographic proof of successful delivery without exposing customer locations
 
-### 4. ML-ZK Hybrid System
+### 4. AI Route Optimization with Zero-Knowledge Proof
+
+**Implementation: `streamlit_app.py` - `generate_route_zk_proof()` function**
+
+Our revolutionary AI Route Optimization system integrates advanced machine learning algorithms with Zero-Knowledge proofs to provide privacy-preserving logistics optimization:
+
+#### Core AI Algorithms with ZK Integration:
+
+- **Dijkstra's Algorithm**: Shortest path optimization with cryptographic route verification
+- **A* Search Algorithm**: Heuristic-based pathfinding with privacy-preserving proof generation
+- **Genetic Algorithm**: Complex multi-stop route optimization with encrypted fitness evaluation
+- **Machine Learning Optimization**: Neural network-based route prediction with ZK-verified results
+
+#### Use Case Specific ZK Implementations:
+
+**Military & Defense Supply Chain:**
+```javascript
+// Military-grade ZK proof with OPSEC compliance
+function generateMilitaryRouteProof(origin, destination, route_data, security_level) {
+    return {
+        route_hash: generateSecureHash(route_data, "military_grade"),
+        opsec_compliance: verifyOPSECCompliance(route_data),
+        security_level: "MAXIMUM",
+        privacy_level: "CLASSIFIED",
+        military_encryption: applyMilitaryGradeEncryption(route_data),
+        operational_security: maintainOPSECProtocols(route_data)
+    };
+}
+```
+
+**Healthcare & Medical Supply Chain:**
+```javascript
+// HIPAA-compliant ZK proof for medical logistics
+function generateHealthcareRouteProof(origin, destination, route_data, medical_type) {
+    return {
+        route_hash: generateMedicalHash(route_data),
+        hipaa_compliance: verifyHIPAACompliance(route_data),
+        patient_privacy: protectPatientData(route_data),
+        medical_device_security: verifyMedicalDeviceSecurity(route_data),
+        cold_chain_verification: verifyColdChainIntegrity(route_data)
+    };
+}
+```
+
+#### ZK Proof Components:
+
+1. **Route Hash Generation**: Cryptographic fingerprint of optimized route without revealing actual path
+2. **ML Algorithm Verification**: Proof that AI optimization was performed correctly without exposing algorithms
+3. **Use Case Compliance**: Verification of regulatory compliance (HIPAA, OPSEC) without revealing sensitive details
+4. **Privacy Score Calculation**: Quantified privacy protection level based on use case requirements
+5. **Supply Chain Integrity**: Verification of end-to-end logistics security
+
+#### Advanced Features:
+
+- **Automatic ZK Proof Generation**: Every route optimization automatically generates cryptographic proof
+- **Real-time Verification**: Instant validation of route optimization without computational overhead
+- **Use Case Adaptation**: Dynamic security and privacy levels based on cargo type and industry requirements
+- **Compliance Verification**: Automated regulatory compliance checking with zero-knowledge validation
+
+### 5. ML-ZK Hybrid System
 
 **Implementation: `backend/ml-zk-engine.js`**
 
