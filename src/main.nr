@@ -1,5 +1,6 @@
 // ChainFlow - Enhanced Supply Chain Verification Circuit
 // Verifies product authenticity, supplier credentials, and supply chain integrity
+// Compatible with zkVerify universal verification layer
 
 use std::hash::pedersen_hash;
 
@@ -24,13 +25,18 @@ fn main(
     manufacturer_signature: Field,
     distributor_signature: Field,
     
+    // zkVerify compatibility fields (private)
+    proof_version: Field,
+    circuit_id: Field,
+    
     // Public verification parameters
     expected_product_hash: pub Field,
     trusted_supplier_root: pub Field,
     supply_chain_root: pub Field,
     verification_timestamp: pub Field,
+    zkverify_chain_id: pub Field,
     
-) -> pub (Field, Field) {
+) -> pub (Field, Field, Field) {
     // 1. Product Identity Verification
     let computed_product_hash = product_id + product_category + batch_number + manufacturing_date;
     assert(computed_product_hash == expected_product_hash);
@@ -65,11 +71,16 @@ fn main(
         verification_timestamp
     );
     
-    // 6. Final authenticity confirmation
+    // 6. zkVerify compatibility validation
+    assert(proof_version != 0); // Ensure proof version is set
+    assert(circuit_id != 0); // Ensure circuit ID is set
+    assert(zkverify_chain_id != 0); // Ensure zkVerify chain ID is valid
+    
+    // 7. Final authenticity confirmation
     assert(computed_score as u32 >= 70); // Minimum threshold for authentic products
     
-    // Return computed values as public outputs
-    (computed_score, computed_risk)
+    // Return computed values as public outputs including zkVerify chain ID
+    (computed_score, computed_risk, zkverify_chain_id)
 }
 
 // Verify supplier is in trusted registry
