@@ -3,7 +3,6 @@
 const crypto = require('crypto');
 const SyntheticDataGenerator = require('./synthetic-data-generator');
 
-// Hackathon submission update
 class MLTrustService {
     constructor() {
         this.dataGenerator = new SyntheticDataGenerator();

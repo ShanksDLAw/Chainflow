@@ -3,7 +3,6 @@ const crypto = require('crypto');
 const SyntheticDataGenerator = require('./synthetic-data-generator');
 const MLTrustService = require('./ml-trust-service');
 
-// Hackathon submission update
 class MLRouteEngine {
     constructor() {
         // Initialize data generators and trust scoring

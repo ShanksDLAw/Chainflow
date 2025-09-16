@@ -1,4 +1,3 @@
-// Hackathon submission update
 const MLRouteEngine = require('./ml-route-engine');
 const MLTrustService = require('./ml-trust-service');
 const ChainFlowProofGenerator = require('../circuits/proof-generator');

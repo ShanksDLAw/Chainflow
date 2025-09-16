@@ -1,7 +1,7 @@
 {
   "name": "chainflow-smart-contracts",
   "version": "1.0.0",
-  "description": "ChainFlow Supply Chain Route Optimization Smart Contracts",
+  "description": "AI-powered supply chain verification platform with zero-knowledge proofs",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",

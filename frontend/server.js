@@ -1,4 +1,3 @@
-// Hackathon submission update
 const express = require('express');
 const { exec } = require('child_process');
 const fs = require('fs').promises;
