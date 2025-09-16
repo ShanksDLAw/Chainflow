@@ -675,7 +675,7 @@ def main():
     except FileNotFoundError:
         # Fallback header
         st.markdown('<h1 class="main-header">🔗 ChainFlow</h1>', unsafe_allow_html=True)
-        st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">AI-Powered Supply Chain Verification Platform</p>', unsafe_allow_html=True)
+        st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">AI-Powered Supply Chain Verification Platform with Enterprise-Grade Proof Verification</p>', unsafe_allow_html=True)
     
     # Load data
     products, tracking_data = load_sample_data()
