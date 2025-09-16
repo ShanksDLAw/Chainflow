@@ -1,3 +1,4 @@
+<!-- Hackathon submission update -->
 # Zero-Knowledge Technology in ChainFlow Integrated Platform
 ## Advanced Privacy-Preserving Commerce Infrastructure
 

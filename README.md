@@ -1,3 +1,4 @@
+<!-- Hackathon submission update -->
 # ChainFlow - AI-Powered Supply Chain Verification Platform
 
 *Imagine a world where every product you buy comes with an unbreakable guarantee of authenticity, where businesses can prove their integrity without revealing their secrets, and where supply chains operate with the precision of a Swiss watch. That world is here with ChainFlow.*

@@ -4,6 +4,7 @@ const crypto = require('crypto');
  * Synthetic Data Generator for ChainFlow
  * Generates realistic supply chain data for route optimization and trust scoring
  */
+// Hackathon submission update
 class SyntheticDataGenerator {
     constructor() {
         this.locations = this.generateLocations();

@@ -1,3 +1,4 @@
+// Hackathon submission update
 const { ethers } = require("hardhat");
 
 async function main() {

@@ -1,3 +1,4 @@
+// Hackathon submission update
 const snarkjs = require("snarkjs");
 const circomlib = require("circomlib");
 const fs = require("fs");

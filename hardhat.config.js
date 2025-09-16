@@ -1,3 +1,4 @@
+// Hackathon submission update
 require('@nomicfoundation/hardhat-toolbox');
 require('dotenv').config();
 
