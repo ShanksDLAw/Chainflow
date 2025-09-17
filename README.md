@@ -8,7 +8,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![zkVerify](https://img.shields.io/badge/zkVerify-Integrated-purple.svg)](https://zkverify.io/)
 
-ChainFlow isn't just another supply chain platform—it's a revolutionary ecosystem that transforms how we think about trust, privacy, and verification in global commerce. Built for the Ethereum Accra Hackathon by **Abduljalaal Abubakar**, this platform combines cutting-edge AI, military-grade privacy protection, zkVerify universal verification, and real-world practicality to solve the trillion-dollar problem of supply chain transparency.
+ChainFlow isn't just another supply chain platform—it's a revolutionary ecosystem that transforms how we think about trust, privacy, and verification in global commerce. Built by **Abduljalaal Abubakar**, this platform combines cutting-edge AI, military-grade privacy protection, zkVerify universal verification, and real-world practicality to solve the trillion-dollar problem of supply chain transparency.
 
 ## 🎯 Latest Updates & Fixes
 
@@ -293,15 +293,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Abduljalaal Abubakar**
-- Built for Ethereum Accra Hackathon
 - Solving supply chain transparency and trust issues
 - Combining AI, blockchain, and zero-knowledge proofs
 
-## 🙏 Acknowledgments
-
-- Ethereum Accra Hackathon organizers
-- Zero-knowledge proof community
-- Open source contributors
 
 ---
 
