@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- GPS Tracker Device -->
+  <defs>
+    <linearGradient id="deviceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2E3440;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4C566A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#88C0D0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5E81AC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Device Body -->
+  <rect x="25" y="30" width="50" height="40" rx="8" ry="8" fill="url(#deviceGradient)" stroke="#3B4252" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="30" y="35" width="40" height="25" rx="3" ry="3" fill="url(#screenGradient)"/>
+  
+  <!-- GPS Signal Waves -->
+  <circle cx="50" cy="47" r="3" fill="none" stroke="#A3BE8C" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="50" cy="47" r="6" fill="none" stroke="#A3BE8C" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="50" cy="47" r="9" fill="none" stroke="#A3BE8C" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- GPS Dot -->
+  <circle cx="50" cy="47" r="2" fill="#A3BE8C"/>
+  
+  <!-- Antenna -->
+  <rect x="48" y="25" width="4" height="8" rx="2" ry="2" fill="#4C566A"/>
+  <circle cx="50" cy="22" r="3" fill="none" stroke="#A3BE8C" stroke-width="2"/>
+  
+  <!-- Button -->
+  <circle cx="50" cy="65" r="3" fill="#D08770" stroke="#BF616A" stroke-width="1"/>
+  
+  <!-- Side Ports -->
+  <rect x="22" y="45" width="3" height="8" rx="1.5" ry="1.5" fill="#3B4252"/>
+  <rect x="75" y="45" width="3" height="8" rx="1.5" ry="1.5" fill="#3B4252"/>
+  
+  <!-- Status LED -->
+  <circle cx="65" cy="38" r="1.5" fill="#A3BE8C"/>
+  
+  <!-- Text Label -->
+  <text x="50" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#4C566A">GPS TRACKER</text>
+</svg>

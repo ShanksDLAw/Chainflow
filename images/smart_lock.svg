@@ -1,0 +1,89 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lock Body -->
+  <rect x="70" y="90" width="60" height="80" rx="8" ry="8" fill="#2c3e50" stroke="#1a252f" stroke-width="2"/>
+  
+  <!-- Shackle -->
+  <path d="M 85 90 Q 85 60 100 60 Q 115 60 115 90" stroke="#34495e" stroke-width="8" fill="none"/>
+  <path d="M 87 90 Q 87 65 100 65 Q 113 65 113 90" stroke="#7f8c8d" stroke-width="4" fill="none"/>
+  
+  <!-- Digital Display -->
+  <rect x="80" y="100" width="40" height="20" rx="3" ry="3" fill="#000"/>
+  <text x="100" y="113" text-anchor="middle" fill="#00ff00" font-family="monospace" font-size="10" font-weight="bold">LOCKED</text>
+  
+  <!-- Keypad -->
+  <g fill="#34495e" stroke="#2c3e50" stroke-width="1">
+    <!-- Row 1 -->
+    <rect x="80" y="130" width="10" height="8" rx="1"/>
+    <rect x="95" y="130" width="10" height="8" rx="1"/>
+    <rect x="110" y="130" width="10" height="8" rx="1"/>
+    
+    <!-- Row 2 -->
+    <rect x="80" y="142" width="10" height="8" rx="1"/>
+    <rect x="95" y="142" width="10" height="8" rx="1"/>
+    <rect x="110" y="142" width="10" height="8" rx="1"/>
+    
+    <!-- Row 3 -->
+    <rect x="80" y="154" width="10" height="8" rx="1"/>
+    <rect x="95" y="154" width="10" height="8" rx="1"/>
+    <rect x="110" y="154" width="10" height="8" rx="1"/>
+  </g>
+  
+  <!-- Keypad Numbers -->
+  <g fill="#ecf0f1" font-family="Arial, sans-serif" font-size="6" text-anchor="middle">
+    <text x="85" y="136">1</text>
+    <text x="100" y="136">2</text>
+    <text x="115" y="136">3</text>
+    <text x="85" y="148">4</text>
+    <text x="100" y="148">5</text>
+    <text x="115" y="148">6</text>
+    <text x="85" y="160">7</text>
+    <text x="100" y="160">8</text>
+    <text x="115" y="160">9</text>
+  </g>
+  
+  <!-- Fingerprint Scanner -->
+  <circle cx="100" cy="125" r="6" fill="#1a252f" stroke="#34495e" stroke-width="1"/>
+  <g stroke="#3498db" stroke-width="0.5" fill="none">
+    <circle cx="100" cy="125" r="3"/>
+    <circle cx="100" cy="125" r="4"/>
+    <circle cx="100" cy="125" r="5"/>
+  </g>
+  
+  <!-- WiFi Indicator -->
+  <g fill="#3498db">
+    <path d="M 75 105 Q 80 100 85 105" stroke="#3498db" stroke-width="1" fill="none"/>
+    <path d="M 77 107 Q 80 104 83 107" stroke="#3498db" stroke-width="1" fill="none"/>
+    <circle cx="80" cy="109" r="1"/>
+  </g>
+  
+  <!-- Bluetooth Indicator -->
+  <g fill="#3498db">
+    <path d="M 115 105 L 118 102 L 120 104 L 118 106 L 120 108 L 118 110 L 115 107 Z" stroke="#3498db" stroke-width="0.5"/>
+    <line x1="118" y1="102" x2="118" y2="110" stroke="#3498db" stroke-width="1"/>
+  </g>
+  
+  <!-- Battery Indicator -->
+  <rect x="85" y="175" width="12" height="6" rx="1" ry="1" fill="#2c3e50" stroke="#34495e" stroke-width="1"/>
+  <rect x="86" y="176" width="8" height="4" rx="0.5" ry="0.5" fill="#27ae60"/>
+  <rect x="95" y="177" width="2" height="2" rx="0.5" ry="0.5" fill="#2c3e50"/>
+  
+  <!-- Status LED -->
+  <circle cx="110" cy="178" r="3" fill="#00ff00"/>
+  
+  <!-- Security Rating -->
+  <text x="100" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Grade 3 Security</text>
+  
+  <!-- Model Number -->
+  <text x="100" y="40" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SmartSecure SL-3000</text>
+  
+  <!-- Encryption Badge -->
+  <rect x="75" y="85" width="20" height="8" rx="2" ry="2" fill="#e74c3c"/>
+  <text x="85" y="91" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="4" font-weight="bold">AES-256</text>
+  
+  <!-- Lock Mechanism -->
+  <rect x="125" y="120" width="8" height="20" rx="2" ry="2" fill="#7f8c8d"/>
+  <circle cx="129" cy="130" r="2" fill="#34495e"/>
+  
+  <!-- Label -->
+  <text x="100" y="195" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">SMART LOCK</text>
+</svg>

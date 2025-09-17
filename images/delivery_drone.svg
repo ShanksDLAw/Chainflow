@@ -1,0 +1,95 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Body -->
+  <ellipse cx="100" cy="100" rx="40" ry="20" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- Propeller Arms -->
+  <g stroke="#2c3e50" stroke-width="4" fill="#2c3e50">
+    <!-- Front Left Arm -->
+    <line x1="100" y1="100" x2="60" y2="60"/>
+    <!-- Front Right Arm -->
+    <line x1="100" y1="100" x2="140" y2="60"/>
+    <!-- Rear Left Arm -->
+    <line x1="100" y1="100" x2="60" y2="140"/>
+    <!-- Rear Right Arm -->
+    <line x1="100" y1="100" x2="140" y2="140"/>
+  </g>
+  
+  <!-- Motors -->
+  <circle cx="60" cy="60" r="8" fill="#7f8c8d" stroke="#95a5a6" stroke-width="1"/>
+  <circle cx="140" cy="60" r="8" fill="#7f8c8d" stroke="#95a5a6" stroke-width="1"/>
+  <circle cx="60" cy="140" r="8" fill="#7f8c8d" stroke="#95a5a6" stroke-width="1"/>
+  <circle cx="140" cy="140" r="8" fill="#7f8c8d" stroke="#95a5a6" stroke-width="1"/>
+  
+  <!-- Propellers -->
+  <g fill="#ecf0f1" opacity="0.7">
+    <!-- Front Left Propeller -->
+    <ellipse cx="60" cy="60" rx="15" ry="3" transform="rotate(45 60 60)"/>
+    <ellipse cx="60" cy="60" rx="3" ry="15" transform="rotate(45 60 60)"/>
+    
+    <!-- Front Right Propeller -->
+    <ellipse cx="140" cy="60" rx="15" ry="3" transform="rotate(-45 140 60)"/>
+    <ellipse cx="140" cy="60" rx="3" ry="15" transform="rotate(-45 140 60)"/>
+    
+    <!-- Rear Left Propeller -->
+    <ellipse cx="60" cy="140" rx="15" ry="3" transform="rotate(-45 60 140)"/>
+    <ellipse cx="60" cy="140" rx="3" ry="15" transform="rotate(-45 60 140)"/>
+    
+    <!-- Rear Right Propeller -->
+    <ellipse cx="140" cy="140" rx="15" ry="3" transform="rotate(45 140 140)"/>
+    <ellipse cx="140" cy="140" rx="3" ry="15" transform="rotate(45 140 140)"/>
+  </g>
+  
+  <!-- Camera Gimbal -->
+  <circle cx="100" cy="85" r="12" fill="#1a252f" stroke="#34495e" stroke-width="2"/>
+  <circle cx="100" cy="85" r="8" fill="#2c3e50"/>
+  <circle cx="100" cy="85" r="5" fill="#3498db"/>
+  
+  <!-- Landing Gear -->
+  <g stroke="#7f8c8d" stroke-width="2">
+    <line x1="80" y1="115" x2="80" y2="125"/>
+    <line x1="120" y1="115" x2="120" y2="125"/>
+    <ellipse cx="80" cy="125" rx="4" ry="2" fill="#95a5a6"/>
+    <ellipse cx="120" cy="125" rx="4" ry="2" fill="#95a5a6"/>
+  </g>
+  
+  <!-- Delivery Compartment -->
+  <rect x="85" y="105" width="30" height="15" rx="3" ry="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <rect x="88" y="108" width="24" height="9" rx="1" ry="1" fill="#fff" opacity="0.3"/>
+  
+  <!-- GPS Antenna -->
+  <rect x="98" y="90" width="4" height="8" fill="#f39c12"/>
+  <circle cx="100" cy="88" r="2" fill="#f39c12"/>
+  
+  <!-- Status LEDs -->
+  <circle cx="90" cy="95" r="2" fill="#00ff00"/>
+  <circle cx="95" cy="95" r="2" fill="#00ff00"/>
+  <circle cx="105" cy="95" r="2" fill="#ff0000"/>
+  <circle cx="110" cy="95" r="2" fill="#3498db"/>
+  
+  <!-- Battery Indicator -->
+  <rect x="75" y="100" width="12" height="6" rx="1" ry="1" fill="#2c3e50" stroke="#34495e" stroke-width="1"/>
+  <rect x="76" y="101" width="8" height="4" rx="0.5" ry="0.5" fill="#27ae60"/>
+  <rect x="85" y="102" width="2" height="2" rx="0.5" ry="0.5" fill="#2c3e50"/>
+  
+  <!-- Delivery Label -->
+  <text x="100" y="113" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="6" font-weight="bold">DELIVERY</text>
+  
+  <!-- Model Number -->
+  <text x="100" y="130" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="8" font-weight="bold">DD-4000</text>
+  
+  <!-- Flight Path Indicator -->
+  <g stroke="#3498db" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M 30 30 Q 50 20 70 30 Q 90 40 110 30 Q 130 20 150 30 Q 170 40 190 30"/>
+  </g>
+  
+  <!-- Propeller Rotation Indicators -->
+  <g stroke="#e74c3c" stroke-width="1" fill="none" opacity="0.6">
+    <circle cx="60" cy="60" r="18"/>
+    <circle cx="140" cy="60" r="18"/>
+    <circle cx="60" cy="140" r="18"/>
+    <circle cx="140" cy="140" r="18"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="100" y="185" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">DELIVERY DRONE</text>
+</svg>

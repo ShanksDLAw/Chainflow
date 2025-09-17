@@ -1,0 +1,47 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Vest Body -->
+  <path d="M 60 40 L 140 40 L 150 60 L 150 160 L 130 180 L 70 180 L 50 160 L 50 60 Z" fill="#2c3e50" stroke="#1a252f" stroke-width="2"/>
+  
+  <!-- Shoulder Straps -->
+  <path d="M 60 40 L 70 20 L 90 20 L 80 40" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  <path d="M 140 40 L 130 20 L 110 20 L 120 40" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  
+  <!-- Armor Plates -->
+  <rect x="65" y="50" width="70" height="30" rx="4" ry="4" fill="#1a252f" stroke="#0f1419" stroke-width="1"/>
+  <rect x="65" y="85" width="70" height="30" rx="4" ry="4" fill="#1a252f" stroke="#0f1419" stroke-width="1"/>
+  <rect x="65" y="120" width="70" height="30" rx="4" ry="4" fill="#1a252f" stroke="#0f1419" stroke-width="1"/>
+  <rect x="65" y="155" width="70" height="20" rx="4" ry="4" fill="#1a252f" stroke="#0f1419" stroke-width="1"/>
+  
+  <!-- Velcro Strips -->
+  <rect x="70" y="55" width="60" height="4" fill="#7f8c8d"/>
+  <rect x="70" y="90" width="60" height="4" fill="#7f8c8d"/>
+  <rect x="70" y="125" width="60" height="4" fill="#7f8c8d"/>
+  
+  <!-- Side Panels -->
+  <path d="M 50 60 L 40 70 L 40 150 L 50 160" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  <path d="M 150 60 L 160 70 L 160 150 L 150 160" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  
+  <!-- Buckles and Straps -->
+  <rect x="45" y="80" width="8" height="12" rx="2" ry="2" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  <rect x="147" y="80" width="8" height="12" rx="2" ry="2" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  <rect x="45" y="110" width="8" height="12" rx="2" ry="2" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  <rect x="147" y="110" width="8" height="12" rx="2" ry="2" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  
+  <!-- Tactical Patches -->
+  <rect x="75" y="65" width="20" height="15" rx="2" ry="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+  <text x="85" y="75" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">MEDIC</text>
+  
+  <rect x="105" y="65" width="20" height="15" rx="2" ry="2" fill="#27ae60" stroke="#229954" stroke-width="1"/>
+  <text x="115" y="75" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">UNIT</text>
+  
+  <!-- Molle Webbing -->
+  <g stroke="#1a252f" stroke-width="1" fill="none">
+    <line x1="75" y1="100" x2="125" y2="100"/>
+    <line x1="75" y1="105" x2="125" y2="105"/>
+    <line x1="75" y1="135" x2="125" y2="135"/>
+    <line x1="75" y1="140" x2="125" y2="140"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="100" y="195" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">BODY ARMOR</text>
+</svg>

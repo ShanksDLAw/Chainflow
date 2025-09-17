@@ -1,0 +1,97 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Laptop Base -->
+  <rect x="30" y="120" width="140" height="60" rx="8" ry="8" fill="#2c3e50" stroke="#1a252f" stroke-width="2"/>
+  
+  <!-- Keyboard Area -->
+  <rect x="40" y="130" width="120" height="40" rx="4" ry="4" fill="#34495e"/>
+  
+  <!-- Keys -->
+  <g fill="#7f8c8d" stroke="#95a5a6" stroke-width="0.5">
+    <!-- Row 1 -->
+    <rect x="45" y="135" width="8" height="6" rx="1"/>
+    <rect x="55" y="135" width="8" height="6" rx="1"/>
+    <rect x="65" y="135" width="8" height="6" rx="1"/>
+    <rect x="75" y="135" width="8" height="6" rx="1"/>
+    <rect x="85" y="135" width="8" height="6" rx="1"/>
+    <rect x="95" y="135" width="8" height="6" rx="1"/>
+    <rect x="105" y="135" width="8" height="6" rx="1"/>
+    <rect x="115" y="135" width="8" height="6" rx="1"/>
+    <rect x="125" y="135" width="8" height="6" rx="1"/>
+    <rect x="135" y="135" width="8" height="6" rx="1"/>
+    <rect x="145" y="135" width="12" height="6" rx="1"/>
+    
+    <!-- Row 2 -->
+    <rect x="45" y="143" width="12" height="6" rx="1"/>
+    <rect x="59" y="143" width="8" height="6" rx="1"/>
+    <rect x="69" y="143" width="8" height="6" rx="1"/>
+    <rect x="79" y="143" width="8" height="6" rx="1"/>
+    <rect x="89" y="143" width="8" height="6" rx="1"/>
+    <rect x="99" y="143" width="8" height="6" rx="1"/>
+    <rect x="109" y="143" width="8" height="6" rx="1"/>
+    <rect x="119" y="143" width="8" height="6" rx="1"/>
+    <rect x="129" y="143" width="8" height="6" rx="1"/>
+    <rect x="139" y="143" width="8" height="6" rx="1"/>
+    <rect x="149" y="143" width="8" height="6" rx="1"/>
+    
+    <!-- Row 3 -->
+    <rect x="45" y="151" width="15" height="6" rx="1"/>
+    <rect x="62" y="151" width="8" height="6" rx="1"/>
+    <rect x="72" y="151" width="8" height="6" rx="1"/>
+    <rect x="82" y="151" width="8" height="6" rx="1"/>
+    <rect x="92" y="151" width="8" height="6" rx="1"/>
+    <rect x="102" y="151" width="8" height="6" rx="1"/>
+    <rect x="112" y="151" width="8" height="6" rx="1"/>
+    <rect x="122" y="151" width="8" height="6" rx="1"/>
+    <rect x="132" y="151" width="8" height="6" rx="1"/>
+    <rect x="142" y="151" width="15" height="6" rx="1"/>
+    
+    <!-- Spacebar -->
+    <rect x="75" y="159" width="50" height="6" rx="1"/>
+  </g>
+  
+  <!-- Trackpad -->
+  <rect x="85" y="155" width="30" height="20" rx="2" ry="2" fill="#1a252f" stroke="#34495e" stroke-width="1"/>
+  
+  <!-- Screen -->
+  <rect x="35" y="40" width="130" height="85" rx="6" ry="6" fill="#1a252f" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- Screen Bezel -->
+  <rect x="40" y="45" width="120" height="75" rx="2" ry="2" fill="#000"/>
+  
+  <!-- Encrypted Screen Content -->
+  <rect x="45" y="50" width="110" height="65" fill="#0f3460"/>
+  
+  <!-- Lock Icon -->
+  <g fill="#00ff00">
+    <rect x="95" y="75" width="10" height="12" rx="1" ry="1" stroke="#00ff00" stroke-width="1" fill="none"/>
+    <circle cx="100" cy="80" r="4" stroke="#00ff00" stroke-width="2" fill="none"/>
+    <rect x="97" y="85" width="6" height="8" rx="1" ry="1"/>
+  </g>
+  
+  <!-- Encryption Status -->
+  <text x="100" y="105" text-anchor="middle" fill="#00ff00" font-family="monospace" font-size="8" font-weight="bold">ENCRYPTED</text>
+  <text x="100" y="115" text-anchor="middle" fill="#00ff00" font-family="monospace" font-size="6">AES-256</text>
+  
+  <!-- Security Indicators -->
+  <circle cx="50" cy="55" r="3" fill="#00ff00"/>
+  <text x="58" y="58" fill="#00ff00" font-family="Arial, sans-serif" font-size="6">SECURE</text>
+  
+  <circle cx="130" cy="55" r="3" fill="#00ff00"/>
+  <text x="138" y="58" fill="#00ff00" font-family="Arial, sans-serif" font-size="6">FIPS</text>
+  
+  <!-- Webcam -->
+  <circle cx="100" cy="50" r="2" fill="#e74c3c"/>
+  
+  <!-- Hinge -->
+  <rect x="35" y="118" width="130" height="4" rx="2" ry="2" fill="#7f8c8d"/>
+  
+  <!-- Security Seal -->
+  <rect x="150" y="60" width="15" height="8" rx="2" ry="2" fill="#e74c3c"/>
+  <text x="157" y="66" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="4" font-weight="bold">SEAL</text>
+  
+  <!-- Model Label -->
+  <text x="100" y="30" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SecureComputing SC-5000</text>
+  
+  <!-- Label -->
+  <text x="100" y="195" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ENCRYPTED LAPTOP</text>
+</svg>

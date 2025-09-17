@@ -436,6 +436,377 @@ class ZKVerifyService {
             console.log('🔌 Disconnected from zkVerify');
         }
     }
+
+    // ==================== ENHANCED SUPPLIER VERIFICATION ====================
+
+    /**
+     * Generate comprehensive supplier verification proof
+     */
+    async generateSupplierVerificationProof(supplierData, certificationData = {}) {
+        if (!this.isConnected) {
+            await this.initialize();
+        }
+
+        try {
+            console.log(`🔐 Generating supplier verification proof for: ${supplierData.name || supplierData.id}`);
+
+            // Create comprehensive supplier proof input
+            const proofInput = {
+                supplierId: this.hashToField(supplierData.id || supplierData.supplier_id || 'unknown'),
+                supplierName: this.hashToField(supplierData.name || 'unnamed'),
+                businessLicense: this.hashToField(supplierData.business_license || 'license-default'),
+                taxId: this.hashToField(supplierData.tax_id || 'tax-default'),
+                establishedDate: this.hashToField(supplierData.established_date || '2020-01-01'),
+                location: this.hashToField(supplierData.location || 'unknown'),
+                tier: supplierData.tier || 1,
+                rating: Math.floor((supplierData.rating || 3) * 100), // Convert to integer
+                
+                // Certification data
+                certificationHash: this.hashToField(certificationData.hash || 'cert-default'),
+                certificationExpiry: this.hashToField(certificationData.expiry || '2025-12-31'),
+                certificationAuthority: this.hashToField(certificationData.authority || 'default-authority'),
+                
+                // Compliance flags
+                isHIPAACompliant: supplierData.hipaa_compliant ? 1 : 0,
+                isMilitaryGrade: supplierData.military_grade ? 1 : 0,
+                isISO27001Certified: supplierData.iso27001_certified ? 1 : 0,
+                
+                // Trust metrics
+                trustScore: Math.floor((supplierData.trust_score || 0.8) * 1000), // Convert to integer
+                verificationLevel: supplierData.verification_level || 1,
+                
+                timestamp: Math.floor(Date.now() / 1000),
+                nonce: this.generateNonce()
+            };
+
+            // Generate the proof
+            const proof = await this.generateGroth16Proof(proofInput);
+            
+            // Submit for verification
+            const verificationResult = await this.submitProofForVerification({
+                proof: proof.proof,
+                publicSignals: proof.publicSignals,
+                proofInput,
+                supplierData
+            }, 'supplier_verification');
+
+            console.log(`✅ Supplier verification proof generated and submitted: ${verificationResult.proofId}`);
+
+            return {
+                success: true,
+                proofId: verificationResult.proofId,
+                proof: proof.proof,
+                publicSignals: proof.publicSignals,
+                verificationHash: verificationResult.hash,
+                supplierVerificationData: {
+                    supplierId: supplierData.id,
+                    verificationLevel: proofInput.verificationLevel,
+                    trustScore: supplierData.trust_score,
+                    complianceFlags: {
+                        hipaa: proofInput.isHIPAACompliant === 1,
+                        military: proofInput.isMilitaryGrade === 1,
+                        iso27001: proofInput.isISO27001Certified === 1
+                    },
+                    timestamp: new Date().toISOString()
+                }
+            };
+
+        } catch (error) {
+            console.error('❌ Supplier verification proof generation failed:', error);
+            return {
+                success: false,
+                error: error.message,
+                supplierData: {
+                    id: supplierData.id,
+                    name: supplierData.name
+                }
+            };
+        }
+    }
+
+    /**
+     * Verify supplier credentials and generate compliance proof
+     */
+    async verifySupplierCompliance(supplierData, requiredCompliance = []) {
+        try {
+            console.log(`🔍 Verifying supplier compliance for: ${supplierData.name}`);
+
+            const complianceChecks = {
+                hipaa: {
+                    required: requiredCompliance.includes('hipaa'),
+                    compliant: supplierData.hipaa_compliant || false,
+                    certification: supplierData.hipaa_certification || null
+                },
+                military: {
+                    required: requiredCompliance.includes('military'),
+                    compliant: supplierData.military_grade || false,
+                    clearanceLevel: supplierData.security_clearance || 'none'
+                },
+                iso27001: {
+                    required: requiredCompliance.includes('iso27001'),
+                    compliant: supplierData.iso27001_certified || false,
+                    certification: supplierData.iso27001_certification || null
+                },
+                gdpr: {
+                    required: requiredCompliance.includes('gdpr'),
+                    compliant: supplierData.gdpr_compliant || false,
+                    dataProcessingAgreement: supplierData.dpa_signed || false
+                }
+            };
+
+            // Check if all required compliance is met
+            const complianceResults = Object.entries(complianceChecks).map(([type, check]) => ({
+                type,
+                required: check.required,
+                compliant: check.compliant,
+                passed: !check.required || check.compliant
+            }));
+
+            const allCompliant = complianceResults.every(result => result.passed);
+
+            // Generate compliance proof if all requirements are met
+            let complianceProof = null;
+            if (allCompliant) {
+                const complianceInput = {
+                    supplierId: this.hashToField(supplierData.id),
+                    hipaaCompliant: complianceChecks.hipaa.compliant ? 1 : 0,
+                    militaryGrade: complianceChecks.military.compliant ? 1 : 0,
+                    iso27001Certified: complianceChecks.iso27001.compliant ? 1 : 0,
+                    gdprCompliant: complianceChecks.gdpr.compliant ? 1 : 0,
+                    complianceScore: Math.floor(complianceResults.filter(r => r.compliant).length / complianceResults.length * 100),
+                    timestamp: Math.floor(Date.now() / 1000),
+                    nonce: this.generateNonce()
+                };
+
+                complianceProof = await this.generateGroth16Proof(complianceInput);
+            }
+
+            return {
+                success: true,
+                allCompliant,
+                complianceResults,
+                complianceScore: complianceResults.filter(r => r.compliant).length / complianceResults.length,
+                proof: complianceProof,
+                timestamp: new Date().toISOString()
+            };
+
+        } catch (error) {
+            console.error('❌ Supplier compliance verification failed:', error);
+            return {
+                success: false,
+                error: error.message,
+                allCompliant: false
+            };
+        }
+    }
+
+    /**
+     * Generate batch supplier verification for multiple suppliers
+     */
+    async batchVerifySuppliers(suppliers, requiredCompliance = []) {
+        console.log(`🔄 Starting batch verification for ${suppliers.length} suppliers`);
+        
+        const results = [];
+        const batchSize = 5; // Process in batches to avoid overwhelming the system
+        
+        for (let i = 0; i < suppliers.length; i += batchSize) {
+            const batch = suppliers.slice(i, i + batchSize);
+            
+            const batchPromises = batch.map(async (supplier) => {
+                try {
+                    // Generate supplier verification proof
+                    const verificationResult = await this.generateSupplierVerificationProof(supplier);
+                    
+                    // Check compliance
+                    const complianceResult = await this.verifySupplierCompliance(supplier, requiredCompliance);
+                    
+                    return {
+                        supplierId: supplier.id,
+                        supplierName: supplier.name,
+                        verification: verificationResult,
+                        compliance: complianceResult,
+                        overallStatus: verificationResult.success && complianceResult.allCompliant ? 'verified' : 'failed',
+                        timestamp: new Date().toISOString()
+                    };
+                } catch (error) {
+                    return {
+                        supplierId: supplier.id,
+                        supplierName: supplier.name,
+                        verification: { success: false, error: error.message },
+                        compliance: { success: false, error: error.message },
+                        overallStatus: 'error',
+                        timestamp: new Date().toISOString()
+                    };
+                }
+            });
+            
+            const batchResults = await Promise.all(batchPromises);
+            results.push(...batchResults);
+            
+            // Small delay between batches
+            if (i + batchSize < suppliers.length) {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+        
+        const summary = {
+            total: suppliers.length,
+            verified: results.filter(r => r.overallStatus === 'verified').length,
+            failed: results.filter(r => r.overallStatus === 'failed').length,
+            errors: results.filter(r => r.overallStatus === 'error').length,
+            verificationRate: results.filter(r => r.overallStatus === 'verified').length / suppliers.length
+        };
+        
+        console.log(`✅ Batch verification completed: ${summary.verified}/${summary.total} suppliers verified`);
+        
+        return {
+            success: true,
+            summary,
+            results,
+            timestamp: new Date().toISOString()
+        };
+    }
+
+    /**
+     * Generate supplier trust attestation proof
+     */
+    async generateSupplierTrustAttestation(supplierData, trustMetrics) {
+        try {
+            console.log(`🛡️ Generating trust attestation for supplier: ${supplierData.name}`);
+
+            const attestationInput = {
+                supplierId: this.hashToField(supplierData.id),
+                trustScore: Math.floor(trustMetrics.trustScore * 1000),
+                reliabilityScore: Math.floor(trustMetrics.reliability * 1000),
+                qualityScore: Math.floor(trustMetrics.quality * 1000),
+                deliveryScore: Math.floor(trustMetrics.delivery * 1000),
+                communicationScore: Math.floor(trustMetrics.communication * 1000),
+                
+                // Historical performance
+                totalOrders: trustMetrics.totalOrders || 0,
+                successfulDeliveries: trustMetrics.successfulDeliveries || 0,
+                averageDeliveryTime: Math.floor(trustMetrics.averageDeliveryTime || 0),
+                
+                // Risk factors
+                riskLevel: Math.floor((trustMetrics.riskLevel || 0.1) * 100),
+                fraudFlags: trustMetrics.fraudFlags || 0,
+                
+                timestamp: Math.floor(Date.now() / 1000),
+                nonce: this.generateNonce()
+            };
+
+            const proof = await this.generateGroth16Proof(attestationInput);
+            
+            const verificationResult = await this.submitProofForVerification({
+                proof: proof.proof,
+                publicSignals: proof.publicSignals,
+                proofInput: attestationInput,
+                supplierData,
+                trustMetrics
+            }, 'trust_attestation');
+
+            return {
+                success: true,
+                proofId: verificationResult.proofId,
+                attestationHash: verificationResult.hash,
+                trustLevel: this.calculateTrustLevel(trustMetrics.trustScore),
+                proof: proof.proof,
+                publicSignals: proof.publicSignals,
+                timestamp: new Date().toISOString()
+            };
+
+        } catch (error) {
+            console.error('❌ Trust attestation generation failed:', error);
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
+
+    /**
+     * Calculate trust level based on trust score
+     */
+    calculateTrustLevel(trustScore) {
+        if (trustScore >= 0.9) return 'platinum';
+        if (trustScore >= 0.8) return 'gold';
+        if (trustScore >= 0.7) return 'silver';
+        if (trustScore >= 0.6) return 'bronze';
+        return 'basic';
+    }
+
+    /**
+     * Get supplier verification status
+     */
+    async getSupplierVerificationStatus(supplierId) {
+        try {
+            // This would typically query a database or blockchain for verification records
+            // For now, we'll simulate the response
+            return {
+                supplierId,
+                isVerified: true,
+                verificationLevel: 'gold',
+                lastVerificationDate: new Date().toISOString(),
+                complianceStatus: {
+                    hipaa: true,
+                    military: false,
+                    iso27001: true,
+                    gdpr: true
+                },
+                trustScore: 0.85,
+                proofIds: ['proof-123', 'proof-456'],
+                expiryDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString() // 1 year from now
+            };
+        } catch (error) {
+            console.error('❌ Failed to get supplier verification status:', error);
+            return {
+                supplierId,
+                isVerified: false,
+                error: error.message
+            };
+        }
+    }
+
+    /**
+     * Renew supplier verification
+     */
+    async renewSupplierVerification(supplierData, previousProofId) {
+        try {
+            console.log(`🔄 Renewing verification for supplier: ${supplierData.name}`);
+
+            // Generate new verification proof
+            const newVerification = await this.generateSupplierVerificationProof(supplierData);
+            
+            if (newVerification.success) {
+                // Link to previous verification for audit trail
+                const renewalData = {
+                    previousProofId,
+                    newProofId: newVerification.proofId,
+                    supplierId: supplierData.id,
+                    renewalReason: 'periodic_renewal',
+                    timestamp: new Date().toISOString()
+                };
+
+                console.log(`✅ Supplier verification renewed: ${newVerification.proofId}`);
+                
+                return {
+                    success: true,
+                    newProofId: newVerification.proofId,
+                    renewalData,
+                    verificationHash: newVerification.verificationHash
+                };
+            } else {
+                throw new Error('Failed to generate new verification proof');
+            }
+
+        } catch (error) {
+            console.error('❌ Supplier verification renewal failed:', error);
+            return {
+                success: false,
+                error: error.message
+            };
+        }
+    }
 }
 
 module.exports = ZKVerifyService;

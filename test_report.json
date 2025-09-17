@@ -1,0 +1,316 @@
+{
+  "testSuite": "Enhanced ChainFlow Features",
+  "timestamp": "2025-09-17T12:29:19.375Z",
+  "results": {
+    "zkVerify": {
+      "supplyChainProof": {
+        "success": true,
+        "proofId": "zkv_7569bf8dc0eb6582a0202f8b1f498ca9",
+        "timestamp": "2025-09-17T12:29:13.108Z"
+      },
+      "stats": {
+        "connected": true,
+        "latestBlock": 2446210,
+        "endpoint": "wss://testnet-rpc.zkverify.io",
+        "supportedProofTypes": [
+          "groth16",
+          "plonk",
+          "stark",
+          "risc0"
+        ],
+        "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+      }
+    },
+    "mlLearning": {
+      "trustAssessment": {
+        "trustScore": 0.57,
+        "riskLevel": "Medium",
+        "confidence": 100,
+        "fraudFlags": [],
+        "riskFactors": [
+          "No certifications",
+          "High-value product"
+        ],
+        "recommendations": [
+          "Implement enhanced monitoring"
+        ],
+        "breakdown": {
+          "mlScore": 0.21,
+          "supplierTrust": 0.97,
+          "productAuthenticity": 0.5,
+          "supplyChainIntegrity": 0.7,
+          "fraudPenalty": 0
+        },
+        "timestamp": "2025-09-17T12:29:13.336Z",
+        "processingTime": 1758112153336
+      },
+      "feedback": {
+        "feedback": {
+          "features": {
+            "supplierAge": 10.55758984449518,
+            "supplierRating": 4.5,
+            "supplierCertifications": 0,
+            "supplierLocation": 0.1,
+            "supplierSpecialties": 0,
+            "productPrice": 1500,
+            "productCategory": 0.2,
+            "productComplexity": 0,
+            "deliveryTime": 0,
+            "deliveryDistance": 0,
+            "deliveryOnTime": 0.5
+          },
+          "predictedScore": 0.57,
+          "actualOutcome": 0.579250601227079,
+          "context": {
+            "supplierLocation": "San Francisco, CA",
+            "batchNumber": "VACCINE-2024-002",
+            "productCategory": "Healthcare"
+          },
+          "predictionId": "114660cf-3971-4c07-9239-d471aea2a3e3"
+        },
+        "modelImprovement": {
+          "improvement": 0,
+          "trend": "insufficient_data"
+        }
+      },
+      "metrics": {
+        "accuracy": 1,
+        "precision": 0.82,
+        "recall": 0.88,
+        "f1Score": 0.85,
+        "totalPredictions": 1,
+        "correctPredictions": 1,
+        "lastEvaluationTime": 1758112149698,
+        "modelVersion": 1,
+        "feedbackBufferSize": 1,
+        "lastRetrainTime": "2025-09-17T12:29:09.698Z",
+        "continuousLearningEnabled": true
+      },
+      "timestamp": "2025-09-17T12:29:13.337Z"
+    },
+    "supplierVerification": {
+      "verification": {
+        "success": true,
+        "proofId": "zkv_3dfbb664256d46311ee2ef4f321b15c7",
+        "proof": {
+          "pi_a": [
+            "0x19222f2b38054d38bb559c051b224acf3d95a2ebb21535821a53682cdd09f18c",
+            "0xa7c939176cc17b41a1d65804892b1a74fb6e39e01347fdf1030c4c3a3b5b8fa6",
+            "0x1"
+          ],
+          "pi_b": [
+            [
+              "0x130132915584c3caaf901bd4c5a1fd47cd8a5b1de77751f22d04319730e06cee",
+              "0x32a1c75e2e908e48edb966243ea2990c965a40abc72fdec70b1460f47328018e"
+            ],
+            [
+              "0x533c05eaf7ad73f0209978b40942b516adeff9bf793420dd24def330dc106ae2",
+              "0x58578f0afb02b649bf8380b7303885397568c8abd59f79df2ae16b6fe2f1dda0"
+            ],
+            [
+              "0x1",
+              "0x0"
+            ]
+          ],
+          "pi_c": [
+            "0x6f0882ef9380fefc39e85f2993790b46be774a89222f327e348fb8b89d0b58b4",
+            "0x2a30bee4b97e48c3d1cdcc1a8c335d93ef68deb7e58454606fc0c990ebb8e8e0",
+            "0x1"
+          ],
+          "protocol": "groth16",
+          "curve": "bn128"
+        },
+        "publicSignals": [
+          "96f852b91de0e61d3d26da311062db6c35540b7cb7c73f18667d525c201a8131",
+          "1758112153"
+        ],
+        "verificationHash": "0x8c0c804d906c829999dd5cf344b9d48ab490f288bb5e20210257376fcfe10bf3",
+        "supplierVerificationData": {
+          "supplierId": "S003",
+          "verificationLevel": 1,
+          "trustScore": 0.92,
+          "complianceFlags": {
+            "hipaa": false,
+            "military": true,
+            "iso27001": true
+          },
+          "timestamp": "2025-09-17T12:29:14.341Z"
+        }
+      },
+      "compliance": {
+        "success": true,
+        "allCompliant": true,
+        "complianceResults": [
+          {
+            "type": "hipaa",
+            "required": false,
+            "compliant": false,
+            "passed": true
+          },
+          {
+            "type": "military",
+            "required": true,
+            "compliant": true,
+            "passed": true
+          },
+          {
+            "type": "iso27001",
+            "required": true,
+            "compliant": true,
+            "passed": true
+          },
+          {
+            "type": "gdpr",
+            "required": false,
+            "compliant": false,
+            "passed": true
+          }
+        ],
+        "complianceScore": 0.5,
+        "proof": {
+          "vk": {
+            "alpha": [
+              "0xb6870faaea7e0a5da090541264f2cfd5ba6c4bc32f85755f2887f78a235d1adf",
+              "0x6994b313a18574f03e6a521e513a43d54365c60304b2e3e9840b2f89df11d25f"
+            ],
+            "beta": [
+              [
+                "0x43e499efa4b5751f9c648a8434e78d0f1d6db948325da37fb19f3be011b22c11",
+                "0xa574858ca98018c59844819191fc90a90fbc8f117e34e7899df0cbd5859a6c9c"
+              ],
+              [
+                "0x4c22d0112c8e6562d7b49f8b3abb7360890b34964fa41846371e14dbbcc01c40",
+                "0x670ea6f2d0eea13d4bcc7be05e4f05cfa3b11d0a8ea4025eb06f46ba3e51c391"
+              ]
+            ],
+            "gamma": [
+              [
+                "0x5f2b7016b110f331ce2d004aa36771e6067363414adc68a5e18a8d309f776dcd",
+                "0xe00f4f6c13403d5bdd1858c9eb6288fbf4573780fe577366c9fd77c12d5deb00"
+              ],
+              [
+                "0x1caadb9b98a54693c2be077111bb976770f38177a3a3b49513be918c5aff1348",
+                "0x9ff189bc86b4fdebe22e2089edccad7e88933d19ec495a8ac777ef6e0e145db2"
+              ]
+            ],
+            "delta": [
+              [
+                "0x053ff3e666e835f5f64f182fc0125d7bae03ffcc0d0e8dfce185a2bd54b161d3",
+                "0x78f9e12aa917a05678fd58e2e184d6098f3dd46711c04d075a487995c82b0940"
+              ],
+              [
+                "0xe752ccce1488dd25fd4e507d57157248aa9213f8ba3a422fd7ecb99fbb80dc50",
+                "0xf1bdf781cd8caf663ac1013d33abc1fd4b0f49acce11bae75d75f901f73c6adc"
+              ]
+            ],
+            "ic": [
+              [
+                "0xf6f15bdd9d5e60c8a3476210bc7f6fd328d0bd641bec140812aa6154f3f60908",
+                "0x4cb4d2dc3cef485925d14f9de31caf07a30894f7366ed56636eaa465f30dfae9"
+              ]
+            ]
+          },
+          "proof": {
+            "pi_a": [
+              "0xf8fb3e9b15ab5064a1bccd750aa29dea06fc3c560db5d037be9757d15cc76306",
+              "0x1fc2f632aa63a0c6bec7624726c4e529758b150ddf41e41a4419b0fdb135369c",
+              "0x1"
+            ],
+            "pi_b": [
+              [
+                "0x1348ffad04308981b0c4cac5dfb5c9d7ce7dadc8d9d2d78678499f20f1658d23",
+                "0xd8a4364ecd7ee8cc8d0b0796c11df1b6d131f0305faf8ac71c218f242b821464"
+              ],
+              [
+                "0x1e7029e14c4177c8526c635d391bf972d85efb8e46bb9aa7a66282ac533862c0",
+                "0xdd15bd32d58d3ecadb3f32c99e792a2816ac489ebbab5973280282f9a8cc430f"
+              ],
+              [
+                "0x1",
+                "0x0"
+              ]
+            ],
+            "pi_c": [
+              "0x070aecccf794332baa0bff5f3bbccb60833fbcc4c1f72eaf9741d4ea2197ecc1",
+              "0x633c20faa17c3bd410a76670df8ccc44ca4355095bd77e4a6d783b8f05c72a54",
+              "0x1"
+            ],
+            "protocol": "groth16",
+            "curve": "bn128"
+          },
+          "publicSignals": [
+            "affc07f8b64c8f9b41b424cf8458e524dfe667a1a7229819b4116f3fa5e7bb76",
+            "1758112154"
+          ],
+          "input": {
+            "supplierId": "f598aee2eda0ebd461a60eb24ecc6378674be0d06a591ef8f25b201e4f619e48",
+            "hipaaCompliant": 0,
+            "militaryGrade": 1,
+            "iso27001Certified": 1,
+            "gdprCompliant": 0,
+            "complianceScore": 50,
+            "timestamp": 1758112154,
+            "nonce": "f88064f714c597f19d4c9aba5a9c0695"
+          }
+        },
+        "timestamp": "2025-09-17T12:29:14.346Z"
+      },
+      "attestation": {
+        "success": true,
+        "proofId": "zkv_869aec7995ff5c706269ff3fff01d8e0",
+        "attestationHash": "0x71cc30619a7c00bb39787de932a7fc58a299b31005a1bd10767a74694d7da927",
+        "trustLevel": "platinum",
+        "proof": {
+          "pi_a": [
+            "0xdb88a0aa547b6e67244d772483b685454366132739ad5edabd934ffb16f95651",
+            "0x1aa8f162ff6ce9b4b51de03a74d95f28e397dc9ef03fcb4e12b1d7e65c933f8b",
+            "0x1"
+          ],
+          "pi_b": [
+            [
+              "0x45718a1a06a4466d3e05229388bad4c30e8a515c8deaa76c1afa31cffb19fa5b",
+              "0x2deaf57b70e4c63c44ec661e849aadba7f9f4cd0310c771fedf1187a81c61596"
+            ],
+            [
+              "0x136a61c6dedf023718ebc3542a62302cf99d918dfb3c1402baa07e0b14217231",
+              "0x2d048d3499638a5cbe9cf1cc68a9ab6f20b25e1e0c9ac361a3ff822da939b2da"
+            ],
+            [
+              "0x1",
+              "0x0"
+            ]
+          ],
+          "pi_c": [
+            "0x920568c5749855f451c551b5f28af2d72926c5be05d05e51f779639fa1936a63",
+            "0xe1521fb91f81212d8a2be17e11047ea48371147e1e047b92531b63073e9adff2",
+            "0x1"
+          ],
+          "protocol": "groth16",
+          "curve": "bn128"
+        },
+        "publicSignals": [
+          "da319f47d1aaa964867fb5d19b420283b88585225f21c915dfac74fc405b7ff1",
+          "1758112154"
+        ],
+        "timestamp": "2025-09-17T12:29:15.350Z"
+      },
+      "timestamp": "2025-09-17T12:29:15.350Z"
+    },
+    "endToEnd": {
+      "supplierVerification": true,
+      "trustAssessment": 0.61,
+      "supplyChainProof": true,
+      "feedbackIncorporated": true,
+      "trustAttestation": true,
+      "overallSuccess": true,
+      "timestamp": "2025-09-17T12:29:19.375Z"
+    }
+  },
+  "summary": {
+    "zkVerifyIntegration": true,
+    "mlContinuousLearning": true,
+    "supplierVerification": true,
+    "endToEndIntegration": true,
+    "overallSuccess": true
+  }
+}

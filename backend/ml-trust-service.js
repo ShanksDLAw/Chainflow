@@ -14,6 +14,29 @@ class MLTrustService {
             high: 25
         };
         
+        // Continuous learning configuration
+        this.continuousLearning = {
+            enabled: true,
+            learningRate: 0.01,
+            adaptationThreshold: 0.1,
+            feedbackBuffer: [],
+            maxBufferSize: 1000,
+            retrainInterval: 100, // Retrain after 100 new samples
+            lastRetrainTime: Date.now(),
+            modelVersion: 1.0
+        };
+        
+        // Performance tracking
+        this.performanceMetrics = {
+            accuracy: 0.85,
+            precision: 0.82,
+            recall: 0.88,
+            f1Score: 0.85,
+            totalPredictions: 0,
+            correctPredictions: 0,
+            lastEvaluationTime: Date.now()
+        };
+        
         // Fraud detection patterns - initialize before training data
         this.fraudPatterns = {
             batchAnomalies: [
@@ -46,6 +69,7 @@ class MLTrustService {
         this.featureWeights = this.calculateFeatureWeights();
         
         console.log('🔧 ML Trust Service initialized with consolidated functionality');
+        console.log('Continuous learning enabled with learning rate:', this.continuousLearning.learningRate);
     }
 
     /**
@@ -463,6 +487,305 @@ class MLTrustService {
             timestamp: new Date().toISOString(),
             processingTime: Date.now()
         };
+    }
+
+    // ==================== CONTINUOUS LEARNING METHODS ====================
+
+    /**
+     * Incorporate feedback from actual delivery outcomes
+     * @param {Object} feedback - Feedback data including prediction, actual outcome, and context
+     */
+    incorporateFeedback(feedback) {
+        if (!this.continuousLearning.enabled) return;
+
+        try {
+            const feedbackData = {
+                features: feedback.features,
+                predictedScore: feedback.predictedScore,
+                actualOutcome: feedback.actualOutcome, // 0-1 scale
+                timestamp: Date.now(),
+                context: feedback.context || {},
+                predictionId: feedback.predictionId || crypto.randomUUID()
+            };
+
+            // Add to feedback buffer
+            this.continuousLearning.feedbackBuffer.push(feedbackData);
+
+            // Maintain buffer size
+            if (this.continuousLearning.feedbackBuffer.length > this.continuousLearning.maxBufferSize) {
+                this.continuousLearning.feedbackBuffer.shift();
+            }
+
+            // Update performance metrics
+            this.updatePerformanceMetrics(feedbackData);
+
+            // Check if we need to retrain
+            if (this.shouldRetrain()) {
+                this.performOnlineLearning();
+            }
+
+            console.log(`📊 Feedback incorporated. Buffer size: ${this.continuousLearning.feedbackBuffer.length}`);
+            
+        } catch (error) {
+            console.error('Error incorporating feedback:', error);
+        }
+    }
+
+    /**
+     * Perform online learning to adapt the model
+     */
+    performOnlineLearning() {
+        try {
+            console.log('🧠 Performing online learning...');
+            
+            const recentFeedback = this.continuousLearning.feedbackBuffer.slice(-this.continuousLearning.retrainInterval);
+            
+            if (recentFeedback.length < 10) {
+                console.log('Insufficient feedback data for retraining');
+                return;
+            }
+
+            // Calculate prediction errors
+            const errors = recentFeedback.map(fb => ({
+                error: fb.actualOutcome - fb.predictedScore,
+                features: fb.features
+            }));
+
+            // Update feature weights using gradient descent
+            this.updateFeatureWeights(errors);
+
+            // Update fraud patterns based on feedback
+            this.updateFraudPatterns(recentFeedback);
+
+            // Update model version
+            this.continuousLearning.modelVersion += 0.1;
+            this.continuousLearning.lastRetrainTime = Date.now();
+
+            console.log(`✅ Model updated to version ${this.continuousLearning.modelVersion.toFixed(1)}`);
+            
+        } catch (error) {
+            console.error('Error in online learning:', error);
+        }
+    }
+
+    /**
+     * Update feature weights using gradient descent
+     */
+    updateFeatureWeights(errors) {
+        const learningRate = this.continuousLearning.learningRate;
+        const featureNames = Object.keys(this.featureWeights);
+
+        featureNames.forEach(feature => {
+            let gradient = 0;
+            
+            errors.forEach(({ error, features }) => {
+                if (features[feature] !== undefined) {
+                    gradient += error * features[feature];
+                }
+            });
+
+            gradient /= errors.length;
+            
+            // Update weight with gradient descent
+            this.featureWeights[feature] += learningRate * gradient;
+            
+            // Prevent weights from becoming too extreme
+            this.featureWeights[feature] = Math.max(-2, Math.min(2, this.featureWeights[feature]));
+        });
+    }
+
+    /**
+     * Update fraud patterns based on feedback
+     */
+    updateFraudPatterns(feedback) {
+        const fraudCases = feedback.filter(fb => fb.actualOutcome < 0.3);
+        
+        fraudCases.forEach(fraudCase => {
+            const context = fraudCase.context;
+            
+            // Update location risks
+            if (context.supplierLocation && !this.fraudPatterns.locationRisks[context.supplierLocation]) {
+                this.fraudPatterns.locationRisks[context.supplierLocation] = 0.6;
+            }
+            
+            // Update suspicious batches
+            if (context.batchNumber && !this.fraudPatterns.suspiciousBatches.includes(context.batchNumber)) {
+                this.fraudPatterns.suspiciousBatches.push(context.batchNumber);
+            }
+        });
+    }
+
+    /**
+     * Update performance metrics based on feedback
+     */
+    updatePerformanceMetrics(feedback) {
+        this.performanceMetrics.totalPredictions++;
+        
+        const error = Math.abs(feedback.actualOutcome - feedback.predictedScore);
+        const isCorrect = error < this.continuousLearning.adaptationThreshold;
+        
+        if (isCorrect) {
+            this.performanceMetrics.correctPredictions++;
+        }
+        
+        // Update accuracy
+        this.performanceMetrics.accuracy = 
+            this.performanceMetrics.correctPredictions / this.performanceMetrics.totalPredictions;
+        
+        // Update other metrics (simplified calculation)
+        const recentFeedback = this.continuousLearning.feedbackBuffer.slice(-100);
+        if (recentFeedback.length >= 10) {
+            const truePositives = recentFeedback.filter(fb => 
+                fb.predictedScore > 0.7 && fb.actualOutcome > 0.7).length;
+            const falsePositives = recentFeedback.filter(fb => 
+                fb.predictedScore > 0.7 && fb.actualOutcome <= 0.7).length;
+            const falseNegatives = recentFeedback.filter(fb => 
+                fb.predictedScore <= 0.7 && fb.actualOutcome > 0.7).length;
+            
+            this.performanceMetrics.precision = truePositives / (truePositives + falsePositives) || 0;
+            this.performanceMetrics.recall = truePositives / (truePositives + falseNegatives) || 0;
+            this.performanceMetrics.f1Score = 2 * (this.performanceMetrics.precision * this.performanceMetrics.recall) / 
+                (this.performanceMetrics.precision + this.performanceMetrics.recall) || 0;
+        }
+    }
+
+    /**
+     * Check if model should be retrained
+     */
+    shouldRetrain() {
+        const bufferSize = this.continuousLearning.feedbackBuffer.length;
+        const timeSinceLastRetrain = Date.now() - this.continuousLearning.lastRetrainTime;
+        const hoursSinceRetrain = timeSinceLastRetrain / (1000 * 60 * 60);
+        
+        return bufferSize >= this.continuousLearning.retrainInterval || 
+               (hoursSinceRetrain > 24 && bufferSize > 10) ||
+               this.performanceMetrics.accuracy < 0.7;
+    }
+
+    /**
+     * Get model performance metrics
+     */
+    getPerformanceMetrics() {
+        return {
+            ...this.performanceMetrics,
+            modelVersion: this.continuousLearning.modelVersion,
+            feedbackBufferSize: this.continuousLearning.feedbackBuffer.length,
+            lastRetrainTime: new Date(this.continuousLearning.lastRetrainTime).toISOString(),
+            continuousLearningEnabled: this.continuousLearning.enabled
+        };
+    }
+
+    /**
+     * Simulate feedback for demonstration purposes
+     */
+    simulateFeedback(product, supplier, predictedScore) {
+        // Simulate actual outcome based on various factors
+        let actualOutcome = predictedScore;
+        
+        // Add some realistic variation
+        const variation = (Math.random() - 0.5) * 0.3;
+        actualOutcome += variation;
+        
+        // Simulate specific scenarios
+        if (supplier.rating && supplier.rating < 3) {
+            actualOutcome *= 0.7; // Poor suppliers tend to have worse outcomes
+        }
+        
+        if (product.price && product.price < 10) {
+            actualOutcome *= 0.8; // Very cheap products might be suspicious
+        }
+        
+        actualOutcome = Math.max(0, Math.min(1, actualOutcome));
+        
+        const feedback = {
+            features: this.extractFeatures(supplier, product),
+            predictedScore,
+            actualOutcome,
+            context: {
+                supplierLocation: supplier.location,
+                batchNumber: product.batch_number,
+                productCategory: product.category
+            },
+            predictionId: crypto.randomUUID()
+        };
+        
+        this.incorporateFeedback(feedback);
+        
+        return {
+            feedback,
+            modelImprovement: this.calculateModelImprovement()
+        };
+    }
+
+    /**
+     * Calculate model improvement over time
+     */
+    calculateModelImprovement() {
+        if (this.continuousLearning.feedbackBuffer.length < 20) {
+            return { improvement: 0, trend: 'insufficient_data' };
+        }
+        
+        const recentAccuracy = this.performanceMetrics.accuracy;
+        const buffer = this.continuousLearning.feedbackBuffer;
+        const oldFeedback = buffer.slice(0, Math.floor(buffer.length / 2));
+        
+        let oldCorrect = 0;
+        oldFeedback.forEach(fb => {
+            const error = Math.abs(fb.actualOutcome - fb.predictedScore);
+            if (error < this.continuousLearning.adaptationThreshold) {
+                oldCorrect++;
+            }
+        });
+        
+        const oldAccuracy = oldCorrect / oldFeedback.length;
+        const improvement = recentAccuracy - oldAccuracy;
+        
+        return {
+            improvement: Math.round(improvement * 100) / 100,
+            trend: improvement > 0.05 ? 'improving' : improvement < -0.05 ? 'declining' : 'stable',
+            oldAccuracy: Math.round(oldAccuracy * 100) / 100,
+            currentAccuracy: Math.round(recentAccuracy * 100) / 100
+        };
+    }
+
+    /**
+     * Export model state for backup/restore
+     */
+    exportModelState() {
+        return {
+            featureWeights: { ...this.featureWeights },
+            fraudPatterns: JSON.parse(JSON.stringify(this.fraudPatterns)),
+            performanceMetrics: { ...this.performanceMetrics },
+            continuousLearning: {
+                ...this.continuousLearning,
+                feedbackBuffer: this.continuousLearning.feedbackBuffer.slice(-100) // Only recent feedback
+            },
+            exportTimestamp: new Date().toISOString()
+        };
+    }
+
+    /**
+     * Import model state from backup
+     */
+    importModelState(modelState) {
+        try {
+            this.featureWeights = { ...modelState.featureWeights };
+            this.fraudPatterns = JSON.parse(JSON.stringify(modelState.fraudPatterns));
+            this.performanceMetrics = { ...modelState.performanceMetrics };
+            
+            if (modelState.continuousLearning) {
+                this.continuousLearning = {
+                    ...this.continuousLearning,
+                    ...modelState.continuousLearning
+                };
+            }
+            
+            console.log('✅ Model state imported successfully');
+            return true;
+        } catch (error) {
+            console.error('Error importing model state:', error);
+            return false;
+        }
     }
 }
 

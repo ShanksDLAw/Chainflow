@@ -135,48 +135,107 @@ def update_auto_progress():
 # Load sample data
 @st.cache_data
 def load_sample_data():
-    # Expanded products data with more variety
+    # Comprehensive products data with healthcare, military, and logistics sectors
     products = [
-        {"id": "PRD-001", "name": "Organic Coffee Beans", "category": "Food & Beverage", "supplier": "Ethiopian Highlands Co.", "trust_score": 95, "price": 24.99, "origin": "Ethiopia", "image": "images/coffee_beans.svg"},
-        {"id": "PRD-002", "name": "Sustainable Cotton T-Shirt", "category": "Apparel", "supplier": "EcoTextiles Ltd.", "trust_score": 88, "price": 29.99, "origin": "India", "image": "images/cotton_tshirt.svg"},
-        {"id": "PRD-003", "name": "Artisan Chocolate Bar", "category": "Food & Beverage", "supplier": "Cacao Dreams", "trust_score": 92, "price": 8.99, "origin": "Ecuador", "image": "images/chocolate_bar.svg"},
-        {"id": "PRD-004", "name": "Bamboo Phone Case", "category": "Electronics", "supplier": "GreenTech Solutions", "trust_score": 85, "price": 19.99, "origin": "Vietnam", "image": "images/bamboo_phone_case.svg"},
-        {"id": "PRD-005", "name": "Fair Trade Vanilla Extract", "category": "Food & Beverage", "supplier": "Madagascar Vanilla Co.", "trust_score": 97, "price": 15.99, "origin": "Madagascar", "image": "images/vanilla_extract.svg"},
-        {"id": "PRD-006", "name": "Swiss Luxury Watch", "category": "Luxury", "supplier": "Alpine Timepieces", "trust_score": 99, "price": 2499.99, "origin": "Switzerland", "image": "images/swiss_watch.svg"},
-        {"id": "PRD-007", "name": "Japanese Green Tea", "category": "Food & Beverage", "supplier": "Kyoto Tea Gardens", "trust_score": 94, "price": 45.99, "origin": "Japan", "image": "images/green_tea.svg"},
-        {"id": "PRD-008", "name": "Italian Leather Handbag", "category": "Fashion", "supplier": "Milano Crafters", "trust_score": 91, "price": 399.99, "origin": "Italy", "image": "images/leather_handbag.svg"},
-        {"id": "PRD-009", "name": "Norwegian Salmon", "category": "Food & Beverage", "supplier": "Arctic Fisheries", "trust_score": 96, "price": 89.99, "origin": "Norway", "image": "images/norwegian_salmon.svg"},
-        {"id": "PRD-010", "name": "Australian Wool Blanket", "category": "Home & Living", "supplier": "Outback Textiles", "trust_score": 89, "price": 159.99, "origin": "Australia", "image": "images/wool_blanket.svg"}
+        # Healthcare Products - HIPAA Compliance Required
+        {"id": "MED-001", "name": "Surgical Masks N95", "category": "Healthcare", "supplier": "MedTech Solutions", "trust_score": 98, "price": 45.99, "origin": "USA", "image": "images/surgical_mask.svg", "compliance": ["HIPAA", "FDA", "ISO 13485"], "verification_type": "medical_device"},
+        {"id": "MED-002", "name": "Digital Thermometer", "category": "Healthcare", "supplier": "HealthDevice Corp", "trust_score": 96, "price": 89.99, "origin": "Germany", "image": "images/thermometer.svg", "compliance": ["HIPAA", "CE", "FDA"], "verification_type": "medical_device"},
+        {"id": "MED-003", "name": "Insulin Vials", "category": "Healthcare", "supplier": "PharmaCare Ltd", "trust_score": 99, "price": 299.99, "origin": "Switzerland", "image": "images/insulin.svg", "compliance": ["HIPAA", "FDA", "GMP"], "verification_type": "pharmaceutical"},
+        {"id": "MED-004", "name": "Blood Pressure Monitor", "category": "Healthcare", "supplier": "CardioTech", "trust_score": 94, "price": 159.99, "origin": "Japan", "image": "images/bp_monitor.svg", "compliance": ["HIPAA", "FDA", "ISO 13485"], "verification_type": "medical_device"},
+        
+        # Military/Defense Products - Military-Grade Verification Required
+        {"id": "MIL-001", "name": "Tactical Communication Radio", "category": "Military", "supplier": "DefenseTech Industries", "trust_score": 99, "price": 2499.99, "origin": "USA", "image": "images/tactical_radio.svg", "compliance": ["ITAR", "MIL-STD", "FIPS 140-2"], "verification_type": "defense_equipment"},
+        {"id": "MIL-002", "name": "Kevlar Body Armor", "category": "Military", "supplier": "ArmorCorp", "trust_score": 98, "price": 899.99, "origin": "USA", "image": "images/body_armor.svg", "compliance": ["NIJ", "MIL-STD", "ITAR"], "verification_type": "protective_equipment"},
+        {"id": "MIL-003", "name": "Night Vision Goggles", "category": "Military", "supplier": "OpticDefense", "trust_score": 97, "price": 3999.99, "origin": "USA", "image": "images/night_vision.svg", "compliance": ["ITAR", "MIL-STD", "EAR"], "verification_type": "optical_equipment"},
+        {"id": "MIL-004", "name": "Encrypted Laptop", "category": "Military", "supplier": "SecureComputing", "trust_score": 99, "price": 4999.99, "origin": "USA", "image": "images/encrypted_laptop.svg", "compliance": ["FIPS 140-2", "Common Criteria", "ITAR"], "verification_type": "secure_computing"},
+        
+        # Logistics/Last-Mile Delivery Products
+        {"id": "LOG-001", "name": "GPS Tracking Device", "category": "Logistics", "supplier": "TrackTech Solutions", "trust_score": 92, "price": 199.99, "origin": "South Korea", "image": "images/gps_tracker.svg", "compliance": ["FCC", "CE"], "verification_type": "tracking_device"},
+        {"id": "LOG-002", "name": "Temperature Sensor", "category": "Logistics", "supplier": "ColdChain Monitors", "trust_score": 95, "price": 89.99, "origin": "Netherlands", "image": "images/temp_sensor.svg", "compliance": ["ISO 9001", "HACCP"], "verification_type": "monitoring_device"},
+        {"id": "LOG-003", "name": "Delivery Drone", "category": "Logistics", "supplier": "AerialLogistics", "trust_score": 88, "price": 12999.99, "origin": "China", "image": "images/delivery_drone.svg", "compliance": ["FAA", "CE", "FCC"], "verification_type": "aerial_vehicle"},
+        {"id": "LOG-004", "name": "Smart Lock System", "category": "Logistics", "supplier": "SecureDelivery Inc", "trust_score": 91, "price": 299.99, "origin": "Canada", "image": "images/smart_lock.svg", "compliance": ["UL", "FCC"], "verification_type": "security_device"},
+        
+        # Traditional Products (keeping some for variety)
+        {"id": "PRD-001", "name": "Organic Coffee Beans", "category": "Food & Beverage", "supplier": "Ethiopian Highlands Co.", "trust_score": 95, "price": 24.99, "origin": "Ethiopia", "image": "images/coffee_beans.svg", "compliance": ["Organic", "Fair Trade"], "verification_type": "food_product"},
+        {"id": "PRD-002", "name": "Sustainable Cotton T-Shirt", "category": "Apparel", "supplier": "EcoTextiles Ltd.", "trust_score": 88, "price": 29.99, "origin": "India", "image": "images/cotton_tshirt.svg", "compliance": ["GOTS", "Fair Trade"], "verification_type": "textile_product"},
+        {"id": "PRD-003", "name": "Swiss Luxury Watch", "category": "Luxury", "supplier": "Alpine Timepieces", "trust_score": 99, "price": 2499.99, "origin": "Switzerland", "image": "images/swiss_watch.svg", "compliance": ["Swiss Made", "COSC"], "verification_type": "luxury_item"}
     ]
     
-    # Sample tracking data
+    # Sample tracking data with sector-specific compliance verification
     tracking_data = {
-        "TRK-PAY-001": {
-            "product": "Organic Coffee Beans",
+        # Healthcare Shipments - HIPAA Verified
+        "TRK-MED-001": {
+            "product": "Surgical Masks N95",
             "status": "In Transit",
-            "current_location": "Port of Hamburg",
-            "progress": 65,
+            "current_location": "FDA Distribution Center",
+            "progress": 75,
             "estimated_delivery": "2024-01-25",
-            "route": ["Addis Ababa", "Dubai", "Hamburg", "London"],
-            "zk_verified": True
+            "route": ["Manufacturing Facility", "FDA Inspection", "Distribution Center", "Hospital"],
+            "zk_verified": True,
+            "compliance_verified": ["HIPAA", "FDA", "ISO 13485"],
+            "verification_type": "medical_device"
         },
-        "TRK-PAY-002": {
-            "product": "Sustainable Cotton T-Shirt",
-            "status": "Delivered",
-            "current_location": "New York",
-            "progress": 100,
-            "estimated_delivery": "2024-01-20",
-            "route": ["Mumbai", "Singapore", "Los Angeles", "New York"],
-            "zk_verified": True
+        "TRK-MED-002": {
+            "product": "Insulin Vials",
+            "status": "Cold Chain Verified",
+            "current_location": "Pharmaceutical Warehouse",
+            "progress": 45,
+            "estimated_delivery": "2024-01-28",
+            "route": ["Swiss Manufacturing", "Cold Storage", "Pharmaceutical Warehouse", "Pharmacy"],
+            "zk_verified": True,
+            "compliance_verified": ["HIPAA", "FDA", "GMP"],
+            "verification_type": "pharmaceutical"
         },
-        "TRK-PAY-003": {
-            "product": "Swiss Luxury Watch",
-            "status": "Processing",
-            "current_location": "Geneva",
-            "progress": 15,
+        
+        # Military Shipments - ITAR Verified
+        "TRK-MIL-001": {
+            "product": "Tactical Communication Radio",
+            "status": "Security Clearance Verified",
+            "current_location": "Secure Military Facility",
+            "progress": 90,
+            "estimated_delivery": "2024-01-26",
+            "route": ["Defense Contractor", "Security Screening", "Military Base", "Field Unit"],
+            "zk_verified": True,
+            "compliance_verified": ["ITAR", "MIL-STD", "FIPS 140-2"],
+            "verification_type": "defense_equipment"
+        },
+        "TRK-MIL-002": {
+            "product": "Night Vision Goggles",
+            "status": "Export License Verified",
+            "current_location": "Defense Logistics Center",
+            "progress": 60,
             "estimated_delivery": "2024-01-30",
-            "route": ["Geneva", "Frankfurt", "Amsterdam", "London"],
-            "zk_verified": True
+            "route": ["Manufacturing", "Export Control", "Defense Logistics", "Military Unit"],
+            "zk_verified": True,
+            "compliance_verified": ["ITAR", "MIL-STD", "EAR"],
+            "verification_type": "optical_equipment"
+        },
+        
+        # Logistics Shipments - Last-Mile Optimized
+        "TRK-LOG-001": {
+            "product": "GPS Tracking Device",
+            "status": "Route Optimized",
+            "current_location": "Last-Mile Hub",
+            "progress": 85,
+            "estimated_delivery": "2024-01-24",
+            "route": ["Seoul Factory", "Port of Busan", "Los Angeles Port", "Last-Mile Hub", "Customer"],
+            "zk_verified": True,
+            "compliance_verified": ["FCC", "CE"],
+            "verification_type": "tracking_device",
+            "driver_verified": True,
+            "delivery_optimized": True
+        },
+        "TRK-LOG-002": {
+            "product": "Delivery Drone",
+            "status": "FAA Clearance Verified",
+            "current_location": "Drone Operations Center",
+            "progress": 55,
+            "estimated_delivery": "2024-02-01",
+            "route": ["Shenzhen Factory", "Quality Control", "Customs", "Drone Operations Center", "Customer"],
+            "zk_verified": True,
+            "compliance_verified": ["FAA", "CE", "FCC"],
+            "verification_type": "aerial_vehicle",
+            "flight_path_optimized": True
         },
         "TRK-PAY-004": {
             "product": "Norwegian Salmon",
@@ -546,10 +605,10 @@ def optimize_route(origin, destination, priority="Cost"):
         "weather_impact": random.choice(["Minimal", "Low", "Moderate"])
     }
 
-# Enhanced ZK proof generation with zkVerify integration
-def generate_zk_proof(product_id, proof_type="authenticity", privacy_level="standard"):
+# Enhanced ZK proof generation with zkVerify integration and sector-specific compliance
+def generate_zk_proof(product_id, proof_type="authenticity", privacy_level="standard", product_data=None):
     """
-    Generate ZK proof using zkVerify universal verification layer
+    Generate ZK proof using zkVerify universal verification layer with sector-specific compliance
     """
     import hashlib
     import secrets
@@ -564,14 +623,17 @@ def generate_zk_proof(product_id, proof_type="authenticity", privacy_level="stan
         "origin": "PLONK (zkVerify)",
         "quality": "STARK (zkVerify)",
         "route": "Groth16 (zkVerify)",
-        "payment": "PLONK (zkVerify)"
+        "payment": "PLONK (zkVerify)",
+        "compliance": "STARK (zkVerify)",  # For regulatory compliance
+        "identity": "Groth16 (zkVerify)"   # For identity verification
     }
     
     # Privacy levels affect proof generation time and security
     privacy_multipliers = {
         "standard": 1.0,
         "high": 1.5,
-        "maximum": 2.0
+        "maximum": 2.0,
+        "military": 3.0  # Military-grade security
     }
     
     base_time = random.uniform(0.5, 1.8)  # zkVerify optimized timing
@@ -581,6 +643,71 @@ def generate_zk_proof(product_id, proof_type="authenticity", privacy_level="stan
     zkverify_proof_id = f"zkv_{secrets.token_hex(16)}"
     zkverify_tx_hash = f"0x{secrets.token_hex(32)}"
     
+    # Sector-specific compliance verification
+    compliance_verification = {}
+    if product_data:
+        category = product_data.get('category', '')
+        compliance_reqs = product_data.get('compliance', [])
+        verification_type = product_data.get('verification_type', '')
+        
+        if category == 'Healthcare':
+            compliance_verification = {
+                "hipaa_verified": "HIPAA" in compliance_reqs,
+                "fda_approved": "FDA" in compliance_reqs,
+                "medical_device_class": "Class II" if verification_type == "medical_device" else "N/A",
+                "patient_privacy_protected": True,
+                "phi_encrypted": True,
+                "audit_trail_enabled": True
+            }
+            privacy_level = "high"  # Healthcare requires high privacy
+            
+        elif category == 'Military':
+            # Enhanced military-grade verification with comprehensive security clearance checks
+            military_verification = product_data.get('military_verification', {})
+            security_clearance = military_verification.get('security_clearance', 'Unclassified')
+            
+            compliance_verification = {
+                "itar_compliant": "ITAR" in compliance_reqs,
+                "security_clearance_verified": True,
+                "security_clearance_level": security_clearance,
+                "clearance_expiry_valid": True,  # Check if clearance is current
+                "export_license_valid": "EAR" in compliance_reqs or "ITAR" in compliance_reqs,
+                "mil_std_certified": "MIL-STD" in compliance_reqs,
+                "fips_140_2_validated": "FIPS 140-2" in compliance_reqs,
+                "supply_chain_vetted": True,
+                "end_user_verified": True,
+                "contractor_verified": True,
+                "facility_security_cleared": security_clearance in ['Secret', 'Top Secret', 'TS/SCI'],
+                "personnel_background_checked": True,
+                "foreign_ownership_cleared": True,
+                "technology_transfer_approved": "ITAR" in compliance_reqs,
+                "cybersecurity_framework_compliant": "NIST 800-171" in compliance_reqs,
+                "supply_chain_risk_assessed": True,
+                "insider_threat_mitigated": True,
+                "physical_security_verified": True,
+                "information_security_validated": True,
+                "operational_security_confirmed": True,
+                "communications_security_enabled": True,
+                "tamper_evidence_verified": True,
+                "chain_of_custody_maintained": True,
+                "dual_use_technology_controlled": True,
+                "critical_technology_protected": security_clearance in ['Top Secret', 'TS/SCI'],
+                "defense_industrial_base_verified": True,
+                "trusted_supplier_validated": True
+            }
+            privacy_level = "military"  # Military requires maximum security
+            
+        elif category == 'Logistics':
+            compliance_verification = {
+                "driver_identity_verified": True,
+                "receiver_identity_verified": True,
+                "route_optimized": True,
+                "delivery_secured": True,
+                "tracking_enabled": True,
+                "last_mile_optimized": True,
+                "cost_savings_calculated": True
+            }
+    
     proof_data = {
         "proof_hash": f"0x{witness_hash[:64]}",
         "public_inputs": f"0x{public_inputs[:32]}",
@@ -588,7 +715,7 @@ def generate_zk_proof(product_id, proof_type="authenticity", privacy_level="stan
         "proof_system": proof_systems.get(proof_type, "Groth16 (zkVerify)"),
         "verification_time": f"{generation_time:.2f}s",
         "proof_size": f"{random.randint(192, 256)} bytes",  # zkVerify optimized size
-        "security_level": "128-bit",
+        "security_level": "256-bit" if privacy_level == "military" else "128-bit",
         "verified": True,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC"),
         "privacy_level": privacy_level,
@@ -599,7 +726,8 @@ def generate_zk_proof(product_id, proof_type="authenticity", privacy_level="stan
         "zkverify_chain_id": 1,
         "verification_layer": "zkVerify Testnet",
         "gas_cost": f"{random.randint(15000, 45000)} gas",
-        "finality_time": f"{random.uniform(2.1, 6.8):.1f}s"
+        "finality_time": f"{random.uniform(2.1, 6.8):.1f}s",
+        "compliance_verification": compliance_verification
     }
     
     return proof_data
@@ -647,7 +775,7 @@ def generate_route_zk_proof(origin, destination, route_data, use_case="Standard 
         "verified": True,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC"),
         "route_efficiency": f"{random.randint(85, 98)}%",
-        "privacy_score": f"{random.randint(int(92 * security_multiplier), 99)}%",
+        "privacy_score": f"{random.randint(92, min(99, max(93, int(92 * security_multiplier))))}%",
         "supply_chain_integrity": "✅ Verified",
         "logistics_privacy": "✅ Protected",
         "cost_optimization": f"{random.randint(15, 35)}% savings",
@@ -685,7 +813,7 @@ def main():
     st.sidebar.title("🚀 Navigation")
     page = st.sidebar.selectbox(
         "Choose a section:",
-        ["🏠 Dashboard", "📦 Product Verification", "🚚 Shipment Tracking", "💳 Payment & Receipts", "🤖 AI Route Optimization", "📊 Analytics", "🔐 ZK Proof Demo"]
+        ["🏠 Dashboard", "📦 Product Verification", "🚚 Shipment Tracking", "💳 Payment & Receipts", "🤖 AI Route Optimization", "🚛 Last-Mile Logistics", "📊 Analytics"]
     )
     
     if page == "🏠 Dashboard":
@@ -698,10 +826,10 @@ def main():
         payment_page(products)
     elif page == "🤖 AI Route Optimization":
         route_optimization_page()
+    elif page == "🚛 Last-Mile Logistics":
+        last_mile_logistics_page()
     elif page == "📊 Analytics":
         analytics_page(analytics_df)
-    elif page == "🔐 ZK Proof Demo":
-        zk_proof_page(products)
 
 def dashboard_page(analytics_df):
     st.header("📊 Supply Chain Dashboard")
@@ -1184,7 +1312,8 @@ def product_verification_page(products):
                 proof = generate_zk_proof(
                     product['id'], 
                     proof_type_mapping.get(proof_type, "authenticity"),
-                    privacy_mapping.get(privacy_level, "standard")
+                    privacy_mapping.get(privacy_level, "standard"),
+                    product  # Pass product data for compliance verification
                 )
                 
                 st.success("✅ Zero-Knowledge Proof Generated Successfully!")
@@ -1213,6 +1342,90 @@ def product_verification_page(products):
                     st.write(f"**Trusted Setup:** {proof['trusted_setup']}")
                     st.write(f"**Verification Key:** {proof['verification_key'][:16]}...")
                     st.write(f"**Proof Type:** {proof_type}")
+                
+                # Display sector-specific compliance verification results
+                if proof.get('compliance_verification'):
+                    st.subheader("🏥⚔️🚚 Compliance Verification Results")
+                    compliance = proof['compliance_verification']
+                    
+                    if product.get('category') == 'Healthcare':
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.write("**🏥 Healthcare Compliance:**")
+                            st.write(f"✅ HIPAA Verified: {compliance.get('hipaa_verified', False)}")
+                            st.write(f"✅ FDA Approved: {compliance.get('fda_approved', False)}")
+                            st.write(f"✅ Medical Device Class: {compliance.get('medical_device_class', 'N/A')}")
+                        with col2:
+                            st.write("**🔒 Privacy Protection:**")
+                            st.write(f"✅ Patient Privacy Protected: {compliance.get('patient_privacy_protected', False)}")
+                            st.write(f"✅ PHI Encrypted: {compliance.get('phi_encrypted', False)}")
+                            st.write(f"✅ Audit Trail Enabled: {compliance.get('audit_trail_enabled', False)}")
+                    
+                    elif product.get('category') == 'Military':
+                        # Enhanced military verification display with comprehensive security clearance checks
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.write("**⚔️ Military Compliance:**")
+                            st.write(f"✅ ITAR Compliant: {compliance.get('itar_compliant', False)}")
+                            st.write(f"✅ Security Clearance Verified: {compliance.get('security_clearance_verified', False)}")
+                            clearance_level = compliance.get('security_clearance_level', 'Unclassified')
+                            st.write(f"🔐 Security Clearance Level: **{clearance_level}**")
+                            st.write(f"✅ Clearance Expiry Valid: {compliance.get('clearance_expiry_valid', False)}")
+                            st.write(f"✅ Export License Valid: {compliance.get('export_license_valid', False)}")
+                            st.write(f"✅ Technology Transfer Approved: {compliance.get('technology_transfer_approved', False)}")
+                        with col2:
+                            st.write("**🛡️ Security Standards:**")
+                            st.write(f"✅ MIL-STD Certified: {compliance.get('mil_std_certified', False)}")
+                            st.write(f"✅ FIPS 140-2 Validated: {compliance.get('fips_140_2_validated', False)}")
+                            st.write(f"✅ NIST 800-171 Compliant: {compliance.get('cybersecurity_framework_compliant', False)}")
+                            st.write(f"✅ Facility Security Cleared: {compliance.get('facility_security_cleared', False)}")
+                            st.write(f"✅ Personnel Background Checked: {compliance.get('personnel_background_checked', False)}")
+                            st.write(f"✅ Foreign Ownership Cleared: {compliance.get('foreign_ownership_cleared', False)}")
+                        with col3:
+                            st.write("**🔒 Advanced Security:**")
+                            st.write(f"✅ Supply Chain Vetted: {compliance.get('supply_chain_vetted', False)}")
+                            st.write(f"✅ Contractor Verified: {compliance.get('contractor_verified', False)}")
+                            st.write(f"✅ Insider Threat Mitigated: {compliance.get('insider_threat_mitigated', False)}")
+                            st.write(f"✅ Physical Security Verified: {compliance.get('physical_security_verified', False)}")
+                            st.write(f"✅ Information Security Validated: {compliance.get('information_security_validated', False)}")
+                            st.write(f"✅ Critical Technology Protected: {compliance.get('critical_technology_protected', False)}")
+                        
+                        # Additional military-specific security metrics
+                        st.write("**🎯 Operational Security:**")
+                        col4, col5 = st.columns(2)
+                        with col4:
+                            st.write(f"✅ Operational Security Confirmed: {compliance.get('operational_security_confirmed', False)}")
+                            st.write(f"✅ Communications Security Enabled: {compliance.get('communications_security_enabled', False)}")
+                            st.write(f"✅ Tamper Evidence Verified: {compliance.get('tamper_evidence_verified', False)}")
+                            st.write(f"✅ Chain of Custody Maintained: {compliance.get('chain_of_custody_maintained', False)}")
+                        with col5:
+                            st.write(f"✅ Dual Use Technology Controlled: {compliance.get('dual_use_technology_controlled', False)}")
+                            st.write(f"✅ Defense Industrial Base Verified: {compliance.get('defense_industrial_base_verified', False)}")
+                            st.write(f"✅ Trusted Supplier Validated: {compliance.get('trusted_supplier_validated', False)}")
+                            st.write(f"✅ Supply Chain Risk Assessed: {compliance.get('supply_chain_risk_assessed', False)}")
+                        
+                        # Security clearance level indicator
+                        if clearance_level in ['Top Secret', 'TS/SCI']:
+                            st.error(f"🔴 **CLASSIFIED - {clearance_level}** - Highest Security Level")
+                        elif clearance_level == 'Secret':
+                            st.warning(f"🟡 **CLASSIFIED - {clearance_level}** - High Security Level")
+                        elif clearance_level == 'Confidential':
+                            st.info(f"🔵 **CLASSIFIED - {clearance_level}** - Medium Security Level")
+                        else:
+                            st.success(f"🟢 **{clearance_level}** - Standard Security Level")
+                    
+                    elif product.get('category') == 'Logistics':
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.write("**🚚 Logistics Verification:**")
+                            st.write(f"✅ Driver Identity Verified: {compliance.get('driver_identity_verified', False)}")
+                            st.write(f"✅ Receiver Identity Verified: {compliance.get('receiver_identity_verified', False)}")
+                            st.write(f"✅ Route Optimized: {compliance.get('route_optimized', False)}")
+                        with col2:
+                            st.write("**📦 Delivery Security:**")
+                            st.write(f"✅ Delivery Secured: {compliance.get('delivery_secured', False)}")
+                            st.write(f"✅ Last Mile Optimized: {compliance.get('last_mile_optimized', False)}")
+                            st.write(f"✅ Cost Savings Calculated: {compliance.get('cost_savings_calculated', False)}")
                 
                 # Enhanced proof verification section
                 st.subheader("🔍 Advanced Proof Verification")
@@ -1693,6 +1906,136 @@ def route_optimization_page():
             if st.button("📥 Download Comprehensive Proof Certificate"):
                 st.success(f"📄 Advanced proof certificate for {use_case} supply chain verification downloaded!")
                 st.balloons()
+            
+            # Last-Mile Delivery Optimization Section
+            st.markdown("---")
+            st.subheader("🚚 Last-Mile Delivery Optimization with Identity Verification")
+            
+            st.markdown("""
+            <div class="feature-card">
+                <h4>🔐 Secure Last-Mile Delivery with zkVerify Identity Verification</h4>
+                <p>Advanced last-mile optimization with cryptographic driver and receiver identity verification, 
+                ensuring secure handoffs and preventing delivery fraud through zero-knowledge proofs.</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Last-mile configuration
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                st.markdown("**🚛 Driver Verification**")
+                driver_id = st.text_input("Driver ID:", value="DRV-2024-001", help="Unique driver identifier")
+                driver_clearance = st.selectbox("Security Clearance:", ["Standard", "Enhanced", "Military-Grade"])
+                driver_biometric = st.checkbox("Biometric Verification", value=True)
+                
+            with col2:
+                st.markdown("**📍 Delivery Configuration**")
+                delivery_type = st.selectbox("Delivery Type:", [
+                    "Standard Delivery", 
+                    "Secure Handoff", 
+                    "Contactless Drop", 
+                    "Signature Required",
+                    "Biometric Confirmation"
+                ])
+                delivery_window = st.selectbox("Time Window:", ["2-hour", "4-hour", "Same Day", "Next Day"])
+                
+            with col3:
+                st.markdown("**👤 Receiver Verification**")
+                receiver_id = st.text_input("Receiver ID:", value="RCV-2024-001", help="Unique receiver identifier")
+                id_verification = st.selectbox("ID Verification:", ["Photo ID", "Biometric", "Digital Certificate", "ZK Proof"])
+                location_verification = st.checkbox("GPS Location Verification", value=True)
+            
+            if st.button("🔐 Generate Secure Last-Mile Route", type="primary"):
+                with st.spinner("🛡️ Generating secure last-mile delivery plan with identity verification..."):
+                    time.sleep(2)
+                    
+                    # Generate last-mile optimization data
+                    last_mile_data = {
+                        "driver_verification": {
+                            "driver_id": driver_id,
+                            "clearance_level": driver_clearance,
+                            "biometric_verified": driver_biometric,
+                            "verification_hash": f"0x{secrets.token_hex(32)}",
+                            "timestamp": datetime.now().isoformat()
+                        },
+                        "receiver_verification": {
+                            "receiver_id": receiver_id,
+                            "id_method": id_verification,
+                            "location_verified": location_verification,
+                            "verification_hash": f"0x{secrets.token_hex(32)}",
+                            "expected_location": f"{random.uniform(37.7, 37.8):.6f}, {random.uniform(-122.5, -122.4):.6f}"
+                        },
+                        "delivery_optimization": {
+                            "route_efficiency": f"{random.randint(85, 98)}%",
+                            "estimated_time": f"{random.randint(15, 45)} minutes",
+                            "fuel_savings": f"{random.randint(10, 25)}%",
+                            "carbon_reduction": f"{random.randint(15, 30)}%"
+                        }
+                    }
+                    
+                    st.success("✅ Secure last-mile delivery plan generated successfully!")
+                    
+                    # Display verification results
+                    col1, col2 = st.columns(2)
+                    
+                    with col1:
+                        st.markdown("**🔐 Driver Verification Results**")
+                        st.json({
+                            "Status": "✅ Verified",
+                            "Driver ID": last_mile_data["driver_verification"]["driver_id"],
+                            "Clearance": last_mile_data["driver_verification"]["clearance_level"],
+                            "Biometric": "✅ Verified" if last_mile_data["driver_verification"]["biometric_verified"] else "❌ Not Verified",
+                            "Verification Hash": last_mile_data["driver_verification"]["verification_hash"][:20] + "..."
+                        })
+                        
+                    with col2:
+                        st.markdown("**👤 Receiver Verification Setup**")
+                        st.json({
+                            "Status": "🔄 Pending Delivery",
+                            "Receiver ID": last_mile_data["receiver_verification"]["receiver_id"],
+                            "ID Method": last_mile_data["receiver_verification"]["id_method"],
+                            "Location Tracking": "✅ Enabled" if last_mile_data["receiver_verification"]["location_verified"] else "❌ Disabled",
+                            "Expected Location": last_mile_data["receiver_verification"]["expected_location"]
+                        })
+                    
+                    # Optimization metrics
+                    st.markdown("**📊 Last-Mile Optimization Metrics**")
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.metric("🎯 Route Efficiency", last_mile_data["delivery_optimization"]["route_efficiency"])
+                    with col2:
+                        st.metric("⏱️ Estimated Time", last_mile_data["delivery_optimization"]["estimated_time"])
+                    with col3:
+                        st.metric("⛽ Fuel Savings", last_mile_data["delivery_optimization"]["fuel_savings"])
+                    with col4:
+                        st.metric("🌱 Carbon Reduction", last_mile_data["delivery_optimization"]["carbon_reduction"])
+                    
+                    # Security features
+                    st.markdown("**🛡️ Security Features Enabled**")
+                    security_features = [
+                        "✅ End-to-end encryption of delivery data",
+                        "✅ Real-time GPS tracking with geofencing",
+                        "✅ Biometric driver authentication",
+                        "✅ Receiver identity verification",
+                        "✅ Tamper-evident delivery confirmation",
+                        "✅ Zero-knowledge proof of delivery completion",
+                        "✅ Automated fraud detection algorithms",
+                        "✅ Blockchain-based audit trail"
+                    ]
+                    
+                    for feature in security_features:
+                        st.write(feature)
+                    
+                    # Generate delivery tracking code
+                    delivery_code = f"SECURE-{secrets.token_hex(4).upper()}"
+                    st.markdown(f"""
+                    <div style="background: #e8f5e8; padding: 1rem; border-radius: 5px; border: 1px solid #4caf50; margin: 1rem 0;">
+                        <h4>🔒 Secure Delivery Code Generated</h4>
+                        <p><strong>Delivery Code:</strong> <code>{delivery_code}</code></p>
+                        <p>This code will be required for delivery verification and can only be used once.</p>
+                    </div>
+                    """, unsafe_allow_html=True)
 
 def analytics_page(analytics_df):
     st.header("📊 Supply Chain Analytics")
@@ -1773,582 +2116,227 @@ def analytics_page(analytics_df):
     for insight in insights:
         st.info(insight)
 
-def zk_proof_page(products):
-    st.header("🔐 Zero-Knowledge Proof Technology Demo")
-    
-    # Educational introduction
-    st.markdown("""
-    <div class="feature-card">
-        <h4>🧠 Understanding Zero-Knowledge Proofs</h4>
-        <p>Zero-Knowledge Proofs are cryptographic methods that allow one party to prove to another 
-        that they know a value, without conveying any information apart from the fact that they know the value.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Benefits section
-    st.subheader("🌟 Benefits in Supply Chain Management")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.markdown("""
-        **🔒 Privacy Protection**
-        - Prove authenticity without revealing supplier details
-        - Verify compliance without exposing processes
-        - Confirm quality without sharing sensitive data
-        """)
-    
-    with col2:
-        st.markdown("""
-        **⚡ Efficiency**
-        - Instant verification
-        - Reduced data sharing
-        - Lower compliance costs
-        """)
-    
-    with col3:
-        st.markdown("""
-        **🛡️ Security**
-        - Cryptographically secure
-        - Tamper-proof verification
-        - Decentralized trust
-        """)
-    
-    # Advanced ZK Applications for Supply Chain Research
-    st.subheader("🔬 Advanced ZK Applications in Supply Chain Research")
+# Footer
+def last_mile_logistics_page():
+    """Dedicated page for last-mile delivery verification and driver/receiver management"""
+    st.markdown('<h1 class="main-header">🚛 Last-Mile Logistics & Verification</h1>', unsafe_allow_html=True)
     
     st.markdown("""
     <div class="feature-card">
-        <h4>🧪 Research & Governance Applications</h4>
-        <p>ChainFlow's ZK technology addresses critical research challenges in supply chain transparency, 
-        enabling scientific studies and governance oversight while maintaining commercial privacy.</p>
+        <h3>🔐 Secure Last-Mile Delivery with zkVerify Identity Verification</h3>
+        <p>Advanced last-mile optimization with cryptographic driver and receiver identity verification, 
+        ensuring secure handoffs and preventing delivery fraud through zero-knowledge proofs.</p>
     </div>
     """, unsafe_allow_html=True)
     
-    # Research applications tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["🔬 Scientific Research", "🏛️ Governance & Compliance", "🌍 Environmental Impact", "🔒 Privacy Protection"])
-    
-    with tab1:
-        st.markdown("""
-        ### Scientific Research Applications
-        
-        **🧬 Supply Chain Epidemiology**
-        - Track contamination sources without revealing supplier identities
-        - Prove food safety compliance while protecting trade secrets
-        - Enable academic research on supply chain resilience
-        
-        **📊 Economic Impact Studies**
-        - Verify economic data for research without exposing competitive information
-        - Prove market efficiency improvements while maintaining business privacy
-        - Enable policy research with cryptographically verified data
-        
-        **🔍 Fraud Pattern Analysis**
-        - Identify fraud patterns across industries without revealing specific cases
-        - Prove statistical significance of anti-fraud measures
-        - Enable collaborative research between competitors
-        """)
-        
-        if st.button("🧪 Generate Research Verification Proof"):
-            with st.spinner("Generating research-grade ZK proof..."):
-                time.sleep(2)
-                research_proof = generate_zk_proof("RESEARCH_DATA", "authenticity", "maximum")
-                st.success("✅ Research verification proof generated!")
-                st.code(f"Research Proof: {research_proof['proof_hash'][:32]}...", language="text")
-                st.info("🔬 This proof enables scientific research while maintaining complete data privacy")
-    
-    with tab2:
-        st.markdown("""
-        ### Governance & Compliance Applications
-        
-        **🏛️ Regulatory Compliance**
-        - Prove compliance with regulations without revealing internal processes
-        - Enable audits while protecting intellectual property
-        - Verify tax compliance without exposing financial details
-        
-        **⚖️ Legal Evidence**
-        - Provide cryptographic evidence in legal proceedings
-        - Prove contract fulfillment without revealing terms
-        - Enable dispute resolution with verifiable facts
-        
-        **🌐 International Trade**
-        - Verify origin certificates without revealing supplier networks
-        - Prove fair trade compliance while protecting relationships
-        - Enable customs verification with privacy preservation
-        """)
-        
-        if st.button("⚖️ Generate Governance Compliance Proof"):
-            with st.spinner("Generating governance compliance proof..."):
-                time.sleep(2.5)
-                gov_proof = generate_zk_proof("COMPLIANCE_DATA", "authenticity", "maximum")
-                st.success("✅ Governance compliance proof generated!")
-                st.code(f"Compliance Proof: {gov_proof['proof_hash'][:32]}...", language="text")
-                st.info("🏛️ This proof enables regulatory oversight while maintaining business confidentiality")
-    
-    with tab3:
-        st.markdown("""
-        ### Environmental Impact Verification
-        
-        **🌱 Carbon Footprint Tracking**
-        - Prove carbon reduction without revealing production methods
-        - Verify environmental claims while protecting competitive advantages
-        - Enable climate research with verified but private data
-        
-        **♻️ Sustainability Compliance**
-        - Prove sustainable sourcing without exposing supplier locations
-        - Verify recycling rates while protecting operational details
-        - Enable environmental audits with privacy preservation
-        
-        **🌍 Global Impact Assessment**
-        - Aggregate environmental data across supply chains
-        - Prove collective impact without individual exposure
-        - Enable policy making with verified environmental data
-        """)
-        
-        if st.button("🌱 Generate Environmental Impact Proof"):
-            with st.spinner("Generating environmental verification proof..."):
-                time.sleep(2.2)
-                env_proof = generate_zk_proof("ENVIRONMENTAL_DATA", "authenticity", "high")
-                st.success("✅ Environmental impact proof generated!")
-                st.code(f"Environmental Proof: {env_proof['proof_hash'][:32]}...", language="text")
-                st.info("🌍 This proof enables environmental verification while protecting competitive sustainability strategies")
-    
-    with tab4:
-        st.markdown("""
-        ### Advanced Privacy Protection Features
-        
-        **🔐 Multi-Layer Privacy**
-        - Supplier identity protection with cryptographic anonymity
-        - Production method privacy while proving quality
-        - Financial data protection with verifiable transactions
-        
-        **🛡️ Quantum-Resistant Security**
-        - Post-quantum cryptographic algorithms
-        - Future-proof privacy protection
-        - Resistance to quantum computing attacks
-        
-        **🔒 Selective Disclosure**
-        - Reveal only necessary information to specific parties
-        - Granular privacy controls for different stakeholders
-        - Time-limited access to sensitive data
-        """)
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            privacy_feature = st.selectbox("Privacy Feature:", [
-                "Supplier Anonymity", 
-                "Production Privacy", 
-                "Financial Confidentiality",
-                "Quantum Resistance",
-                "Selective Disclosure"
-            ])
-        with col2:
-            protection_level = st.selectbox("Protection Level:", ["Military Grade", "Enterprise", "Research Grade"])
-        
-        if st.button("🔒 Generate Advanced Privacy Proof"):
-            with st.spinner("Generating advanced privacy protection proof..."):
-                time.sleep(3)
-                privacy_proof = generate_zk_proof("PRIVACY_DATA", "authenticity", "maximum")
-                st.success("✅ Advanced privacy proof generated!")
-                
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.code(f"Privacy Proof: {privacy_proof['proof_hash'][:32]}...", language="text")
-                    st.write(f"**Feature:** {privacy_feature}")
-                with col2:
-                    st.write(f"**Protection Level:** {protection_level}")
-                    st.write(f"**Quantum Resistant:** ✅ Yes")
-                
-                st.success("🔐 This proof provides military-grade privacy protection while enabling full verification of supply chain integrity")
-    
-    # Strengthened ZK Verification System
-    st.subheader("🔧 Strengthened ZK Verification System")
-    
-    st.markdown("""
-    <div class="feature-card">
-        <h4>🛡️ Advanced Verification Architecture</h4>
-        <p>Our strengthened ZK verification system tackles critical supply chain research challenges 
-        with enterprise-grade security and realistic adoption pathways for scientific and governance applications.</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Verification system components
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.markdown("""
-        **🔍 Multi-Proof Verification**
-        - Cross-reference multiple ZK proofs
-        - Consensus-based verification
-        - Fraud detection algorithms
-        - Real-time anomaly detection
-        """)
-        
-        if st.button("🔍 Run Multi-Proof Verification"):
-            with st.spinner("Running multi-proof verification..."):
-                time.sleep(2.5)
-                verification_results = {
-                    "proofs_verified": 847,
-                    "consensus_score": 98.7,
-                    "anomalies_detected": 3,
-                    "verification_time": "1.2s"
-                }
-                st.success("✅ Multi-proof verification complete!")
-                for key, value in verification_results.items():
-                    st.metric(key.replace("_", " ").title(), value)
-    
-    with col2:
-        st.markdown("""
-        **🌐 Cross-Chain Verification**
-        - Verify proofs across blockchains
-        - Interoperability protocols
-        - Universal proof standards
-        - Bridge security validation
-        """)
-        
-        if st.button("🌐 Cross-Chain Verification"):
-            with st.spinner("Verifying across blockchain networks..."):
-                time.sleep(3)
-                chains = ["Ethereum", "Polygon", "Arbitrum", "zkSync"]
-                st.success("✅ Cross-chain verification successful!")
-                for chain in chains:
-                    st.write(f"✅ {chain}: Verified")
-    
-    with col3:
-        st.markdown("""
-        **🤖 AI-Enhanced Verification**
-        - Machine learning fraud detection
-        - Pattern recognition algorithms
-        - Predictive verification scoring
-        - Automated risk assessment
-        """)
-        
-        if st.button("🤖 AI Verification Analysis"):
-            with st.spinner("Running AI verification analysis..."):
-                time.sleep(2.8)
-                ai_results = {
-                    "fraud_probability": "0.02%",
-                    "trust_score": "99.8%",
-                    "risk_level": "Minimal",
-                    "confidence": "High"
-                }
-                st.success("✅ AI analysis complete!")
-                for key, value in ai_results.items():
-                    st.metric(key.replace("_", " ").title(), value)
-    
-    # Research Impact Metrics
-    st.subheader("📊 Research Impact & Adoption Metrics")
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown("""
-        ### 🎯 Realistic Adoption Scenarios
-        
-        **🏥 Healthcare Supply Chains**
-        - Drug authenticity verification for clinical trials
-        - Medical device traceability for safety studies
-        - Vaccine cold chain integrity for public health research
-        
-        **🍎 Food Safety Research**
-        - Contamination source tracking for epidemiological studies
-        - Organic certification verification for agricultural research
-        - Nutritional claim validation for health studies
-        
-        **🏭 Industrial Applications**
-        - Raw material authenticity for manufacturing research
-        - Quality control verification for engineering studies
-        - Environmental impact tracking for sustainability research
-        """)
-    
-    with col2:
-        st.markdown("""
-        ### 📈 Adoption Readiness Indicators
-        
-        **🔧 Technical Readiness**
-        - Integration complexity: Low
-        - Performance overhead: <5%
-        - Scalability: 10,000+ TPS
-        
-        **💼 Business Readiness**
-        - ROI timeline: 6-12 months
-        - Compliance coverage: 95%
-        - Training requirements: Minimal
-        
-        **🌍 Market Readiness**
-        - Industry standards: Compatible
-        - Regulatory approval: In progress
-        - Partner ecosystem: Established
-        """)
-    
-    # Real-world Implementation Examples
-    st.subheader("🌟 Real-World Implementation Examples")
-    
-    implementation_type = st.selectbox("Select Implementation Scenario:", [
-        "Pharmaceutical Clinical Trials",
-        "Agricultural Research Studies", 
-        "Environmental Impact Assessment",
-        "Supply Chain Fraud Investigation",
-        "Regulatory Compliance Audit"
+    # Create tabs for different aspects of last-mile logistics
+    driver_tab, receiver_tab, delivery_tab, tracking_tab = st.tabs([
+        "🚛 Driver Verification", 
+        "👤 Receiver Verification", 
+        "📦 Delivery Management", 
+        "📍 Real-Time Tracking"
     ])
     
-    if implementation_type == "Pharmaceutical Clinical Trials":
-        st.markdown("""
-        **🏥 Pharmaceutical Clinical Trial Implementation**
-        
-        **Challenge:** Verify drug authenticity and supply chain integrity for clinical trials without revealing proprietary manufacturing processes.
-        
-        **ZK Solution:**
-        - Prove drug batch authenticity without exposing formulation
-        - Verify cold chain compliance without revealing logistics partners
-        - Demonstrate regulatory compliance without sharing internal processes
-        
-        **Impact:** Enables faster drug approval with verified safety data while protecting intellectual property.
-        """)
-        
-        if st.button("🏥 Generate Clinical Trial Proof"):
-            with st.spinner("Generating pharmaceutical verification proof..."):
-                time.sleep(2.5)
-                clinical_proof = generate_zk_proof("CLINICAL_DATA", "authenticity", "maximum")
-                st.success("✅ Clinical trial verification proof generated!")
-                st.code(f"Clinical Proof: {clinical_proof['proof_hash'][:32]}...", language="text")
-                st.info("🏥 This proof enables clinical research while maintaining pharmaceutical IP protection")
-    
-    elif implementation_type == "Agricultural Research Studies":
-        st.markdown("""
-        **🌾 Agricultural Research Implementation**
-        
-        **Challenge:** Study agricultural supply chains for sustainability research without exposing farmer locations or trade relationships.
-        
-        **ZK Solution:**
-        - Prove organic certification without revealing farm locations
-        - Verify sustainable practices without exposing methods
-        - Demonstrate yield improvements without sharing proprietary data
-        
-        **Impact:** Enables agricultural research for food security while protecting farmer privacy and competitive advantages.
-        """)
-        
-        if st.button("🌾 Generate Agricultural Research Proof"):
-            with st.spinner("Generating agricultural verification proof..."):
-                time.sleep(2.3)
-                agri_proof = generate_zk_proof("AGRICULTURAL_DATA", "authenticity", "high")
-                st.success("✅ Agricultural research proof generated!")
-                st.code(f"Agricultural Proof: {agri_proof['proof_hash'][:32]}...", language="text")
-                st.info("🌾 This proof enables agricultural research while protecting farmer privacy and trade secrets")
-    
-    # Interactive demo section
-    st.subheader("🧪 Interactive ZK Proof Generator")
-    
-    # Demo configuration
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        demo_type = st.selectbox("Select proof scenario:", 
-                                ["🔍 Product Authenticity", "🌍 Origin Verification", 
-                                 "📋 Quality Compliance", "💰 Price Verification", 
-                                 "🚚 Logistics Confirmation"])
-        
-        circuit_type = st.selectbox("Circuit Complexity:", 
-                                   ["Simple (Hash)", "Medium (Merkle Tree)", "Advanced (Custom Circuit)"])
-    
-    with col2:
-        proof_system = st.selectbox("Proof System:", 
-                                   ["Groth16", "PLONK", "STARK", "Bulletproofs"])
-        
-        security_level = st.selectbox("Security Level:", 
-                                     ["128-bit", "192-bit", "256-bit"])
-    
-    # Secret data input
-    st.subheader("🔐 Secret Information")
-    
-    secret_data = st.text_area("Enter confidential supply chain data:", 
-                              value="Supplier: SecretCorp\nLocation: Confidential\nPrice: $1,250\nQuality: Grade A+", 
-                              height=100,
-                              help="This sensitive information will be proven without being revealed")
-    
-    # Public parameters
-    with st.expander("🔧 Advanced Configuration"):
-        col1, col2 = st.columns(2)
-        with col1:
-            include_timestamp = st.checkbox("Include Timestamp", value=True)
-            batch_verification = st.checkbox("Enable Batch Verification", value=False)
-        with col2:
-            recursive_proof = st.checkbox("Recursive Proof", value=False)
-            zero_knowledge_level = st.slider("Zero-Knowledge Level", 1, 10, 8)
-    
-    # Generate proof button
-    if st.button("🔒 Generate Zero-Knowledge Proof", type="primary"):
-        with st.spinner("🔐 Generating cryptographic proof..."):
-            # Simulate proof generation steps
-            steps = [
-                "Initializing trusted setup...",
-                "Compiling circuit...",
-                "Computing witness...",
-                "Generating proof...",
-                "Verifying proof...",
-                "Finalizing output..."
-            ]
-            
-            progress_bar = st.progress(0)
-            status_text = st.empty()
-            
-            for i, step in enumerate(steps):
-                status_text.text(step)
-                time.sleep(0.7)
-                progress_bar.progress((i + 1) / len(steps))
-            
-            proof = generate_zk_proof(secret_data)
-            
-            # Store proof in session state
-            st.session_state.zk_proof_data = {
-                'proof': proof,
-                'proof_system': proof_system,
-                'security_level': security_level,
-                'circuit_type': circuit_type,
-                'zero_knowledge_level': zero_knowledge_level
-            }
-            
-            st.success("✅ Zero-Knowledge Proof Generated Successfully!")
-    
-    # Display proof results if available
-    if 'zk_proof_data' in st.session_state:
-        proof_data = st.session_state.zk_proof_data
-        proof = proof_data['proof']
-        proof_system = proof_data['proof_system']
-        security_level = proof_data['security_level']
-        circuit_type = proof_data['circuit_type']
-        zero_knowledge_level = proof_data['zero_knowledge_level']
-        
-        # Enhanced proof display
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.subheader("🔑 Generated Proof")
-            st.code(f"Proof Hash:\n{proof['proof_hash'][:64]}...\n\nPublic Inputs:\n{proof['proof_hash'][64:128]}...\n\nVerification Key:\n{proof['proof_hash'][128:192]}...", language="text")
-            
-            st.subheader("📊 Proof Metrics")
-            st.write(f"**Proof System:** {proof_system}")
-            st.write(f"**Security Level:** {security_level}")
-            st.write(f"**Circuit Type:** {circuit_type}")
-            st.write(f"**Proof Size:** 248 bytes")
-        
-        with col2:
-            st.subheader("✅ Verification Results")
-            
-            verification_checks = {
-                "Check": ["Proof Validity", "Circuit Integrity", "Public Input Consistency", 
-                         "Cryptographic Signature", "Zero-Knowledge Property"],
-                "Status": ["✅ Valid", "✅ Verified", "✅ Consistent", "✅ Authentic", "✅ Preserved"],
-                "Time": ["<1ms", "<1ms", "<1ms", "<1ms", "<1ms"]
-            }
-            
-            verification_df = pd.DataFrame(verification_checks)
-            st.dataframe(verification_df, use_container_width=True)
-            
-            st.write(f"**Generation Time:** {proof['verification_time']}")
-            st.write(f"**Verification Time:** <1ms")
-            st.write(f"**Status:** ✅ Valid & Verified")
-            st.write(f"**Timestamp:** {proof['timestamp']}")
-        
-        # What was proven section
-        st.subheader("🎯 What Was Proven")
+    with driver_tab:
+        st.subheader("🚛 Driver Identity & Credential Verification")
         
         col1, col2 = st.columns(2)
         
         with col1:
-            st.markdown("""
-            **✅ Proven (without revealing):**
-            - Data authenticity and integrity
-            - Compliance with specified criteria
-            - Possession of valid credentials
-            - Meeting quality standards
-            - Authorized access to information
-            """)
-        
-        with col2:
-            st.markdown("""
-            **🔒 Kept Private:**
-            - Actual supplier names and details
-            - Specific pricing information
-            - Proprietary processes and methods
-            - Sensitive location data
-            - Trade secrets and formulations
-            """)
-        
-        # Technical details
-        with st.expander("🔬 Technical Details"):
-            st.markdown(f"""
-            **Circuit Information:**
-            - **Constraints:** 15,847
-            - **Variables:** 8,923
-            - **Proof System:** {proof_system}
-            - **Security Level:** {security_level}
-            - **Zero-Knowledge Level:** {zero_knowledge_level}/10
+            st.markdown("**Driver Information**")
+            driver_id = st.text_input("Driver ID:", value="DRV-2024-001", help="Unique driver identifier")
+            driver_name = st.text_input("Driver Name:", value="John Smith")
+            license_number = st.text_input("License Number:", value="DL-123456789")
+            driver_clearance = st.selectbox("Security Clearance:", ["Standard", "Enhanced", "Military-Grade"])
             
-            **Cryptographic Properties:**
-            - **Completeness:** If the statement is true, an honest prover can convince an honest verifier
-            - **Soundness:** If the statement is false, no cheating prover can convince an honest verifier
-            - **Zero-Knowledge:** The verifier learns nothing beyond the validity of the statement
-            """)
+        with col2:
+            st.markdown("**Verification Methods**")
+            biometric_verification = st.checkbox("Biometric Verification", value=True)
+            background_check = st.checkbox("Background Check", value=True)
+            vehicle_verification = st.checkbox("Vehicle Registration Check", value=True)
+            insurance_check = st.checkbox("Insurance Verification", value=True)
         
-        st.info("🔒 This proof mathematically guarantees the authenticity and compliance of your supply chain data while keeping all sensitive information completely private!")
+        if st.button("🔐 Verify Driver Identity", type="primary"):
+            with st.spinner("🛡️ Verifying driver credentials with zkVerify..."):
+                time.sleep(2)
+                
+                driver_verification_result = {
+                    "driver_id": driver_id,
+                    "verification_status": "✅ Verified",
+                    "clearance_level": driver_clearance,
+                    "biometric_hash": f"0x{secrets.token_hex(32)}",
+                    "background_score": random.randint(85, 98),
+                    "license_valid": True,
+                    "insurance_valid": True,
+                    "verification_timestamp": datetime.now().isoformat()
+                }
+                
+                st.success("✅ Driver verification completed successfully!")
+                st.json(driver_verification_result)
     
-    # Download options (outside the button conditional)
-    if 'zk_proof_data' in st.session_state:
-        st.subheader("📥 Download Options")
+    with receiver_tab:
+        st.subheader("👤 Receiver Identity & Location Verification")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("**Receiver Information**")
+            receiver_id = st.text_input("Receiver ID:", value="RCV-2024-001", help="Unique receiver identifier")
+            receiver_name = st.text_input("Receiver Name:", value="Jane Doe")
+            delivery_address = st.text_area("Delivery Address:", value="123 Main St, New York, NY 10001")
+            contact_number = st.text_input("Contact Number:", value="+1-555-0123")
+            
+        with col2:
+            st.markdown("**Verification Requirements**")
+            id_verification_method = st.selectbox("ID Verification:", ["Photo ID", "Biometric", "Digital Certificate", "ZK Proof"])
+            location_verification = st.checkbox("GPS Location Verification", value=True)
+            signature_required = st.checkbox("Digital Signature Required", value=True)
+            photo_confirmation = st.checkbox("Photo Confirmation", value=False)
+        
+        if st.button("🔐 Setup Receiver Verification", type="primary"):
+            with st.spinner("🛡️ Setting up receiver verification with zkVerify..."):
+                time.sleep(2)
+                
+                receiver_verification_setup = {
+                    "receiver_id": receiver_id,
+                    "verification_method": id_verification_method,
+                    "location_verified": location_verification,
+                    "expected_location": f"{random.uniform(37.7, 37.8):.6f}, {random.uniform(-122.5, -122.4):.6f}",
+                    "verification_hash": f"0x{secrets.token_hex(32)}",
+                    "delivery_window": "2-hour window",
+                    "setup_timestamp": datetime.now().isoformat()
+                }
+                
+                st.success("✅ Receiver verification setup completed!")
+                st.json(receiver_verification_setup)
+    
+    with delivery_tab:
+        st.subheader("📦 Secure Delivery Management")
+        
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            if st.button("📥 Download Proof"):
-                st.success("📄 Proof downloaded successfully!")
-        
+            st.markdown("**Delivery Configuration**")
+            delivery_type = st.selectbox("Delivery Type:", [
+                "Standard Delivery", 
+                "Secure Handoff", 
+                "Contactless Drop", 
+                "Signature Required",
+                "Biometric Confirmation"
+            ])
+            delivery_window = st.selectbox("Time Window:", ["2-hour", "4-hour", "Same Day", "Next Day"])
+            priority_level = st.selectbox("Priority:", ["Standard", "High", "Critical"])
+            
         with col2:
-            if st.button("📋 Copy Verification Code"):
-                st.success("📋 Verification code copied to clipboard!")
-        
+            st.markdown("**Package Information**")
+            package_id = st.text_input("Package ID:", value="PKG-2024-001")
+            package_weight = st.number_input("Weight (kg):", value=2.5, min_value=0.1)
+            package_value = st.number_input("Value ($):", value=500.0, min_value=0.0)
+            special_handling = st.checkbox("Special Handling Required")
+            
         with col3:
-            if st.button("🔗 Share Proof Link"):
-                st.success("🔗 Shareable proof link generated!")
-                st.balloons()
-    
-    # ZK Proof benefits
-    st.subheader("🌟 ZK Proof Benefits")
-    
-    benefits = [
-        "🔒 **Privacy**: Verify authenticity without revealing sensitive supply chain data",
-        "⚡ **Efficiency**: Fast verification with minimal computational overhead",
-        "🛡️ **Security**: Cryptographically secure proofs that cannot be forged",
-        "📏 **Scalability**: Batch verification for thousands of products simultaneously",
-        "🔗 **Interoperability**: Compatible with multiple blockchain networks"
-    ]
-    
-    for benefit in benefits:
-        st.markdown(benefit)
-    
-    # Technical details
-    with st.expander("🔧 Technical Implementation"):
-        st.code("""
-        // ZK Circuit (Circom)
-        pragma circom 2.0.0;
+            st.markdown("**Security Features**")
+            tamper_seal = st.checkbox("Tamper-Evident Seal", value=True)
+            gps_tracking = st.checkbox("GPS Tracking", value=True)
+            temperature_monitoring = st.checkbox("Temperature Monitoring")
+            photo_proof = st.checkbox("Photo Proof of Delivery", value=True)
         
-        template SupplyChainVerifier() {
-            signal input productId;
-            signal input supplierHash;
-            signal input timestamp;
-            signal output isValid;
-            
-            // Verification logic
-            component hasher = Poseidon(3);
-            hasher.inputs[0] <== productId;
-            hasher.inputs[1] <== supplierHash;
-            hasher.inputs[2] <== timestamp;
-            
-            isValid <== hasher.out;
-        }
+        if st.button("🚀 Initialize Secure Delivery", type="primary"):
+            with st.spinner("🔐 Initializing secure delivery with zkVerify verification..."):
+                time.sleep(3)
+                
+                delivery_initialization = {
+                    "delivery_id": f"DEL-{secrets.token_hex(8).upper()}",
+                    "package_id": package_id,
+                    "delivery_type": delivery_type,
+                    "security_features": {
+                        "tamper_seal": tamper_seal,
+                        "gps_tracking": gps_tracking,
+                        "temperature_monitoring": temperature_monitoring,
+                        "photo_proof": photo_proof
+                    },
+                    "route_optimization": {
+                        "efficiency_score": f"{random.randint(85, 98)}%",
+                        "estimated_time": f"{random.randint(15, 45)} minutes",
+                        "fuel_savings": f"{random.randint(10, 25)}%"
+                    },
+                    "zk_proof_hash": f"0x{secrets.token_hex(32)}",
+                    "initialization_timestamp": datetime.now().isoformat()
+                }
+                
+                st.success("✅ Secure delivery initialized successfully!")
+                
+                # Display delivery metrics
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    st.metric("🎯 Route Efficiency", delivery_initialization["route_optimization"]["efficiency_score"])
+                with col2:
+                    st.metric("⏱️ Estimated Time", delivery_initialization["route_optimization"]["estimated_time"])
+                with col3:
+                    st.metric("⛽ Fuel Savings", delivery_initialization["route_optimization"]["fuel_savings"])
+                with col4:
+                    st.metric("🔐 Security Level", "Maximum")
+                
+                st.json(delivery_initialization)
+    
+    with tracking_tab:
+        st.subheader("📍 Real-Time Delivery Tracking")
         
-        component main = SupplyChainVerifier();
-        """, language="javascript")
+        # Sample tracking data
+        tracking_id = st.text_input("Enter Tracking ID:", value="TRK-LOG-001")
+        
+        if st.button("🔍 Track Delivery"):
+            with st.spinner("📡 Fetching real-time tracking data..."):
+                time.sleep(1)
+                
+                # Generate realistic tracking data
+                tracking_data = {
+                    "tracking_id": tracking_id,
+                    "status": "In Transit",
+                    "current_location": "Distribution Hub - Brooklyn, NY",
+                    "progress": 75,
+                    "estimated_delivery": "2024-01-24 14:30",
+                    "driver_verified": True,
+                    "route_optimized": True,
+                    "last_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                }
+                
+                # Progress bar
+                st.progress(tracking_data["progress"] / 100)
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown("**📍 Current Status**")
+                    st.info(f"**Status:** {tracking_data['status']}")
+                    st.info(f"**Location:** {tracking_data['current_location']}")
+                    st.info(f"**Progress:** {tracking_data['progress']}%")
+                    st.info(f"**ETA:** {tracking_data['estimated_delivery']}")
+                
+                with col2:
+                    st.markdown("**🔐 Verification Status**")
+                    st.success("✅ Driver Verified" if tracking_data["driver_verified"] else "❌ Driver Not Verified")
+                    st.success("✅ Route Optimized" if tracking_data["route_optimized"] else "❌ Route Not Optimized")
+                    st.success("✅ Real-time Tracking Active")
+                    st.success("✅ zkVerify Secured")
+                
+                # Route visualization (simplified)
+                st.markdown("**🗺️ Delivery Route**")
+                route_steps = [
+                    "📦 Package Picked Up - Warehouse",
+                    "🚛 In Transit - Highway 95",
+                    "📍 Current Location - Brooklyn Hub",
+                    "🏠 Final Destination - Customer Address"
+                ]
+                
+                for i, step in enumerate(route_steps):
+                    if i < tracking_data["progress"] / 25:
+                        st.success(f"✅ {step}")
+                    elif i == int(tracking_data["progress"] / 25):
+                        st.warning(f"🔄 {step}")
+                    else:
+                        st.info(f"⏳ {step}")
 
-# Footer
 def add_footer():
     st.markdown("---")
     st.markdown("""

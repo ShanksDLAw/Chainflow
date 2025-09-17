@@ -1,0 +1,63 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Body -->
+  <rect x="40" y="80" width="120" height="60" rx="30" ry="30" fill="#2c3e50" stroke="#1a252f" stroke-width="2"/>
+  
+  <!-- Left Lens -->
+  <circle cx="70" cy="110" r="25" fill="#1a252f" stroke="#0f1419" stroke-width="2"/>
+  <circle cx="70" cy="110" r="20" fill="#27ae60" opacity="0.3"/>
+  <circle cx="70" cy="110" r="15" fill="#2ecc71" opacity="0.5"/>
+  <circle cx="70" cy="110" r="10" fill="#00ff00" opacity="0.7"/>
+  
+  <!-- Right Lens -->
+  <circle cx="130" cy="110" r="25" fill="#1a252f" stroke="#0f1419" stroke-width="2"/>
+  <circle cx="130" cy="110" r="20" fill="#27ae60" opacity="0.3"/>
+  <circle cx="130" cy="110" r="15" fill="#2ecc71" opacity="0.5"/>
+  <circle cx="130" cy="110" r="10" fill="#00ff00" opacity="0.7"/>
+  
+  <!-- Bridge -->
+  <rect x="90" y="105" width="20" height="10" rx="5" ry="5" fill="#34495e"/>
+  
+  <!-- Head Strap -->
+  <path d="M 40 90 Q 20 70 20 110 Q 20 150 40 130" stroke="#2c3e50" stroke-width="6" fill="none"/>
+  <path d="M 160 90 Q 180 70 180 110 Q 180 150 160 130" stroke="#2c3e50" stroke-width="6" fill="none"/>
+  
+  <!-- Top Strap -->
+  <path d="M 60 80 Q 100 60 140 80" stroke="#2c3e50" stroke-width="4" fill="none"/>
+  
+  <!-- Adjustment Knobs -->
+  <circle cx="45" cy="110" r="6" fill="#7f8c8d" stroke="#95a5a6" stroke-width="1"/>
+  <circle cx="155" cy="110" r="6" fill="#7f8c8d" stroke="#95a5a6" stroke-width="1"/>
+  
+  <!-- IR Illuminator -->
+  <rect x="95" y="75" width="10" height="8" rx="2" ry="2" fill="#e74c3c"/>
+  <circle cx="100" cy="79" r="2" fill="#ff6b6b"/>
+  
+  <!-- Power Indicator -->
+  <circle cx="85" cy="85" r="3" fill="#00ff00"/>
+  
+  <!-- Battery Compartment -->
+  <rect x="75" y="140" width="50" height="15" rx="7" ry="7" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  <rect x="80" y="143" width="40" height="9" rx="4" ry="4" fill="#7f8c8d"/>
+  
+  <!-- Lens Covers -->
+  <path d="M 50 95 Q 70 85 90 95" stroke="#34495e" stroke-width="2" fill="none"/>
+  <path d="M 110 95 Q 130 85 150 95" stroke="#34495e" stroke-width="2" fill="none"/>
+  
+  <!-- Focus Rings -->
+  <circle cx="70" cy="110" r="28" stroke="#7f8c8d" stroke-width="2" fill="none"/>
+  <circle cx="130" cy="110" r="28" stroke="#7f8c8d" stroke-width="2" fill="none"/>
+  
+  <!-- Tactical Rail -->
+  <rect x="90" y="65" width="20" height="5" fill="#2c3e50"/>
+  <rect x="92" y="67" width="2" height="1" fill="#7f8c8d"/>
+  <rect x="96" y="67" width="2" height="1" fill="#7f8c8d"/>
+  <rect x="100" y="67" width="2" height="1" fill="#7f8c8d"/>
+  <rect x="104" y="67" width="2" height="1" fill="#7f8c8d"/>
+  <rect x="108" y="67" width="2" height="1" fill="#7f8c8d"/>
+  
+  <!-- Model Label -->
+  <text x="100" y="50" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="10" font-weight="bold">OpticDefense NV-4000</text>
+  
+  <!-- Label -->
+  <text x="100" y="185" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">NIGHT VISION</text>
+</svg>

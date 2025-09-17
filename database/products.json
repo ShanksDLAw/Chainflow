@@ -1,20 +1,22 @@
 {
   "suppliers": {
     "1001": {
-      "name": "TechFlow Manufacturing",
+      "name": "MedTech Solutions",
       "tier": 1,
       "certification_hash": "0x1a2b3c4d5e6f7890abcdef1234567890",
-      "location": "Shenzhen, China",
+      "location": "Boston, USA",
       "specialties": [
-        "Electronics",
-        "Semiconductors"
+        "Medical Devices",
+        "Healthcare Technology",
+        "HIPAA Compliance"
       ],
       "verified_since": "2020-01-15",
-      "trust_score": 95,
+      "trust_score": 98,
       "certifications": [
-        "ISO 9001",
-        "ISO 14001",
-        "RoHS"
+        "FDA 510(k)",
+        "ISO 13485",
+        "HIPAA Compliant",
+        "CE Mark"
       ]
     },
     "1002": {
@@ -24,661 +26,675 @@
       "location": "Basel, Switzerland",
       "specialties": [
         "Pharmaceuticals",
-        "Medical Devices"
+        "Vaccine Manufacturing",
+        "Cold Chain Management"
       ],
       "verified_since": "2019-03-22",
-      "trust_score": 98,
+      "trust_score": 99,
       "certifications": [
         "GMP",
         "FDA",
-        "EMA"
+        "EMA",
+        "WHO Prequalification"
       ]
     },
     "1003": {
-      "name": "FreshHarvest Co.",
-      "tier": 2,
-      "certification_hash": "0x3c4d5e6f7890abcdef1234567890abcd",
-      "location": "California, USA",
+      "name": "SecureDefense Systems",
+      "tier": 1,
+      "certification_hash": "0xdefense1234567890abcdef12345678",
+      "location": "Arlington, VA, USA",
       "specialties": [
-        "Organic Foods",
-        "Beverages"
+        "Defense Equipment",
+        "Military Technology",
+        "Secure Communications",
+        "Tactical Gear"
       ],
-      "verified_since": "2025-09-04T21:08:23.332Z",
-      "trust_score": 87,
+      "verified_since": "2015-01-15",
+      "trust_score": 99,
       "certifications": [
-        "USDA Organic",
-        "Fair Trade"
+        "DoD 8570",
+        "ITAR Compliant",
+        "ISO 27001",
+        "NIST 800-171",
+        "Top Secret Clearance"
       ],
-      "verified": true,
-      "verification_proof": {
-        "proofHash": "e6d682a50637d23c3e50cfe46fd121c76eb744f2ab9a59b7b6135c4e80f791ec",
-        "verified": true,
-        "verificationId": "VER-1003-1757020103332",
-        "timestamp": 1757020103
-      }
+      "security_clearance": "Top Secret",
+      "military_contracts": true
     },
     "1004": {
-      "name": "AutoParts Premium",
-      "tier": 2,
+      "name": "LogiFlow Dynamics",
+      "tier": 1,
       "certification_hash": "0x4d5e6f7890abcdef1234567890abcdef",
-      "location": "Detroit, USA",
+      "location": "Memphis, USA",
       "specialties": [
-        "Automotive",
-        "Industrial"
+        "Last Mile Delivery",
+        "Route Optimization",
+        "Driver Verification",
+        "Package Security"
       ],
       "verified_since": "2020-11-05",
-      "trust_score": 82,
+      "trust_score": 95,
       "certifications": [
-        "ISO/TS 16949",
-        "IATF 16949"
+        "ISO 9001",
+        "TSA Certified",
+        "DOT Compliant",
+        "CTPAT"
       ]
     },
     "1005": {
-      "name": "TextileCraft Ltd",
-      "tier": 3,
-      "certification_hash": "0x5e6f7890abcdef1234567890abcdef12",
-      "location": "Mumbai, India",
-      "specialties": [
-        "Textiles",
-        "Apparel"
-      ],
-      "verified_since": "2025-09-04T21:08:27.063Z",
-      "trust_score": 75,
-      "certifications": [
-        "GOTS",
-        "OEKO-TEX"
-      ],
-      "verified": true,
-      "verification_proof": {
-        "proofHash": "6d4c9e0bcc482d0a98c991c777b8f74b69a465184b96020334b5822451f0751f",
-        "verified": true,
-        "verificationId": "VER-1005-1757020107063",
-        "timestamp": 1757020107
-      }
-    },
-    "1006": {
-      "name": "Test Supplier",
-      "tier": 1,
-      "certification_hash": "0xf61855b6fd5dd448cfb5ccfdb5e832ee",
-      "location": "Test Location",
-      "specialties": [],
-      "verified_since": "2025-08-31",
-      "trust_score": 90,
-      "certifications": []
-    },
-    "1007": {
-      "name": "Hello world",
-      "tier": 3,
-      "certification_hash": "0xd61fb2baf56e7a723d8775cafb0e7895",
-      "location": "Nigeria",
-      "specialties": [
-        "Food"
-      ],
-      "verified_since": "2025-09-04T21:59:58.625Z",
-      "trust_score": 70,
-      "certifications": [
-        "Nafdac"
-      ],
-      "verified": true,
-      "verification_proof": {
-        "proofHash": "764f5025ead7487f3a0b26f99ba2bb8b2908bb19c3e9d6a96ad33bebc65f94d4",
-        "verified": true,
-        "verificationId": "VER-1007-1757023198625",
-        "timestamp": 1757023198
-      }
-    },
-    "1008": {
-      "name": "Mediterranean Oils Ltd",
+      "name": "BioMed Innovations",
       "tier": 2,
-      "certification_hash": "0x6f7890abcdef1234567890abcdef1234",
-      "location": "Tuscany, Italy",
+      "certification_hash": "0x5e6f7890abcdef1234567890abcdef12",
+      "location": "San Diego, USA",
       "specialties": [
-        "Olive Oil",
-        "Gourmet Foods"
+        "Biotechnology",
+        "Diagnostic Equipment",
+        "Laboratory Instruments"
       ],
-      "verified_since": "2021-09-12",
+      "verified_since": "2021-09-04",
       "trust_score": 92,
       "certifications": [
-        "EU Organic",
-        "DOP",
-        "ISO 22000"
+        "FDA 510(k)",
+        "CLIA Waived",
+        "ISO 15189"
       ]
     },
-    "1009": {
-      "name": "Apple Inc.",
-      "tier": 1,
-      "certification_hash": "0x7890abcdef1234567890abcdef12345",
-      "location": "Cupertino, USA",
+    "1006": {
+      "name": "TacticalGear Pro",
+      "tier": 2,
+      "certification_hash": "0x6f7890abcdef1234567890abcdef1234",
+      "location": "Colorado Springs, USA",
       "specialties": [
-        "Consumer Electronics",
-        "Computers"
+        "Body Armor",
+        "Protective Equipment",
+        "Military Accessories"
       ],
       "verified_since": "2018-05-20",
-      "trust_score": 99,
+      "trust_score": 94,
       "certifications": [
-        "ISO 14001",
-        "EPEAT Gold",
-        "Energy Star"
+        "NIJ Certified",
+        "Berry Amendment Compliant",
+        "ISO 9001"
       ]
     },
-    "1010": {
-      "name": "VitaHealth Pharmaceuticals",
+    "1007": {
+      "name": "SmartLogistics Inc",
       "tier": 2,
-      "certification_hash": "0x890abcdef1234567890abcdef123456",
-      "location": "Dublin, Ireland",
+      "certification_hash": "0x7890abcdef1234567890abcdef12345",
+      "location": "Atlanta, USA",
       "specialties": [
-        "Vitamins",
-        "Supplements"
+        "Fleet Management",
+        "GPS Tracking",
+        "Delivery Verification"
       ],
-      "verified_since": "2020-07-08",
+      "verified_since": "2019-07-08",
       "trust_score": 88,
       "certifications": [
-        "GMP",
-        "FDA",
-        "HACCP"
-      ]
-    },
-    "1011": {
-      "name": "Cacao Dreams Artisan",
-      "tier": 3,
-      "certification_hash": "0x90abcdef1234567890abcdef1234567",
-      "location": "Ecuador",
-      "specialties": [
-        "Artisan Chocolate",
-        "Cacao Products"
-      ],
-      "verified_since": "2022-11-15",
-      "trust_score": 85,
-      "certifications": [
-        "Fair Trade",
-        "Rainforest Alliance",
-        "Organic"
-      ]
-    },
-    "1012": {
-      "name": "Luxury Leather Goods Co.",
-      "tier": 2,
-      "certification_hash": "0x0abcdef1234567890abcdef12345678",
-      "location": "Milan, Italy",
-      "specialties": [
-        "Luxury Handbags",
-        "Leather Accessories"
-      ],
-      "verified_since": "2021-04-03",
-      "trust_score": 91,
-      "certifications": [
-        "LWG Gold",
-        "REACH Compliant",
-        "Made in Italy"
+        "FMC Licensed",
+        "C-TPAT Certified",
+        "ISO 28000"
       ]
     }
   },
   "product_categories": {
     "1": {
-      "name": "Electronics",
-      "risk_factor": 0.15,
-      "common_fraud_types": [
-        "Counterfeit chips",
-        "Fake certifications",
-        "Component substitution"
-      ],
-      "verification_requirements": [
-        "Serial number",
-        "Batch testing",
-        "Component authenticity"
-      ],
-      "description": "Consumer electronics, semiconductors, and electronic components"
-    },
-    "2": {
-      "name": "Pharmaceuticals",
+      "name": "Healthcare & Medical",
       "risk_factor": 0.25,
       "common_fraud_types": [
-        "Fake drugs",
-        "Expired products",
-        "Diluted medications"
+        "Counterfeit medical devices",
+        "Expired pharmaceuticals",
+        "Unlicensed suppliers",
+        "HIPAA violations"
       ],
       "verification_requirements": [
-        "Lot number",
-        "Temperature logs",
-        "Chain of custody",
-        "API verification"
+        "FDA approval verification",
+        "HIPAA compliance check",
+        "Patient data encryption",
+        "Medical device tracking",
+        "Cold chain verification"
       ],
-      "description": "Prescription drugs, over-the-counter medications, and medical supplies"
+      "description": "Medical devices, pharmaceuticals, diagnostic equipment, and healthcare technology"
+    },
+    "2": {
+      "name": "Defense & Military",
+      "risk_factor": 0.35,
+      "common_fraud_types": [
+        "Counterfeit military equipment",
+        "Unauthorized technology transfer",
+        "Security clearance violations",
+        "ITAR non-compliance"
+      ],
+      "verification_requirements": [
+        "Security clearance verification",
+        "ITAR compliance check",
+        "End-user verification",
+        "Chain of custody tracking",
+        "Performance testing"
+      ],
+      "description": "Military equipment, defense technology, tactical gear, and secure communications"
     },
     "3": {
-      "name": "Food & Beverage",
-      "risk_factor": 0.12,
+      "name": "Logistics & Delivery",
+      "risk_factor": 0.15,
       "common_fraud_types": [
-        "Origin mislabeling",
-        "Quality substitution",
-        "Adulteration"
+        "Package theft",
+        "Driver identity fraud",
+        "Route manipulation",
+        "Delivery confirmation fraud"
       ],
       "verification_requirements": [
-        "Harvest date",
-        "Processing facility",
-        "Organic certification"
+        "Driver identity verification",
+        "GPS route tracking",
+        "Delivery confirmation",
+        "Package integrity check",
+        "Recipient verification"
       ],
-      "description": "Fresh produce, packaged foods, beverages, and organic products"
-    },
-    "4": {
-      "name": "Luxury Goods",
-      "risk_factor": 0.22,
-      "common_fraud_types": [
-        "Counterfeit products",
-        "Material substitution",
-        "Brand imitation"
-      ],
-      "verification_requirements": [
-        "Authenticity certificate",
-        "Craftsman signature",
-        "Material analysis"
-      ],
-      "description": "High-end fashion, jewelry, watches, and designer accessories"
-    },
-    "5": {
-      "name": "Textiles",
-      "risk_factor": 0.1,
-      "common_fraud_types": [
-        "Labor violations",
-        "Material substitution",
-        "Origin misrepresentation"
-      ],
-      "verification_requirements": [
-        "Fiber content",
-        "Factory audit",
-        "Labor compliance"
-      ],
-      "description": "Clothing, fabrics, home textiles, and fashion accessories"
-    },
-    "6": {
-      "name": "Automotive",
-      "risk_factor": 0.18,
-      "common_fraud_types": [
-        "Counterfeit parts",
-        "Safety standard violations",
-        "Performance misrepresentation"
-      ],
-      "verification_requirements": [
-        "Part number verification",
-        "Safety testing",
-        "OEM certification"
-      ],
-      "description": "Vehicle parts, accessories, and automotive components"
-    },
-    "7": {
-      "name": "Medical Equipment",
-      "risk_factor": 0.28,
-      "common_fraud_types": [
-        "Fake medical devices",
-        "Calibration fraud",
-        "Safety violations"
-      ],
-      "verification_requirements": [
-        "FDA approval",
-        "Calibration certificates",
-        "Quality assurance"
-      ],
-      "description": "Medical devices, diagnostic equipment, and healthcare technology"
-    },
-    "8": {
-      "name": "Agriculture",
-      "risk_factor": 0.14,
-      "common_fraud_types": [
-        "Pesticide misuse",
-        "GMO mislabeling",
-        "Quality degradation"
-      ],
-      "verification_requirements": [
-        "Pesticide testing",
-        "GMO verification",
-        "Soil analysis"
-      ],
-      "description": "Seeds, fertilizers, agricultural equipment, and farming supplies"
-    },
-    "9": {
-      "name": "Cosmetics",
-      "risk_factor": 0.16,
-      "common_fraud_types": [
-        "Ingredient substitution",
-        "Counterfeit brands",
-        "Safety violations"
-      ],
-      "verification_requirements": [
-        "Ingredient verification",
-        "Safety testing",
-        "Brand authentication"
-      ],
-      "description": "Beauty products, skincare, makeup, and personal care items"
-    },
-    "10": {
-      "name": "Industrial Equipment",
-      "risk_factor": 0.2,
-      "common_fraud_types": [
-        "Performance fraud",
-        "Safety standard violations",
-        "Counterfeit machinery"
-      ],
-      "verification_requirements": [
-        "Performance testing",
-        "Safety certification",
-        "Manufacturer verification"
-      ],
-      "description": "Manufacturing equipment, industrial machinery, and tools"
+      "description": "Last mile delivery, route optimization, driver verification, and package security"
     }
   },
   "products": {
     "P001": {
-      "name": "iPhone 15 Pro",
+      "name": "Digital Insulin Pump",
       "category": 1,
-      "supplier_id": "1009",
-      "batch_number": "B2024001",
+      "supplier_id": "1001",
+      "batch_number": "MED2024001",
       "manufacturing_date": 1704067200,
-      "product_hash": "0xa1b2c3d4e5f67890abcdef1234567890",
-      "serial_number": "F2LX8K9M2N3P",
+      "product_hash": "0xhipaa1234567890abcdef1234567890",
+      "serial_number": "INS-2024-001",
+      "compliance": {
+        "hipaa_verified": true,
+        "fda_approved": true,
+        "medical_device_class": "Class II",
+        "patient_data_encryption": "AES-256",
+        "phi_protection_level": "Maximum"
+      },
       "authenticity_markers": {
-        "hologram_id": "HG001234",
-        "qr_code": "QR789012",
-        "nfc_tag": "NFC345678"
+        "medical_seal": "MED001234",
+        "device_qr": "DQRMED789012",
+        "secure_chip": "SC345678"
       },
       "supply_chain": {
-        "origin": 1009,
-        "intermediates": [
-          2001,
-          2002,
-          0,
-          0,
-          0
-        ],
+        "origin": 1001,
+        "intermediates": [2001, 0, 0, 0, 0],
         "destination": 3001
       },
       "signatures": {
-        "manufacturer": "0xabcdef1234567890",
-        "distributor": "0x1234567890abcdef"
+        "manufacturer": "0xhipaa567890abcdef",
+        "distributor": "0xmed1234567890abcd"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_insulin_proof_2024001",
+        "verified": true,
+        "verification_type": "HIPAA_Compliance",
+        "timestamp": 1704067200
       }
     },
     "P002": {
-      "name": "Aspirin 500mg",
-      "category": 2,
-      "supplier_id": "1010",
-      "batch_number": "PH2024007",
-      "manufacturing_date": 1703980800,
-      "product_hash": "0xb2c3d4e5f67890abcdef1234567890ab",
-      "lot_number": "LOT240115",
-      "authenticity_markers": {
-        "tamper_seal": "TS567890",
-        "batch_qr": "BQR123456",
-        "pharma_code": "PC789012"
-      },
-      "supply_chain": {
-        "origin": 1010,
-        "intermediates": [
-          2003,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3002
-      },
-      "signatures": {
-        "distributor": "0x234567890abcdef1"
-      }
-    },
-    "P003": {
-      "name": "Samsung Galaxy S24",
+      "name": "COVID-19 Vaccine Vial",
       "category": 1,
-      "supplier_id": "1001",
-      "batch_number": "B2024002",
-      "manufacturing_date": 1704153600,
-      "product_hash": "0xc3d4e5f67890abcdef1234567890abcd",
-      "serial_number": "SM-S921U-001",
-      "authenticity_markers": {
-        "hologram_id": "HG001235",
-        "qr_code": "QR789013",
-        "nfc_tag": "NFC345679"
-      },
-      "supply_chain": {
-        "origin": 1001,
-        "intermediates": [
-          2001,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3001
-      },
-      "signatures": {
-        "manufacturer": "0xbcdef1234567890a",
-        "distributor": "0x34567890abcdef12"
-      }
-    },
-    "P004": {
-      "name": "Organic Olive Oil",
-      "category": 3,
-      "supplier_id": "1008",
-      "batch_number": "OO2024001",
-      "manufacturing_date": 1703894400,
-      "product_hash": "0xd4e5f67890abcdef1234567890abcdef",
-      "lot_number": "LOT240101",
-      "authenticity_markers": {
-        "origin_seal": "OS123456",
-        "quality_qr": "QQR789014",
-        "harvest_code": "HC345680"
-      },
-      "supply_chain": {
-        "origin": 1008,
-        "intermediates": [
-          2003,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3002
-      },
-      "signatures": {
-        "producer": "0xcdef1234567890ab",
-        "distributor": "0x4567890abcdef123"
-      }
-    },
-    "P005": {
-      "name": "Vitamin D3 Supplements",
-      "category": 2,
-      "supplier_id": "1010",
-      "batch_number": "VD2024001",
-      "manufacturing_date": 1704240000,
-      "product_hash": "0xe5f67890abcdef1234567890abcdef12",
-      "lot_number": "LOT240120",
-      "authenticity_markers": {
-        "tamper_seal": "TS567891",
-        "batch_qr": "BQR123457",
-        "pharma_code": "PC789013"
-      },
-      "supply_chain": {
-        "origin": 1010,
-        "intermediates": [
-          2003,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3002
-      },
-      "signatures": {
-        "manufacturer": "0xdef1234567890abc",
-        "distributor": "0x567890abcdef1234"
-      }
-    },
-    "P006": {
-      "name": "BMW Brake Pads",
-      "category": 6,
-      "supplier_id": "1001",
-      "batch_number": "AUTO2024001",
-      "manufacturing_date": 1704240000,
-      "product_hash": "0xf6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1",
-      "part_number": "BMW-BP-X5-2024",
-      "authenticity_markers": {
-        "oem_seal": "OEM789012",
-        "part_qr": "PQR345678",
-        "safety_cert": "SC901234"
-      },
-      "supply_chain": {
-        "origin": 1001,
-        "intermediates": [
-          2001,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3001
-      },
-      "signatures": {
-        "manufacturer": "0xf6g7h8i9j0k1l2m3",
-        "distributor": "0x901234567890abcd"
-      }
-    },
-    "P007": {
-      "name": "MRI Scanner Model X200",
-      "category": 7,
       "supplier_id": "1002",
-      "batch_number": "MED2024003",
-      "manufacturing_date": 1703894400,
-      "product_hash": "0xg7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2",
-      "device_id": "MRI-X200-2024-001",
+      "batch_number": "VAC2024002",
+      "manufacturing_date": 1704153600,
+      "product_hash": "0xvaccine1234567890abcdef123456789",
+      "serial_number": "VAC-2024-002",
+      "compliance": {
+        "hipaa_verified": true,
+        "fda_approved": true,
+        "cold_chain_verified": true,
+        "temperature_range": "-70°C to -80°C",
+        "patient_tracking": "Anonymized"
+      },
       "authenticity_markers": {
-        "fda_seal": "FDA567890",
-        "calibration_cert": "CAL123456",
-        "safety_tag": "ST789012"
+        "vaccine_seal": "VAC001234",
+        "cold_chain_qr": "CCQR789012",
+        "temperature_tag": "TT345678"
       },
       "supply_chain": {
         "origin": 1002,
-        "intermediates": [
-          2003,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3002
-      },
-      "signatures": {
-        "manufacturer": "0xg7h8i9j0k1l2m3n4",
-        "distributor": "0xa12345678901bcde"
-      }
-    },
-    "P008": {
-      "name": "Organic Wheat Seeds",
-      "category": 8,
-      "supplier_id": "1003",
-      "batch_number": "AGR2024005",
-      "manufacturing_date": 1704326400,
-      "product_hash": "0xh8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3",
-      "lot_number": "OWS-2024-001",
-      "authenticity_markers": {
-        "organic_cert": "ORG345678",
-        "seed_tag": "ST901234",
-        "purity_seal": "PS567890"
-      },
-      "supply_chain": {
-        "origin": 1003,
-        "intermediates": [
-          2001,
-          0,
-          0,
-          0,
-          0
-        ],
+        "intermediates": [2001, 0, 0, 0, 0],
         "destination": 3001
       },
       "signatures": {
-        "farmer": "0xh8i9j0k1l2m3n4o5",
-        "distributor": "0xb23456789012cdef"
+        "manufacturer": "0xvaccine567890abcdef",
+        "distributor": "0xvac1234567890abcd"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_vaccine_proof_2024002",
+        "verified": true,
+        "verification_type": "Cold_Chain_Integrity",
+        "timestamp": 1704153600
       }
     },
-    "P009": {
-      "name": "Chanel No. 5 Perfume",
-      "category": 9,
-      "supplier_id": "1004",
-      "batch_number": "COS2024002",
-      "manufacturing_date": 1704412800,
-      "product_hash": "0xi9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4",
-      "product_code": "CH5-50ML-2024",
-      "authenticity_markers": {
-        "brand_hologram": "BH123456",
-        "batch_code": "BC789012",
-        "authenticity_card": "AC345678"
-      },
-      "supply_chain": {
-        "origin": 1004,
-        "intermediates": [
-          2002,
-          0,
-          0,
-          0,
-          0
-        ],
-        "destination": 3001
-      },
-      "signatures": {
-        "manufacturer": "0xi9j0k1l2m3n4o5",
-        "distributor": "0xc34567890123def0"
-      }
-    },
-    "P010": {
-      "name": "Industrial CNC Machine",
-      "category": 10,
+    "P003": {
+      "name": "Cardiac Pacemaker",
+      "category": 1,
       "supplier_id": "1001",
-      "batch_number": "IND2024001",
-      "manufacturing_date": 1703808000,
-      "product_hash": "0xj0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5",
-      "machine_id": "CNC-5000-2024-001",
+      "batch_number": "CARD2024003",
+      "manufacturing_date": 1704240000,
+      "product_hash": "0xcardiac1234567890abcdef123456789",
+      "serial_number": "PACE-2024-003",
+      "compliance": {
+        "hipaa_verified": true,
+        "fda_approved": true,
+        "medical_device_class": "Class III",
+        "implant_tracking": "Lifetime",
+        "patient_data_encryption": "Military-grade"
+      },
       "authenticity_markers": {
-        "safety_cert": "SC456789",
-        "performance_tag": "PT012345",
-        "warranty_seal": "WS678901"
+        "implant_seal": "IMP001234",
+        "device_qr": "DQRIMP789012",
+        "biometric_chip": "BC345678"
       },
       "supply_chain": {
         "origin": 1001,
-        "intermediates": [
-          2001,
-          2002,
-          0,
-          0,
-          0
-        ],
+        "intermediates": [2001, 0, 0, 0, 0],
         "destination": 3001
       },
       "signatures": {
-        "manufacturer": "0xj0k1l2m3n4o5p6q7",
-        "distributor": "0xd45678901234ef01"
+        "manufacturer": "0xcardiac567890abcdef",
+        "distributor": "0xcard1234567890abcd"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_pacemaker_proof_2024003",
+        "verified": true,
+        "verification_type": "Medical_Device_Safety",
+        "timestamp": 1704240000
+      }
+    },
+    "P004": {
+      "name": "Portable MRI Scanner",
+      "category": 1,
+      "supplier_id": "1005",
+      "batch_number": "MRI2024004",
+      "manufacturing_date": 1704326400,
+      "product_hash": "0xmri1234567890abcdef123456789abc",
+      "serial_number": "MRI-PORT-2024-004",
+      "compliance": {
+        "hipaa_verified": true,
+        "fda_approved": true,
+        "medical_device_class": "Class II",
+        "radiation_safety": "Verified",
+        "image_encryption": "End-to-end"
+      },
+      "authenticity_markers": {
+        "medical_seal": "MRI004567",
+        "radiation_cert": "RAD789012",
+        "calibration_tag": "CAL345678"
+      },
+      "supply_chain": {
+        "origin": 1005,
+        "intermediates": [2001, 0, 0, 0, 0],
+        "destination": 3001
+      },
+      "signatures": {
+        "manufacturer": "0xmri567890abcdef123",
+        "distributor": "0xmed4567890abcdef"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_mri_proof_2024004",
+        "verified": true,
+        "verification_type": "Medical_Imaging_Safety",
+        "timestamp": 1704326400
+      }
+    },
+    "P005": {
+      "name": "Encrypted Communication Device",
+      "category": 2,
+      "supplier_id": "1003",
+      "batch_number": "DEF2024001",
+      "manufacturing_date": 1704412800,
+      "product_hash": "0xdefense1234567890abcdef123456789",
+      "serial_number": "ECD-2024-001",
+      "classification": "Restricted",
+      "military_verification": {
+        "clearance_required": "Secret",
+        "security_clearance": "Secret",
+        "itar_controlled": true,
+        "export_license": "Required",
+        "end_user_verification": "Mandatory",
+        "chain_of_custody": "Unbroken",
+        "facility_security_cleared": true,
+        "personnel_background_checked": true,
+        "foreign_ownership_cleared": true,
+        "cybersecurity_framework_compliant": true
+      },
+      "authenticity_markers": {
+        "military_seal": "MIL001234",
+        "secure_qr": "SQRMIL789012",
+        "tamper_evident": "TE345678"
+      },
+      "supply_chain": {
+        "origin": 1003,
+        "intermediates": [0, 0, 0, 0, 0],
+        "destination": "CLASSIFIED"
+      },
+      "signatures": {
+        "manufacturer": "0xdefense567890abcdef",
+        "distributor": "0xmil1234567890abcd",
+        "government_inspector": "0xgov567890abcdef123"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_defense_proof_2024001",
+        "verified": true,
+        "verification_type": "Military_Security_Clearance",
+        "timestamp": 1704412800
+      }
+    },
+    "P006": {
+      "name": "Night Vision Goggles",
+      "category": 2,
+      "supplier_id": "1003",
+      "batch_number": "NVG2024002",
+      "manufacturing_date": 1704499200,
+      "product_hash": "0xnightvision1234567890abcdef12345",
+      "serial_number": "NVG-2024-002",
+      "classification": "Confidential",
+      "military_verification": {
+        "clearance_required": "Secret",
+        "security_clearance": "Secret",
+        "itar_controlled": true,
+        "export_license": "Required",
+        "end_user_verification": "Mandatory",
+        "performance_tested": true,
+        "facility_security_cleared": true,
+        "personnel_background_checked": true,
+        "foreign_ownership_cleared": true,
+        "cybersecurity_framework_compliant": true
+      },
+      "authenticity_markers": {
+        "military_seal": "MIL002345",
+        "optical_qr": "OQRMIL890123",
+        "serial_etching": "SE456789"
+      },
+      "supply_chain": {
+        "origin": 1003,
+        "intermediates": [0, 0, 0, 0, 0],
+        "destination": "CLASSIFIED"
+      },
+      "signatures": {
+        "manufacturer": "0xnvg567890abcdef",
+        "distributor": "0xopt1234567890abcd",
+        "quality_inspector": "0xqc567890abcdef123"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_nvg_proof_2024002",
+        "verified": true,
+        "verification_type": "Military_Optical_Performance",
+        "timestamp": 1704499200
+      }
+    },
+    "P007": {
+      "name": "Tactical Body Armor",
+      "category": 2,
+      "supplier_id": "1006",
+      "batch_number": "TBA2024003",
+      "manufacturing_date": 1704585600,
+      "product_hash": "0xtactical1234567890abcdef123456",
+      "serial_number": "TBA-2024-003",
+      "classification": "Restricted",
+      "military_verification": {
+        "clearance_required": "Confidential",
+        "security_clearance": "Confidential",
+        "ballistic_tested": true,
+        "nij_certified": "Level IIIA",
+        "end_user_verification": "Required",
+        "lot_tracking": "Lifetime",
+        "facility_security_cleared": false,
+        "personnel_background_checked": true,
+        "foreign_ownership_cleared": true,
+        "cybersecurity_framework_compliant": false
+      },
+      "authenticity_markers": {
+        "armor_seal": "ARM003456",
+        "ballistic_qr": "BQRARM901234",
+        "fiber_tag": "FT567890"
+      },
+      "supply_chain": {
+        "origin": 1006,
+        "intermediates": [2002, 0, 0, 0, 0],
+        "destination": 3002
+      },
+      "signatures": {
+        "manufacturer": "0xtactical567890abcdef",
+        "distributor": "0xarmor1234567890abcd",
+        "ballistic_tester": "0xtest567890abcdef123"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_armor_proof_2024003",
+        "verified": true,
+        "verification_type": "Ballistic_Protection_Level",
+        "timestamp": 1704585600
+      }
+    },
+    "P008": {
+      "name": "Secure Drone System",
+      "category": 2,
+      "supplier_id": "1003",
+      "batch_number": "DRONE2024004",
+      "manufacturing_date": 1704672000,
+      "product_hash": "0xdrone1234567890abcdef123456789",
+      "serial_number": "DRONE-SEC-2024-004",
+      "classification": "Secret",
+      "military_verification": {
+        "clearance_required": "Top Secret",
+        "security_clearance": "Top Secret",
+        "itar_controlled": true,
+        "export_license": "Denied",
+        "flight_tested": true,
+        "encryption_verified": true,
+        "facility_security_cleared": true,
+        "personnel_background_checked": true,
+        "foreign_ownership_cleared": true,
+        "cybersecurity_framework_compliant": true,
+        "critical_technology_protected": true,
+        "insider_threat_mitigated": true,
+        "operational_security_confirmed": true
+      },
+      "authenticity_markers": {
+        "drone_seal": "DRONE004567",
+        "flight_qr": "FQRDRONE890123",
+        "encryption_chip": "EC456789"
+      },
+      "supply_chain": {
+        "origin": 1003,
+        "intermediates": [0, 0, 0, 0, 0],
+        "destination": "CLASSIFIED"
+      },
+      "signatures": {
+        "manufacturer": "0xdrone567890abcdef",
+        "distributor": "0xflight1234567890abcd",
+        "security_tester": "0xsec567890abcdef123"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_drone_proof_2024004",
+        "verified": true,
+        "verification_type": "Secure_Flight_System",
+        "timestamp": 1704672000
+      }
+    },
+    "P009": {
+      "name": "Last Mile Delivery Package",
+      "category": 3,
+      "supplier_id": "1004",
+      "batch_number": "LMD2024001",
+      "manufacturing_date": 1704758400,
+      "product_hash": "0xdelivery1234567890abcdef123456",
+      "serial_number": "LMD-PKG-2024-001",
+      "delivery_verification": {
+        "driver_verified": true,
+        "route_optimized": true,
+        "gps_tracked": true,
+        "recipient_confirmed": true,
+        "package_integrity": "Verified"
+      },
+      "authenticity_markers": {
+        "delivery_seal": "DEL001234",
+        "tracking_qr": "TQRDEL789012",
+        "gps_chip": "GPS345678"
+      },
+      "supply_chain": {
+        "origin": 1004,
+        "intermediates": [2003, 0, 0, 0, 0],
+        "destination": 3003
+      },
+      "signatures": {
+        "logistics_provider": "0xdelivery567890abcdef",
+        "driver": "0xdriver1234567890abcd",
+        "recipient": "0xrecipient567890abcdef"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_delivery_proof_2024001",
+        "verified": true,
+        "verification_type": "Last_Mile_Delivery_Chain",
+        "timestamp": 1704758400
+      }
+    },
+    "P010": {
+      "name": "Smart Route Optimizer Device",
+      "category": 3,
+      "supplier_id": "1007",
+      "batch_number": "SRO2024002",
+      "manufacturing_date": 1704844800,
+      "product_hash": "0xroute1234567890abcdef123456789",
+      "serial_number": "SRO-2024-002",
+      "optimization_features": {
+        "ai_powered": true,
+        "real_time_traffic": true,
+        "fuel_optimization": true,
+        "delivery_prediction": true,
+        "cost_savings": "25%"
+      },
+      "authenticity_markers": {
+        "optimizer_seal": "OPT002345",
+        "ai_qr": "AQROPT890123",
+        "algorithm_chip": "ALG456789"
+      },
+      "supply_chain": {
+        "origin": 1007,
+        "intermediates": [2003, 0, 0, 0, 0],
+        "destination": 3003
+      },
+      "signatures": {
+        "manufacturer": "0xroute567890abcdef",
+        "distributor": "0xopt1234567890abcd",
+        "ai_validator": "0xai567890abcdef123"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_route_proof_2024002",
+        "verified": true,
+        "verification_type": "Route_Optimization_Algorithm",
+        "timestamp": 1704844800
+      }
+    },
+    "P011": {
+      "name": "Driver Identity Verification System",
+      "category": 3,
+      "supplier_id": "1004",
+      "batch_number": "DIV2024003",
+      "manufacturing_date": 1704931200,
+      "product_hash": "0xdriver1234567890abcdef123456789",
+      "serial_number": "DIV-2024-003",
+      "verification_features": {
+        "biometric_scan": true,
+        "license_verification": true,
+        "background_check": true,
+        "real_time_monitoring": true,
+        "fraud_detection": "Advanced"
+      },
+      "authenticity_markers": {
+        "biometric_seal": "BIO003456",
+        "identity_qr": "IQRBIO901234",
+        "security_chip": "SEC567890"
+      },
+      "supply_chain": {
+        "origin": 1004,
+        "intermediates": [2003, 0, 0, 0, 0],
+        "destination": 3003
+      },
+      "signatures": {
+        "manufacturer": "0xdriver567890abcdef",
+        "distributor": "0xidentity1234567890abcd",
+        "security_auditor": "0xsecurity567890abcdef"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_driver_proof_2024003",
+        "verified": true,
+        "verification_type": "Driver_Identity_Security",
+        "timestamp": 1704931200
+      }
+    },
+    "P012": {
+      "name": "Package Security Tracker",
+      "category": 3,
+      "supplier_id": "1007",
+      "batch_number": "PST2024004",
+      "manufacturing_date": 1705017600,
+      "product_hash": "0xpackage1234567890abcdef123456",
+      "serial_number": "PST-2024-004",
+      "security_features": {
+        "tamper_detection": true,
+        "location_tracking": true,
+        "temperature_monitoring": true,
+        "shock_detection": true,
+        "theft_prevention": "Active"
+      },
+      "authenticity_markers": {
+        "security_seal": "SEC004567",
+        "tracker_qr": "TQRSEC012345",
+        "sensor_chip": "SENS678901"
+      },
+      "supply_chain": {
+        "origin": 1007,
+        "intermediates": [2003, 0, 0, 0, 0],
+        "destination": 3003
+      },
+      "signatures": {
+        "manufacturer": "0xpackage567890abcdef",
+        "distributor": "0xsecurity1234567890abcd",
+        "quality_tester": "0xquality567890abcdef"
+      },
+      "zk_verification": {
+        "proof_hash": "0xzk_package_proof_2024004",
+        "verified": true,
+        "verification_type": "Package_Security_Integrity",
+        "timestamp": 1705017600
       }
     }
   },
   "distributors": {
     "2001": {
-      "name": "TechDistrib Asia",
-      "location": "Hong Kong"
+      "name": "MedDistrib Global",
+      "location": "Boston, USA",
+      "specialties": ["Medical Devices", "Healthcare Technology"]
     },
     "2002": {
-      "name": "ElectroWholesale",
-      "location": "Los Angeles, USA"
+      "name": "DefenseSupply Corp",
+      "location": "Arlington, VA, USA",
+      "specialties": ["Military Equipment", "Defense Technology"],
+      "security_clearance": "Top Secret"
     },
     "2003": {
-      "name": "MedSupply Europe",
-      "location": "Frankfurt, Germany"
+      "name": "LogiDistrib Network",
+      "location": "Memphis, USA",
+      "specialties": ["Logistics Equipment", "Delivery Systems"]
     }
   },
   "retailers": {
     "3001": {
-      "name": "TechMart",
-      "location": "San Francisco, USA"
+      "name": "HealthTech Solutions",
+      "location": "San Francisco, USA",
+      "specialties": ["Medical Equipment Sales", "Healthcare Technology"]
     },
     "3002": {
-      "name": "HealthPlus Pharmacy",
-      "location": "Berlin, Germany"
+      "name": "Military Supply Depot",
+      "location": "Norfolk, VA, USA",
+      "specialties": ["Defense Equipment", "Military Technology"],
+      "security_clearance": "Secret"
+    },
+    "3003": {
+      "name": "SmartLogistics Hub",
+      "location": "Atlanta, USA",
+      "specialties": ["Delivery Services", "Route Optimization"]
     }
   }
 }
